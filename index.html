@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>NICO 集客用ホームページ</title>
 <meta name="robots" content="noindex">
-<meta name="description" content="零細企業・個人事業主向けの集客用ホームページ制作＋WEB広告運用（Facebook・Instagram広告、Google広告、検索キーワード広告）。税込110,000円、広告費40,000円分込み。専門用語を使わず、初めてのWEB問い合わせを目指してサポートします。">
+<meta name="description" content="小さな会社・個人事業主向けの集客用ホームページ制作＋WEB広告運用（Facebook・Instagram広告、Google広告、検索キーワード広告）。税込110,000円、広告費40,000円分込み。専門用語を使わず、初めてのWEB問い合わせを目指してサポートします。">
 <meta name="theme-color" content="#FFD600">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23FFD600'/%3E%3Ctext x='32' y='46' font-size='38' font-family='Arial' font-weight='900' text-anchor='middle' fill='%23111'%3EN%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -156,9 +156,17 @@ p{margin:0}
 .diag-result .btn{justify-self:start}
 
 /* サービス */
-.services{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;list-style:none;margin:0;padding:0;counter-reset:s}
-.services li{background:var(--white);border:2px solid var(--ink);border-radius:14px;overflow:hidden;display:grid;grid-template-rows:auto 1fr}
-.services img{aspect-ratio:1/1;object-fit:cover;width:100%;border-bottom:2px solid var(--ink)}
+.services{display:grid;grid-template-columns:repeat(5,1fr);gap:30px;list-style:none;margin:0;padding:0;position:relative;z-index:1}
+.services li{position:relative;background:var(--white);border:2px solid var(--ink);border-radius:14px;display:grid;grid-template-rows:auto 1fr}
+.services img{aspect-ratio:1/1;object-fit:cover;width:100%;border-bottom:2px solid var(--ink);border-radius:12px 12px 0 0}
+/* 次のサポートへの矢印（横並びのとき） */
+.services li:not(:last-child)::after{content:"";position:absolute;right:-24px;top:calc(50% - 9px);border-left:16px solid var(--red);border-top:9px solid transparent;border-bottom:9px solid transparent}
+/* 5から1へ戻る線：カード列の下にU字を描き、左端に上向きの矢印 */
+.loop-back{position:relative;height:56px;margin:-2px 9% 0;border:3px dashed var(--ink);border-top:0;border-radius:0 0 22px 22px;display:flex;justify-content:center;align-items:flex-end}
+.loop-back::before{content:"";position:absolute;left:-10px;top:-6px;border-bottom:16px solid var(--ink);border-left:8px solid transparent;border-right:8px solid transparent}
+.loop-back span{transform:translateY(50%);background:var(--yellow);border:2px solid var(--ink);border-radius:999px;padding:6px 18px;font-weight:900;font-size:15px;text-align:center}
+.nw{display:inline-block}
+.loop-note{margin-top:34px;text-align:center;font-weight:700;color:var(--muted)}
 .services .body{padding:16px;display:grid;gap:6px;align-content:start}
 .services .n{font:900 13px var(--f-num);color:var(--red);letter-spacing:.1em}
 .services h3{font-size:18px;font-weight:900;line-height:1.4}
@@ -272,7 +280,8 @@ footer .copy{grid-column:1/-1;border-top:1px solid #333;padding-top:16px;font-si
 .sticky-cta .btn{margin-left:auto;min-height:48px;font-size:16px;padding:0 20px;box-shadow:none;border-color:var(--yellow)}
 
 @media (max-width:1020px){
-  .services{grid-template-columns:repeat(3,1fr)}
+  .services{grid-template-columns:repeat(3,1fr);gap:16px}
+  .services li::after{display:none}
   .nav{display:none}
   .header-cta{margin-left:auto}
 }
@@ -294,8 +303,12 @@ footer .copy{grid-column:1/-1;border-top:1px solid #333;padding-top:16px;font-si
 }
 @media (max-width:600px){
   .services{grid-template-columns:1fr;gap:10px}
+  .services{gap:26px}
   .services li{grid-template-columns:96px 1fr;grid-template-rows:auto}
-  .services img{border-bottom:0;border-right:2px solid var(--ink);height:100%}
+  .services img{border-bottom:0;border-right:2px solid var(--ink);height:100%;border-radius:12px 0 0 12px}
+  .services li:not(:last-child)::after{display:block;right:auto;left:40px;top:auto;bottom:-22px;border-top:14px solid var(--red);border-left:8px solid transparent;border-right:8px solid transparent;border-bottom:0}
+  .loop-back{margin:-2px 30px 0 40px;height:40px}
+  .loop-back span{font-size:13px;padding:6px 12px}
   .services .body{padding:12px 14px}
   .form-grid,.split{grid-template-columns:1fr}
   .form-box,.diag-box{padding:20px;box-shadow:6px 6px 0 var(--ink)}
@@ -336,7 +349,7 @@ footer .copy{grid-column:1/-1;border-top:1px solid #333;padding-top:16px;font-si
   <section class="hero band" id="top">
     <div class="wrap">
       <div class="hero-copy">
-        <p class="kicker"><span>FOR SMALL BUSINESS</span>零細企業の、はじめてのWEB集客。</p>
+        <p class="kicker"><span>FOR SMALL BUSINESS</span>小さな会社の、はじめてのWEB集客。</p>
         <p class="sub">小さな会社のための、集客用ホームページ＋WEB広告。</p>
         <p class="lead">ホームページ用語がわからなくても大丈夫。伝え方を整え、広告で届け、初めてのWEB問い合わせを目指します。</p>
         <p class="ai-badge"><b>AI活用で、業界最安値級<sup>※1</sup>。</b>制作・広告運用・広告費まで込みで、この価格です。</p>
@@ -438,15 +451,18 @@ footer .copy{grid-column:1/-1;border-top:1px solid #333;padding-top:16px;font-si
     <div class="wrap">
       <div class="sec-head">
         <p class="eyebrow">SERVICE</p>
-        <h2 id="service-title">作って終わらせない。<br>5つのサポート。</h2>
+        <h2 id="service-title">作って終わらせない。<br><span class="nw">回し続ける、</span><span class="nw">5つのサポート。</span></h2>
+        <p>設計して、つくって、届けて、振り返る。振り返りで見つけた改善点を次の設計に戻し、この流れを繰り返します。</p>
       </div>
       <ol class="services">
-        <li><img src="assets/step-01-targeting.webp" alt="" width="520" height="520" loading="lazy"><div class="body"><span class="n">SUPPORT 1</span><h3>ターゲット設計</h3><p>誰に、何を、どう伝えるか。届けたい相手と伝える軸を整理します。</p></div></li>
-        <li><img src="assets/step-02-lp-design.webp" alt="" width="520" height="520" loading="lazy"><div class="body"><span class="n">SUPPORT 2</span><h3>集客用ホームページ制作</h3><p>スマホで読みやすく、無料相談へ進みやすい文章・構成・デザインに仕上げます。</p></div></li>
-        <li><img src="assets/step-03-ad-setup.webp" alt="" width="520" height="520" loading="lazy"><div class="body"><span class="n">SUPPORT 3</span><h3>WEB広告設定</h3><p>Facebook・Instagram広告、Google広告、検索キーワード広告から、事業に合う広告を選んで配信準備を代行します。</p></div></li>
-        <li><img src="assets/step-04-operations.webp" alt="" width="520" height="520" loading="lazy"><div class="body"><span class="n">SUPPORT 4</span><h3>広告運用代行</h3><p>設定した相手へ広告を配信します。運用期間は契約前に確認します。</p></div></li>
-        <li><img src="assets/step-05-report.webp" alt="" width="520" height="520" loading="lazy"><div class="body"><span class="n">SUPPORT 5</span><h3>配信後レポート</h3><p>クリック、広告費、問い合わせ状況など、計測できる結果を振り返ります。</p></div></li>
+        <li><img src="assets/step-01-targeting.webp" alt="" width="520" height="520" loading="lazy"><div class="body"><span class="n">SUPPORT 1｜設計する</span><h3>ターゲット設計</h3><p>誰に、何を、どう伝えるか。届けたい相手と伝える軸を決めます。</p></div></li>
+        <li><img src="assets/step-02-lp-design.webp" alt="" width="520" height="520" loading="lazy"><div class="body"><span class="n">SUPPORT 2｜つくる</span><h3>集客用ホームページ制作</h3><p>スマホで読みやすく、無料相談へ進みやすい文章・構成・デザインに仕上げます。</p></div></li>
+        <li><img src="assets/step-03-ad-setup.webp" alt="" width="520" height="520" loading="lazy"><div class="body"><span class="n">SUPPORT 3｜準備する</span><h3>WEB広告設定</h3><p>Facebook・Instagram広告、Google広告、検索キーワード広告から、事業に合う広告を選んで準備します。</p></div></li>
+        <li><img src="assets/step-04-operations.webp" alt="" width="520" height="520" loading="lazy"><div class="body"><span class="n">SUPPORT 4｜届ける</span><h3>広告運用代行</h3><p>設定した相手へ広告を配信し、反応を見ながら調整します。運用期間は契約前に確認します。</p></div></li>
+        <li><img src="assets/step-05-report.webp" alt="" width="520" height="520" loading="lazy"><div class="body"><span class="n">SUPPORT 5｜振り返る</span><h3>配信後レポート</h3><p>クリック、広告費、問い合わせ状況を振り返り、次に直すところを見つけます。</p></div></li>
       </ol>
+      <div class="loop-back" aria-hidden="true"><span>振り返りで見つけた改善点を、SUPPORT 1の設計へ戻す</span></div>
+      <p class="loop-note">この繰り返しで、問い合わせにつながる形に近づけていきます。</p>
     </div>
   </section>
 
@@ -455,7 +471,7 @@ footer .copy{grid-column:1/-1;border-top:1px solid #333;padding-top:16px;font-si
       <div class="sec-head">
         <p class="eyebrow" style="color:var(--yellow)">DESIGN EXAMPLES</p>
         <h2 id="ex-title">業種が変われば、<br>見せ方もボタンも変わります。</h2>
-        <p>7つの業種・14の架空の会社で、集客用ホームページのデザイン例を作りました。業種ごとに「誰が見るか」と「何をしてほしいか」を1つに絞り、最初の画面の作り方、相談までの手順、載せてよい表現まで作り分けています。</p>
+        <p>7つの業種・14のモデル企業で、集客用ホームページのデザイン例を作りました。業種ごとに「誰が見るか」と「何をしてほしいか」を1つに絞り、最初の画面の作り方、相談までの手順、載せてよい表現まで作り分けています。</p>
       </div>
       <div class="ex-points">
         <div><b>14<small>通り</small></b><span>最初の画面の組み方。同じ型の使い回しはしていません</span></div>
@@ -468,7 +484,7 @@ footer .copy{grid-column:1/-1;border-top:1px solid #333;padding-top:16px;font-si
       <div class="ex-track rev" id="ex-row2"></div>
     </div>
     <div class="wrap">
-      <p class="ex-note">掲載しているデザイン例は、NICOが業種別のサンプルとして制作したものです。会社名・人物・料金・数値はすべて架空で、実在の企業の制作実績ではありません。写真はAIで生成したイメージです。</p>
+      <p class="ex-note">掲載しているデザイン例は、NICOが業種別のモデルとして制作したものです。会社名・人物・料金・数値はモデル用に設定したもので、実在の企業の制作実績ではありません。写真はAIで生成したイメージです。</p>
     </div>
   </section>
 
