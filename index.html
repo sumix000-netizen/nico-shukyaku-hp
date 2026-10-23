@@ -363,6 +363,39 @@ footer .copy{grid-column:1/-1;border-top:1px solid #333;padding-top:16px;font-si
 .kh-entry .kh-box-sub{color:var(--ink)}
 @media (max-width:860px){.kh-grid{grid-template-columns:1fr}}
 @media (max-width:600px){.kh-points li{grid-template-columns:50px 1fr}.kh-points li::before{font-size:24px}.kh-points h3{font-size:16px}}
+/* 5つのサポート：円環（案A） */
+.ring-wrap{--rk:var(--ink,var(--black));display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.95fr);gap:44px;align-items:center}
+.ring{position:relative;width:min(100%,520px);aspect-ratio:1;margin:0 auto;container-type:inline-size}
+.ring svg{position:absolute;inset:0;width:100%;height:100%}
+.ring .hub{position:absolute;inset:31%;border-radius:50%;background:var(--yellow);border:4px solid var(--rk);color:var(--rk);display:grid;place-content:center;text-align:center;padding:8px}
+.ring .hub b{font-family:var(--f-display,var(--f-body));font-weight:900;font-size:clamp(18px,5.4cqw,28px);line-height:1.3}
+.ring .hub small{font-size:12px;font-weight:700}
+.ring ol{list-style:none;margin:0;padding:0}
+.ring li{position:absolute;left:50%;top:50%;width:25%;transform:translate(-50%,-50%) rotate(var(--a)) translateY(-38cqw) rotate(calc(-1 * var(--a)));text-align:center}
+.ring li img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:50%;border:4px solid var(--rk);background:var(--rk)}
+.ring li span{display:inline-block;margin-top:-14px;position:relative;background:var(--rk);color:var(--yellow);font:900 12px var(--f-num);padding:3px 9px;border-radius:99px}
+.ring li em{display:block;font-style:normal;font-weight:900;font-size:13px;line-height:1.3;margin-top:4px}
+.ring-list{list-style:none;margin:0;padding:0;display:grid;gap:12px;counter-reset:rl}
+.ring-list li{counter-increment:rl;display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:start;background:var(--white);border:2px solid var(--rk);border-radius:12px;padding:12px 16px}
+.ring-list li::before{content:counter(rl);display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:var(--yellow);border:2px solid var(--rk);font:900 19px var(--f-num);color:var(--rk)}
+.ring-list .rl-tag{font:900 12px var(--f-num);letter-spacing:.06em;color:var(--red)}
+.ring-list h3{font-size:17px;font-weight:900;line-height:1.45}
+.ring-list li p:last-child{font-size:14px;color:var(--muted);line-height:1.7}
+.ring-note{margin-top:28px;text-align:center;font-weight:700;color:var(--muted)}
+/* 看板版（黒地）では、線を黄色に、カードを暗く */
+.ring-dark .ring li img{border-color:var(--yellow)}
+.ring-dark .ring li em{color:var(--yellow)}
+.ring-dark .ring li span{background:var(--yellow);color:var(--black)}
+.ring-dark .ring-list li{background:#191919;border-color:#4D4600;color:var(--white)}
+.ring-dark .ring-list h3{color:var(--yellow)}
+.ring-dark .ring-list li p:last-child{color:#DDDDDD}
+.ring-dark + .ring-note{color:#DEDEDE;border:3px dashed var(--yellow);padding:14px 18px;border-radius:12px}
+@media (max-width:860px){
+  .ring-wrap{grid-template-columns:1fr;gap:28px}
+  .ring{order:-1;width:min(100%,420px)}
+  .ring li em{font-size:12px}
+  .ring-note{text-align:left}
+}
 </style>
 </head>
 <body>
@@ -494,15 +527,35 @@ footer .copy{grid-column:1/-1;border-top:1px solid #333;padding-top:16px;font-si
         <h2 id="service-title">作って終わらせない。<br><span class="nw">回し続ける、</span><span class="nw">5つのサポート。</span></h2>
         <p>設計して、つくって、届けて、振り返る。振り返りで見つけた改善点を次の設計に戻し、この流れを繰り返します。</p>
       </div>
-      <ol class="services">
-        <li><img src="assets/step-01-targeting.webp" alt="" width="520" height="520" loading="lazy"><div class="body"><span class="n">SUPPORT 1｜設計する</span><h3>ターゲット設計</h3><p>誰に、何を、どう伝えるか。届けたい相手と伝える軸を決めます。</p></div></li>
-        <li><img src="assets/step-02-lp-design.webp" alt="" width="520" height="520" loading="lazy"><div class="body"><span class="n">SUPPORT 2｜つくる</span><h3>集客用ホームページ制作</h3><p>LP（ランディングページ）を、スマホで読みやすく、無料相談へ進みやすい文章・構成・デザインに仕上げます。</p></div></li>
-        <li><img src="assets/step-03-ad-setup.webp" alt="" width="520" height="520" loading="lazy"><div class="body"><span class="n">SUPPORT 3｜準備する</span><h3>WEB広告設定</h3><p>Facebook・Instagram広告、Google広告、検索キーワード広告から、事業に合う広告を選んで準備します。</p></div></li>
-        <li><img src="assets/step-04-operations.webp" alt="" width="520" height="520" loading="lazy"><div class="body"><span class="n">SUPPORT 4｜届ける</span><h3>広告運用代行</h3><p>設定した相手へ広告を配信し、反応を見ながら調整します。運用期間は契約前に確認します。</p></div></li>
-        <li><img src="assets/step-05-report.webp" alt="" width="520" height="520" loading="lazy"><div class="body"><span class="n">SUPPORT 5｜振り返る</span><h3>配信後レポート</h3><p>クリック、広告費、問い合わせ状況を振り返り、次に直すところを見つけます。</p></div></li>
-      </ol>
-      <div class="loop-back" aria-hidden="true"><span>振り返りで見つけた改善点を、SUPPORT 1の設計へ戻す</span></div>
-      <p class="loop-note">この繰り返しで、問い合わせにつながる形に近づけていきます。</p>
+      <div class="ring-wrap">
+        <ol class="ring-list">
+          <li><div><p class="rl-tag">SUPPORT 1｜設計する</p><h3>ターゲット設計</h3><p>誰に、何を、どう伝えるか。届けたい相手と伝える軸を決めます。</p></div></li>
+          <li><div><p class="rl-tag">SUPPORT 2｜つくる</p><h3>集客用ホームページ制作</h3><p>LP（ランディングページ）を、スマホで読みやすく、無料相談へ進みやすい文章・構成・デザインに仕上げます。</p></div></li>
+          <li><div><p class="rl-tag">SUPPORT 3｜準備する</p><h3>WEB広告設定</h3><p>Facebook・Instagram広告、Google広告、検索キーワード広告から、事業に合う広告を選んで準備します。</p></div></li>
+          <li><div><p class="rl-tag">SUPPORT 4｜届ける</p><h3>広告運用代行</h3><p>設定した相手へ広告を配信し、反応を見ながら調整します。運用期間は契約前に確認します。</p></div></li>
+          <li><div><p class="rl-tag">SUPPORT 5｜振り返る</p><h3>配信後レポート</h3><p>クリック、広告費、問い合わせ状況を振り返り、次に直すところを見つけます。</p></div></li>
+        </ol>
+        <div class="ring" role="img" aria-label="設計する、つくる、準備する、届ける、振り返るの5つが輪になり、振り返りから設計へ戻る図">
+          <svg viewBox="0 0 100 100" aria-hidden="true">
+            <defs><marker id="ring-ah" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#E4291F"/></marker></defs>
+            <circle cx="50" cy="50" r="38" fill="none" stroke="#111" stroke-width="1.2" stroke-dasharray="3 2.2"/>
+            <path d="M50 12 A38 38 0 0 1 86.1 38.3" fill="none" stroke="#E4291F" stroke-width="1.6" marker-end="url(#ring-ah)"/>
+            <path d="M86.1 38.3 A38 38 0 0 1 72.3 80.7" fill="none" stroke="#E4291F" stroke-width="1.6" marker-end="url(#ring-ah)"/>
+            <path d="M72.3 80.7 A38 38 0 0 1 27.7 80.7" fill="none" stroke="#E4291F" stroke-width="1.6" marker-end="url(#ring-ah)"/>
+            <path d="M27.7 80.7 A38 38 0 0 1 13.9 38.3" fill="none" stroke="#E4291F" stroke-width="1.6" marker-end="url(#ring-ah)"/>
+            <path d="M13.9 38.3 A38 38 0 0 1 50 12" fill="none" stroke="#E4291F" stroke-width="1.6" marker-end="url(#ring-ah)"/>
+          </svg>
+          <div class="hub"><b>回し<br>続ける</b><small>振り返りを、次の設計へ</small></div>
+          <ol>
+          <li style="--a:0deg"><img src="assets/step-01-targeting.webp" alt="" width="520" height="520" loading="lazy"><span>1</span><em>設計する</em></li>
+          <li style="--a:72deg"><img src="assets/step-02-lp-design.webp" alt="" width="520" height="520" loading="lazy"><span>2</span><em>つくる</em></li>
+          <li style="--a:144deg"><img src="assets/step-03-ad-setup.webp" alt="" width="520" height="520" loading="lazy"><span>3</span><em>準備する</em></li>
+          <li style="--a:216deg"><img src="assets/step-04-operations.webp" alt="" width="520" height="520" loading="lazy"><span>4</span><em>届ける</em></li>
+          <li style="--a:288deg"><img src="assets/step-05-report.webp" alt="" width="520" height="520" loading="lazy"><span>5</span><em>振り返る</em></li>
+          </ol>
+        </div>
+      </div>
+      <p class="ring-note">振り返りで見つけた改善点を、SUPPORT 1の設計へ戻す。この繰り返しで、問い合わせにつながる形に近づけていきます。</p>
     </div>
   </section>
 
