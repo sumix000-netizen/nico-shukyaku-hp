@@ -24,8 +24,8 @@
   color-scheme:light;
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:72px;overflow-x:hidden}
-body{color:var(--black);background:var(--paper);font:400 16px/1.8 var(--f-body);overflow-x:hidden}
+html{scroll-behavior:smooth;scroll-padding-top:72px;overflow-x:clip}
+body{color:var(--black);background:var(--paper);font:400 16px/1.8 var(--f-body);overflow-x:clip}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--yellow)}
 a{color:inherit}
 img{max-width:100%;height:auto;display:block}
@@ -407,6 +407,90 @@ footer .inner{display:grid;gap:6px;text-align:center}
   .ring li em{font-size:12px}
   .ring-note{text-align:left}
 }
+
+/* ===== 3つの演出（看板版） ===== */
+#knowhow,#price{--ink:var(--black);--paper-2:#EFE9D2}
+/* 1) ファーストビュー */
+.photo-frame img{animation:kb 14s ease-in-out infinite alternate;transform-origin:45% 55%}
+@keyframes kb{from{transform:scale(1)}to{transform:scale(1.09)}}
+.speech-wrap{animation:bubble 6s ease-in-out infinite}
+@keyframes bubble{0%,8%{opacity:0;transform:rotate(-7deg) translateY(14px) scale(.86)}14%,72%{opacity:1;transform:rotate(-7deg)}80%,100%{opacity:0;transform:rotate(-7deg) translateY(-6px) scale(.95)}}
+.ping{position:absolute;z-index:4;left:44%;top:56%;width:18px;height:18px;pointer-events:none}
+.ping span{position:absolute;inset:0;border-radius:50%;border:3px solid var(--yellow);animation:ping 6s ease-out infinite}
+.ping span+span{animation-delay:.35s}
+@keyframes ping{0%,10%{opacity:0;transform:scale(.4)}14%{opacity:1}40%,100%{opacity:0;transform:scale(5)}}
+/* 2) 作り方の型：スクロールで進む物語 */
+.story{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:48px;align-items:start}
+.story-phone{position:sticky;top:96px;display:grid;justify-items:center;gap:12px}
+.phone{position:relative;width:260px;height:520px;border:6px solid var(--black);border-radius:34px;background:var(--white);overflow:hidden;box-shadow:8px 8px 0 var(--black)}
+.screen{display:grid;gap:6px;padding:14px 10px 52px}
+.pb{position:relative;border:2px solid #D9D3C0;padding:6px 8px 7px;background:var(--paper);transition:border-color .35s,background .35s,transform .35s,opacity .35s;display:grid;gap:4px}
+.pb b{font-size:11px;font-weight:900;line-height:1.3}
+.pb i{display:block;height:4px;background:#D9D3C0}
+.pb i+i{width:70%}
+.pb em{position:absolute;right:6px;top:6px;font-style:normal;font-size:9px;font-weight:900;background:#D9D3C0;color:var(--muted);padding:1px 6px;transition:background .35s,color .35s}
+.pb-fv{min-height:84px;background:var(--paper-2)}
+.pb-goal{background:var(--paper-2)}
+.sticky-bar{position:absolute;left:0;right:0;bottom:0;height:40px;display:grid;place-items:center;background:#D9D3C0;color:var(--muted);font-weight:900;font-size:13px;transition:background .35s,color .35s}
+.pb-data{position:absolute;left:12px;right:12px;top:14px;height:84px;display:flex;align-items:flex-end;gap:8px;padding:8px;background:rgb(17 17 17 / .85);opacity:0;transition:opacity .35s}
+.pb-data span{flex:1;height:var(--h);background:var(--yellow)}
+.story-cap{font-weight:900;font-size:14px;background:var(--black);color:var(--yellow);padding:5px 16px;text-align:center;transform:rotate(-1.5deg)}
+.screen.dim .pb{opacity:.35}
+.screen .pb.on{opacity:1;border-color:var(--black);background:var(--yellow);transform:scale(1.03)}
+.screen.m-cta .pb em,.screen.m-cta+.sticky-bar{background:var(--red);color:var(--white)}
+.screen.m-cta .pb em{animation:blink 1.2s ease-in-out infinite}
+@keyframes blink{50%{transform:scale(1.15)}}
+.screen.m-form .pb-goal i{height:9px;background:var(--white);border:1.5px solid var(--black)}
+.screen.m-rule .pb{border-style:dashed;border-color:var(--red);opacity:1}
+.screen.m-data .pb-data{opacity:1}
+.story-steps{list-style:none;margin:0;padding:0}
+.story-step{min-height:62vh;display:grid;align-content:center;gap:8px;padding:20px 0 20px 22px;border-left:5px solid #D9D3C0;transition:border-color .35s,opacity .35s;opacity:.45}
+.story-step.on{border-color:var(--red);opacity:1}
+.story-step .sn{font:900 44px/1 var(--f-num);color:var(--yellow);-webkit-text-stroke:2px var(--black)}
+.story-step h3{font-size:clamp(22px,2.5vw,30px);font-weight:900;line-height:1.4}
+.story-step p{color:var(--muted);max-width:36em}
+.story-entry{margin-top:20px;max-width:560px}
+/* 3) 料金：ベントー型 */
+.bento-title{margin:56px 0 16px;font-weight:900;font-size:20px;display:inline-block;background:var(--black);color:var(--yellow);padding:6px 16px;transform:rotate(-1deg)}
+.bento{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-template-areas:"lp lp tg ad" "lp lp op rp" "mo mo mo mo";gap:16px}
+.bt{background:var(--white);border:3px solid var(--black);box-shadow:5px 5px 0 var(--black);padding:18px;display:grid;gap:6px;align-content:start;min-width:0}
+.bt h3{font-size:18px;font-weight:900;line-height:1.4}
+.bt p{font-size:14px;color:var(--muted);line-height:1.7}
+.bt-k{font:900 12px var(--f-num);letter-spacing:.1em;color:var(--red)!important}
+.bt-lp{grid-area:lp;padding:0;overflow:hidden;grid-template-rows:1fr auto}
+.bt-lp img{width:100%;height:100%;min-height:220px;object-fit:cover;border-bottom:3px solid var(--black);background:var(--black)}
+.bt-lp>div{padding:16px 18px 18px;display:grid;gap:4px}
+.bt-lp h3{font-size:clamp(20px,2.2vw,26px)}
+.bt-tg{grid-area:tg}.bt-ad{grid-area:ad}.bt-op{grid-area:op}.bt-rp{grid-area:rp}
+.bt-tg,.bt-ad,.bt-op,.bt-rp{grid-template-rows:auto auto auto 1fr}
+.bt-ic{width:84px;height:84px;border-radius:50%;object-fit:cover;border:3px solid var(--black);background:var(--black);margin-bottom:6px}
+.chips{list-style:none;margin:4px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:4px;align-items:flex-start;align-self:start}
+.chips li{font-size:12px;font-weight:800;border:2px solid var(--black);padding:1px 7px}
+.bt-money{grid-area:mo;background:var(--yellow);grid-template-columns:auto auto 1fr;align-items:end;column-gap:20px}
+.bt-money .bt-k{grid-column:1/-1}
+.bt-money b{font:900 clamp(38px,4.4vw,54px)/1.05 var(--f-num)}
+.bt-money b span{font:900 16px var(--f-body);margin-left:4px}
+.bt-money p{color:var(--black)}
+@media (max-width:860px){
+  .story{grid-template-columns:1fr;gap:0}
+  .story-phone{top:64px;z-index:2;background:var(--paper);padding-block:8px;grid-template-columns:auto 1fr;align-items:center;justify-items:start;gap:14px;border-bottom:3px solid var(--black)}
+  .phone{width:116px;height:220px;border-width:4px;border-radius:18px;box-shadow:4px 4px 0 var(--black)}
+  .screen{gap:3px;padding:6px 5px 26px}
+  .pb{padding:3px 4px;gap:2px}
+  .pb b{font-size:6px}.pb i{height:2px}.pb em{font-size:5px;padding:0 3px;right:3px;top:3px}
+  .pb-fv{min-height:34px}.sticky-bar{height:20px;font-size:8px}
+  .pb-data{top:6px;height:34px;left:6px;right:6px;padding:4px;gap:3px}
+  .story-cap{font-size:13px;text-align:left}
+  .story-step{min-height:46vh;padding-left:16px}
+  .bento{grid-template-columns:1fr;grid-template-areas:"lp" "tg" "ad" "op" "rp" "mo"}
+  .bt-tg,.bt-ad,.bt-op,.bt-rp{grid-template-columns:64px 1fr;grid-template-rows:auto;column-gap:14px;align-items:center}
+  .bt-ic{grid-row:1/4;width:64px;height:64px;margin:0}
+  .bt-money{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  .photo-frame img,.speech-wrap,.ping span,.screen.m-cta .pb em{animation:none}
+  .ping{display:none}
+}
 </style>
 </head>
 <body>
@@ -446,6 +530,7 @@ footer .inner{display:grid;gap:6px;text-align:center}
         <span class="photo-tape tape-one" aria-hidden="true"></span>
         <span class="photo-tape tape-two" aria-hidden="true"></span>
         <div class="speech-wrap" aria-hidden="true"><img src="assets/speech-bubble.webp" alt="" width="800" height="499"><p>ホームページから、<br><strong>はじめての問い合わせ！</strong></p></div>
+        <div class="ping" aria-hidden="true"><span></span><span></span></div>
         <div class="price-stamp"><small>制作＋広告運用<br>広告費4万円分込み</small><b>11万<span>円</span></b><small>（税込）</small></div>
       </div>
     </div>
@@ -573,41 +658,42 @@ footer .inner{display:grid;gap:6px;text-align:center}
         <h2 id="kh-title"><span class="nw">問い合わせにつながる</span><span class="nw">ホームページには、</span><br><span class="kh-mark">作り方の「型」があります。</span></h2>
         <p class="kh-lead">NICOが集客用ホームページ（LP・ランディングページ）を作るときに守っている、7つのポイントです。順番と入口を整えると、伝わりやすくなります。</p>
       </div>
-      <div class="kh-grid">
-        <ol class="kh-points">
-          <li><h3>最初の画面で、答えを見せる</h3><p>「誰の・何の悩みを・どう解決するか」をひと目で。相談ボタンも、最初の画面に置きます。</p></li>
-          <li><h3>してほしい行動は、1つに絞る</h3><p>「無料相談」「予約」など、ゴールを1つに。ほかのページへのリンクは増やしすぎません。</p></li>
-          <li><h3>相談ボタンは、迷う前に何度も出す</h3><p>最初・途中・最後に2〜4回。スマホでは画面下に固定すると、いつでも押せます。</p></li>
-          <li><h3>入力フォームは、短く・答えやすく</h3><p>目安は3〜5項目。質問が多いときは2〜3段に分けて、最初は選ぶだけに。</p></li>
-          <li><h3>申し込む前の不安を、先に消す</h3><p>料金・利用までの流れ・よくある質問を載せます。根拠やお客さまの声は、事実だけを丁寧に。</p></li>
-          <li><h3>業種ごとの広告ルールを守る</h3><p>医療・不動産・士業などは、表現や表記に決まりがあります。作る前に確認します。</p></li>
-          <li><h3>公開して終わりにしない</h3><p>広告の数字を見て、まず最初の画面から見直します。表示の速さもスマホで確認します。</p></li>
+      <div class="story">
+        <div class="story-phone" aria-hidden="true">
+          <div class="phone">
+            <div class="screen">
+              <div class="pb pb-fv"><b>最初の画面</b><i></i><i></i><em>相談する</em></div>
+              <div class="pb pb-worry-pain"><b>悩み・共感</b><i></i><i></i></div>
+              <div class="pb pb-sol"><b>解決策</b><i></i><i></i><em>相談する</em></div>
+              <div class="pb pb-voice"><b>根拠・お客さまの声</b><i></i><i></i></div>
+              <div class="pb pb-price"><b>料金</b><i></i><i></i><em>相談する</em></div>
+              <div class="pb pb-flow"><b>利用までの流れ</b><i></i><i></i></div>
+              <div class="pb pb-faq"><b>よくある質問</b><i></i><i></i></div>
+              <div class="pb pb-goal"><b>申込み・相談</b><i></i><i></i><em>相談する</em></div>
+              <div class="pb-data"><span style="--h:40%"></span><span style="--h:65%"></span><span style="--h:52%"></span><span style="--h:85%"></span></div>
+            </div>
+            <div class="sticky-bar">相談する</div>
+          </div>
+          <p class="story-cap" id="story-cap">最初の画面</p>
+        </div>
+        <ol class="story-steps">
+          <li class="story-step" data-mode="fv" data-cap="最初の画面"><span class="sn">01</span><h3>最初の画面で、答えを見せる</h3><p>「誰の・何の悩みを・どう解決するか」をひと目で。相談ボタンも、最初の画面に置きます。</p></li>
+          <li class="story-step" data-mode="goal" data-cap="ゴールは1つ"><span class="sn">02</span><h3>してほしい行動は、1つに絞る</h3><p>「無料相談」「予約」など、ゴールを1つに。ほかのページへのリンクは増やしすぎません。</p></li>
+          <li class="story-step" data-mode="cta" data-cap="ボタンは2〜4回＋画面下に固定"><span class="sn">03</span><h3>相談ボタンは、迷う前に何度も出す</h3><p>最初・途中・最後に2〜4回。スマホでは画面下に固定すると、いつでも押せます。</p></li>
+          <li class="story-step" data-mode="form" data-cap="フォームは3〜5項目"><span class="sn">04</span><h3>入力フォームは、短く・答えやすく</h3><p>目安は3〜5項目。質問が多いときは2〜3段に分けて、最初は選ぶだけに。</p></li>
+          <li class="story-step" data-mode="worry" data-cap="料金・流れ・よくある質問"><span class="sn">05</span><h3>申し込む前の不安を、先に消す</h3><p>料金・利用までの流れ・よくある質問を載せます。根拠やお客さまの声は、事実だけを丁寧に。</p></li>
+          <li class="story-step" data-mode="rule" data-cap="ページ全体の表現を確認"><span class="sn">06</span><h3>業種ごとの広告ルールを守る</h3><p>医療・不動産・士業などは、表現や表記に決まりがあります。作る前に確認します。</p></li>
+          <li class="story-step" data-mode="data" data-cap="数字を見て、最初の画面から直す"><span class="sn">07</span><h3>公開して終わりにしない</h3><p>広告の数字を見て、まず最初の画面から見直します。表示の速さもスマホで確認します。</p></li>
         </ol>
-        <aside class="kh-side">
-          <div class="kh-box">
-            <p class="kh-box-title">ページの並び</p>
-            <p class="kh-box-sub">上から順に、気持ちを前へ</p>
-            <ol class="kh-order">
-            <li class="first">最初の画面</li>
-            <li>悩み・共感</li>
-            <li>解決策</li>
-            <li>根拠・お客さまの声</li>
-            <li>料金</li>
-            <li>利用までの流れ</li>
-            <li>よくある質問</li>
-            <li class="goal">申込み・相談</li>
-            </ol>
-          </div>
-          <div class="kh-box kh-entry">
-            <p class="kh-box-title">入口は、業種で変える</p>
-            <dl>
-            <div><dt>不動産の売却</dt><dd>かんたん査定</dd></div>
-            <div><dt>住宅の見学会</dt><dd>日時を選ぶ</dd></div>
-            <div><dt>士業の相談</dt><dd>電話・相談</dd></div>
-            </dl>
-            <p class="kh-box-sub">読む人が動きやすい入口を選ぶことも、「型」の一部です。</p>
-          </div>
-        </aside>
+      </div>
+      <div class="kh-box kh-entry story-entry">
+        <p class="kh-box-title">入口は、業種で変える</p>
+        <dl>
+          <div><dt>不動産の売却</dt><dd>かんたん査定</dd></div>
+          <div><dt>住宅の見学会</dt><dd>日時を選ぶ</dd></div>
+          <div><dt>士業の相談</dt><dd>電話・相談</dd></div>
+        </dl>
+        <p class="kh-box-sub">読む人が動きやすい入口を選ぶことも、「型」の一部です。</p>
       </div>
     </div>
   </section>
@@ -626,19 +712,23 @@ footer .inner{display:grid;gap:6px;text-align:center}
       </div>
       <div class="package-card">
         <p class="package-card-title">NICO 集客用ホームページ＋WEB広告</p>
-        <dl>
-          <div><dt>ターゲット設計</dt><dd>込み</dd></div>
-          <div><dt>集客用ホームページ制作</dt><dd>込み</dd></div>
-          <div><dt>WEB広告設定（Facebook・Instagram／Google／検索キーワード）</dt><dd>込み</dd></div>
-          <div><dt>広告運用代行・配信後レポート</dt><dd>込み</dd></div>
-          <div><dt>実広告費</dt><dd>40,000円分</dd></div>
-        </dl>
         <div class="total"><span>合計</span><strong>110,000<small>円（税込）</small></strong></div>
         <div class="bd" aria-label="税込110,000円の内訳"><div class="w"><b>70,000円</b><span>制作＋広告の設定・運用・レポート</span></div><div class="a"><b>40,000円</b><span>実際の広告費</span></div></div>
         <p class="real">広告費を除くと、制作と広告運用は<em>実質70,000円</em>。</p>
         <a class="button button-red" href="#contact" data-track="price_cta">まずは無料で相談する</a>
         <p class="fine-print">制作期間、広告運用期間、修正回数、対応範囲は無料相談後に確認します。追加ページ、撮影、特殊機能、広告費の増額などは、着手前に別途お見積もりします。</p>
         <p class="fine-print">※1 2026年10月 当社調べ。WEB検索で集めた、集客用ホームページ（LP）制作と広告運用をセットで提供する会社の公開価格のうち、広告費を除いた最低契約期間の総額を比較。ホームページ制作だけ、広告運用だけのサービスとは比べていません。</p>
+      </div>
+    </div>
+    <div class="inner">
+      <p class="bento-title">税込110,000円に含まれるもの</p>
+      <div class="bento" aria-label="税込110,000円に含まれるもの">
+        <div class="bt bt-lp"><img src="assets/step-02-lp-design.webp" alt="" width="520" height="520" loading="lazy"><div><p class="bt-k">つくる</p><h3><span class="nw">集客用ホームページ</span><span class="nw">（LP）制作</span></h3><p>スマホで読みやすく、無料相談へ進みやすい文章・構成・デザインに。</p></div></div>
+        <div class="bt bt-tg"><img class="bt-ic" src="assets/step-01-targeting.webp" alt="" width="520" height="520" loading="lazy"><p class="bt-k">設計する</p><h3>ターゲット設計</h3><p>誰に、何を、どう伝えるかを決めます。</p></div>
+        <div class="bt bt-ad"><img class="bt-ic" src="assets/step-03-ad-setup.webp" alt="" width="520" height="520" loading="lazy"><p class="bt-k">準備する</p><h3>WEB広告設定</h3><ul class="chips"><li>Facebook・Instagram</li><li>Google</li><li>検索キーワード</li></ul></div>
+        <div class="bt bt-op"><img class="bt-ic" src="assets/step-04-operations.webp" alt="" width="520" height="520" loading="lazy"><p class="bt-k">届ける</p><h3>広告運用代行</h3><p>反応を見ながら配信を調整します。</p></div>
+        <div class="bt bt-rp"><img class="bt-ic" src="assets/step-05-report.webp" alt="" width="520" height="520" loading="lazy"><p class="bt-k">振り返る</p><h3>配信後レポート</h3><p>結果から、次に直すところを見つけます。</p></div>
+        <div class="bt bt-money"><p class="bt-k">実際の広告費</p><b>40,000<span>円分</span></b><p>広告媒体へ支払う費用も、最初から含めています。</p></div>
       </div>
     </div>
   </section>
@@ -721,6 +811,31 @@ footer .inner{display:grid;gap:6px;text-align:center}
 <a class="mobile-cta" href="#contact" data-track="sticky_cta"><p>AI活用で業界最安値級<sup>※1</sup>・広告費込み<b>税込110,000円</b></p><span>無料相談</span></a>
 
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "LP（ランディングページ）とは何ですか？", "acceptedAnswer": {"@type": "Answer", "text": "広告や検索から来た人が最初に見る、1枚の縦長のページです。問い合わせや予約など、してほしい行動を1つに絞って作ります。NICOでは、わかりやすく「集客用ホームページ」と呼んでいます。"}}, {"@type": "Question", "name": "ホームページや広告の知識がなくても相談できますか？", "acceptedAnswer": {"@type": "Answer", "text": "はい。専門用語を使わず、事業内容といまのお悩みを伺うところから始めます。"}}, {"@type": "Question", "name": "すでにホームページがある場合も相談できますか？", "acceptedAnswer": {"@type": "Answer", "text": "はい。いまの制作環境を確認し、作り直しや修正など、対応できる範囲をご案内します。"}}, {"@type": "Question", "name": "デザイン例のような見た目にしてもらえますか？", "acceptedAnswer": {"@type": "Answer", "text": "デザイン例は、業種ごとの作り分けを見ていただくためのイメージです。実際のデザインは、あなたの事業と届けたい相手に合わせて一から考えます。気になるデザイン例があれば、相談のときにお伝えください。"}}, {"@type": "Question", "name": "どの広告を使いますか？", "acceptedAnswer": {"@type": "Answer", "text": "Facebook・Instagram広告、Google広告、検索キーワード広告（調べている人に表示する広告）から、事業内容と届けたい相手に合わせて選びます。1つに絞るか組み合わせるかも、無料相談で一緒に決めます。"}}, {"@type": "Question", "name": "税込110,000円以外に費用はかかりますか？", "acceptedAnswer": {"@type": "Answer", "text": "基本セットには広告費40,000円分を含みます。追加ページ、撮影、特殊機能、広告費の増額などをご希望の場合は、着手前に別途お見積もりします。"}}, {"@type": "Question", "name": "制作期間や広告運用期間はどれくらいですか？", "acceptedAnswer": {"@type": "Answer", "text": "内容や素材の準備状況で異なります。制作期間、広告運用期間、修正回数は、お申し込み前に個別に確認します。"}}, {"@type": "Question", "name": "必ず問い合わせが来ますか？", "acceptedAnswer": {"@type": "Answer", "text": "問い合わせ数や広告の成果を保証するサービスではありません。広告の反応や計測できる問い合わせ状況を振り返り、改善の材料を整理します。"}}, {"@type": "Question", "name": "依頼するか決めていなくても相談できますか？", "acceptedAnswer": {"@type": "Answer", "text": "はい。現状とご希望を伺い、対応範囲や進め方を確認したうえでご検討いただけます。"}}]}</script>
+<script>
+// 作り方の型：画面の真ん中にいちばん近いポイントに合わせて、左のスマホ画面の該当部分を光らせる
+(() => {
+  const steps = [...document.querySelectorAll(".story-step")], screen = document.querySelector(".screen"), cap = document.getElementById("story-cap");
+  const MAP = { fv: ["fv"], goal: ["goal"], cta: [], form: ["goal"], worry: ["price", "flow", "faq"], rule: [], data: ["fv"] };
+  function activate(li) {
+    steps.forEach(s => s.classList.toggle("on", s === li));
+    const m = li.dataset.mode;
+    screen.className = "screen dim m-" + m;
+    screen.querySelectorAll(".pb").forEach(b => b.classList.toggle("on", MAP[m].some(k => b.classList.contains("pb-" + k))));
+    cap.textContent = li.dataset.cap;
+  }
+  let cur = null, ticking = false;
+  function pick() {
+    ticking = false;
+    const mid = innerHeight / 2;
+    let best = steps[0], d = Infinity;
+    for (const s of steps) { const r = s.getBoundingClientRect(); const x = Math.abs((r.top + r.bottom) / 2 - mid); if (x < d) { d = x; best = s; } }
+    if (best !== cur) { cur = best; activate(best); }
+  }
+  addEventListener("scroll", () => { if (!ticking) { ticking = true; requestAnimationFrame(pick); } }, { passive: true });
+  addEventListener("resize", pick);
+  pick();
+})();
+</script>
 <script>
 // デザイン例（LP制作会社/LP の14本）。how はこのページの工夫、type はパターン一覧の「全体の型」
 const EXAMPLES = [
