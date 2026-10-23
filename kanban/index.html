@@ -67,9 +67,10 @@ p{margin:0}
 .eyebrow{font-weight:900;font-size:14px;letter-spacing:.06em;border-bottom:2px solid var(--black);padding-bottom:10px;margin-bottom:18px}
 .eyebrow span{background:var(--red);color:var(--white);padding:5px 9px;margin-right:8px;font-family:var(--f-num);letter-spacing:.12em}
 /* 筆文字のキャッチ：太い筆のフォントを傾け、白いふちと黒い影で看板から浮かせる */
-.brush{font-family:var(--f-brush);font-weight:400;font-size:clamp(44px,5.3vw,78px);line-height:1.08;letter-spacing:-.02em;transform:rotate(-3deg);transform-origin:left center;margin:4px 0 6px -4px}
-.brush span{display:block;color:var(--black);-webkit-text-stroke:0;text-shadow:3px 3px 0 rgb(255 255 255 / .55)}
-.brush .red{color:var(--red);font-size:1.04em;white-space:nowrap;margin-top:.06em;paint-order:stroke fill;-webkit-text-stroke:10px var(--black);text-shadow:7px 7px 0 var(--black)}
+/* 筆文字のキャッチはCodexの画像生成で作った透明PNG（_codex/brush-catch.png）。読み上げと検索用に、同じ文を見えない文字でも持つ */
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.brush{margin:0 0 4px -2%;transform:rotate(-2deg);transform-origin:left center}
+.brush img{width:min(100%,650px);filter:drop-shadow(3px 4px 0 rgb(255 255 255 / .35))}
 .hero-sub{font-weight:900;font-size:clamp(19px,2.1vw,24px);line-height:1.5;margin-top:22px}
 .hero-lead{font-size:clamp(15px,1.5vw,17px);line-height:1.75;margin-top:8px}
 .ai-badge{display:inline-flex;flex-wrap:wrap;align-items:center;gap:4px 10px;margin-top:18px;font-weight:800;font-size:15px}
@@ -296,8 +297,8 @@ footer .inner{display:grid;gap:6px;text-align:center}
   .header-cta{display:none}
   .hero-grid{padding-block:14px 56px;gap:18px}
   .eyebrow{font-size:12px;margin-bottom:10px}
-  .brush{font-size:clamp(40px,12.4vw,58px);transform:rotate(-2.5deg);margin-left:-2px}
-  .brush .red{-webkit-text-stroke:7px var(--black);text-shadow:5px 5px 0 var(--black)}
+  .brush{margin-left:-2%;transform:rotate(-1.5deg)}
+  .brush img{width:100%}
   .hero-actions .button{width:100%}
   .hero-actions .text-link{width:100%;text-align:center}
   .hero-visual{min-height:400px}
@@ -357,7 +358,7 @@ footer .inner{display:grid;gap:6px;text-align:center}
     <div class="inner hero-grid">
       <div>
         <p class="eyebrow"><span>START</span>小さな会社の、はじめてのWEB集客。</p>
-        <h1 class="brush"><span>問い合わせ</span><span>ゼロから、</span><span class="red">最初の1件へ。</span></h1>
+        <h1 class="brush"><span class="sr-only">問い合わせゼロから、最初の1件へ。</span><img src="assets/brush-catch.webp" alt="" width="1200" height="734" fetchpriority="high"></h1>
         <p class="hero-sub">小さな会社のための、<span class="nw">集客用ホームページ＋WEB広告。</span></p>
         <p class="hero-lead">ホームページ用語がわからなくても大丈夫。伝え方を整え、広告で届け、初めてのWEB問い合わせを目指します。</p>
         <p class="ai-badge"><b>AI活用で、業界最安値級<sup>※1</sup></b>制作・広告運用・広告費まで込み</p>
