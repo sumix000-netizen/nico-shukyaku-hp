@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>NICO 集客用ホームページ</title>
 <meta name="robots" content="noindex">
-<meta name="description" content="小さな会社・個人事業主向けの集客用ホームページ制作＋WEB広告運用（Facebook・Instagram広告、Google広告、検索キーワード広告）。税込110,000円、広告費40,000円分込み。専門用語を使わず、初めてのWEB問い合わせを目指してサポートします。">
+<meta name="description" content="WEB集客をはじめて行う会社・個人事業主向けの集客用ホームページ制作＋WEB広告運用（Facebook・Instagram広告、Google広告、検索キーワード広告）。税込110,000円、広告費40,000円分込み。専門用語を使わず、初めてのWEB問い合わせを目指してサポートします。">
 <meta name="theme-color" content="#FFD600">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23FFD600'/%3E%3Ctext x='32' y='46' font-size='38' font-family='Arial' font-weight='900' text-anchor='middle' fill='%23111'%3EN%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -63,7 +63,10 @@ p{margin:0}
 .hero .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:40px;align-items:center}
 .hero-copy{min-width:0;display:grid;gap:20px}
 .kicker{display:inline-flex;align-items:center;gap:10px;font-weight:900;font-size:15px}
-.kicker span{background:var(--ink);color:var(--yellow);font:900 12px var(--f-num);letter-spacing:.14em;padding:4px 10px;border-radius:4px}
+.kicker{flex-wrap:wrap;gap:6px 0}
+.kicker span:first-child{margin-right:10px}
+.kicker .nw{flex:none}
+.kicker span:first-child{background:var(--ink);color:var(--yellow);font:900 12px var(--f-num);letter-spacing:.14em;padding:4px 10px;border-radius:4px}
 /* キャッチコピーは写真の枠の上部に、黒地の看板として載せる（写真の顔にかからない） */
 /* キャッチコピーは写真の左上（明るい壁と窓の部分）に重ねる。店主の顔は右上にあるので、左半分に収める */
 .hero-visual .frame{position:relative}
@@ -72,7 +75,7 @@ p{margin:0}
 .fv-catch .em{margin-top:auto;font-size:1.22em;border-width:4px!important;box-shadow:0 6px 0 var(--ink)!important}
 .fv-catch span{display:block;background:var(--ink);color:var(--white);padding:.12em .3em .16em;border-radius:4px;box-shadow:0 4px 0 rgb(0 0 0 / .18)}
 .fv-catch .em{color:var(--ink);background:var(--yellow);border:3px solid var(--ink)}
-.hero .sub{font-family:var(--f-display);font-weight:400;font-size:clamp(24px,2.6vw,34px);line-height:1.4;text-wrap:balance}
+.hero .sub{font-family:var(--f-display);font-weight:400;font-size:clamp(20px,2.05vw,28px);line-height:1.4;text-wrap:balance}
 .hero .lead{color:var(--muted);max-width:34em}
 .price-line{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px;border-top:3px solid var(--ink);border-bottom:3px solid var(--ink);padding-block:10px;width:fit-content;max-width:100%}
 .price-line .label{font-weight:700;font-size:14px}
@@ -349,8 +352,8 @@ footer .copy{grid-column:1/-1;border-top:1px solid #333;padding-top:16px;font-si
   <section class="hero band" id="top">
     <div class="wrap">
       <div class="hero-copy">
-        <p class="kicker"><span>FOR SMALL BUSINESS</span>小さな会社の、はじめてのWEB集客。</p>
-        <p class="sub">小さな会社のための、集客用ホームページ＋WEB広告。</p>
+        <p class="kicker"><span>FIRST STEP</span><span class="nw">はじめてのWEB集客を、</span><span class="nw">まるごとサポート。</span></p>
+        <p class="sub"><span class="nw">WEB集客をはじめて行う</span><span class="nw">会社のための、</span><span class="nw">集客用ホームページ＋WEB広告。</span></p>
         <p class="lead">ホームページ用語がわからなくても大丈夫。伝え方を整え、広告で届け、初めてのWEB問い合わせを目指します。</p>
         <p class="ai-badge"><b>AI活用で、業界最安値級<sup>※1</sup>。</b>制作・広告運用・広告費まで込みで、この価格です。</p>
         <div class="price-line">
