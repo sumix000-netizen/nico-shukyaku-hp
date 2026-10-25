@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>NICO デザイン案8種</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* レイアウト：8つのデザイン案を、PCとスマホの最初の画面つきのカードで並べる。カードから各案のページを開く */
+:root{
+  --bg:#f4f2ea; --panel:#ffffff; --fg:#1e1f1a; --muted:#5f6157; --line:#dcd8c8; --accent:#b98a00; --accent-ink:#1e1f1a; --chip:#ece8d9; --shadow:0 1px 2px #0000000d;
+  --f-body:'Zen Kaku Gothic New','Hiragino Sans','Yu Gothic',sans-serif; --f-mono:'IBM Plex Mono',ui-monospace,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#16170f;--panel:#202119;--fg:#ecebe2;--muted:#aaa99c;--line:#36372c;--accent:#f0c63a;--accent-ink:#16170f;--chip:#2a2b22;--shadow:none;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#16170f;--panel:#202119;--fg:#ecebe2;--muted:#aaa99c;--line:#36372c;--accent:#f0c63a;--accent-ink:#16170f;--chip:#2a2b22;--shadow:none;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:400 15px/1.75 var(--f-body)}
+.gutter{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.inner{max-width:1240px;margin:0 auto}
+header{padding-block:34px 18px}
+h1{font-size:clamp(24px,3.4vw,34px);font-weight:900;margin:0 0 6px;text-wrap:balance}
+.lead{color:var(--muted);margin:0;max-width:72ch}
+.base{display:inline-block;margin-top:10px;color:var(--fg);font-weight:700}
+main{padding-block:10px 60px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:18px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px;box-shadow:var(--shadow);display:grid;gap:10px;min-width:0}
+.shots{display:grid;grid-template-columns:1fr 92px;gap:10px;align-items:start}
+.shots img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:6px;background:var(--chip)}
+.head{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.id{font:500 12px var(--f-mono);color:var(--muted)}
+h2{font-size:18px;font-weight:900;margin:0}
+.note{margin:0;font-size:14px;color:var(--muted)}
+.foot{display:flex;flex-wrap:wrap;gap:8px}
+.btn{display:inline-flex;align-items:center;gap:6px;border-radius:8px;padding:7px 14px;font:700 14px var(--f-body);text-decoration:none;border:1px solid var(--line);background:var(--panel);color:var(--fg);cursor:pointer}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.full{max-height:560px;overflow:auto;border:1px solid var(--line);border-radius:8px;background:var(--chip);text-align:center;padding:8px}
+.full img{width:360px;max-width:100%;height:auto}
+footer{color:var(--muted);font-size:12px;padding-block:20px 40px;border-top:1px solid var(--line)}
+</style>
+</head>
+<body>
+<header class="gutter"><div class="inner">
+  <h1>NICO デザイン案8種</h1>
+  <p class="lead">今の集客用ホームページと文章・画像・機能はまったく同じまま、色・書体・角の丸み・影・最初の画面の並びだけを変えた8案です。カードの「この案を開く」で、実際に動くページを見られます。</p>
+  <a class="base" href="../">← 元のデザイン（今の版）を見る</a>
+</div></header>
+<main class="gutter"><div class="inner"><div class="grid" id="grid"></div></div></main>
+<footer class="gutter"><div class="inner">確認用のページです（検索には出ません）。撮影日：2026-10-25。</div></footer>
+<script>
+const V = [
+  ["v1", "信頼ネイビー", "紺とオレンジ。写真を左に置き、角を丸く、影をやわらかく。士業・BtoBにも合う落ち着き"],
+  ["v2", "地域のやさしい緑", "深緑と山吹色、丸ゴシック。角を大きく丸め、見出しを中央に。地域のお店・教室向け"],
+  ["v3", "上質ミニマル", "白と墨色、明朝体。線を細く、影をなくし、写真を上に大きく。高単価の美容・住宅向け"],
+  ["v4", "ポップ", "ピンクと水色、丸ゴシック。大きな角丸とピンクの影。スクール・美容・若い世代向け"],
+  ["v5", "和モダン", "生成りと朱、明朝体の見出し。角を立て、細い線で区切る。和食・工務店・士業向け"],
+  ["v6", "コーポレートブルー", "紺と青、すっきりしたゴシック。細い線と軽い影で、きちんとした会社の印象"],
+  ["v7", "ネオブルータル", "白黒とライム、極太の黒枠と大きなずらし影。いちばん目立つ、尖った印象"],
+  ["v8", "エディトリアル", "新聞・雑誌のような明朝の大見出しと罫線。写真を上に大きく。読み物として信頼感"]
+];
+const grid = document.getElementById("grid");
+function el(t, c, x) { const e = document.createElement(t); if (c) e.className = c; if (x != null) e.textContent = x; return e; }
+for (const [id, name, note] of V) {
+  const card = el("article", "card");
+  const shots = el("div", "shots");
+  for (const [suf, w, h, cap] of [["pc", 720, 450, "PC"], ["sp", 250, 541, "スマホ"]]) { const i = el("img"); i.src = `thumbs/${id}-${suf}.webp`; i.width = w; i.height = h; i.loading = "lazy"; i.alt = `${name}の${cap}の最初の画面`; shots.append(i); }
+  const head = el("div", "head"); head.append(el("span", "id", id.toUpperCase()), el("h2", null, name));
+  const foot = el("div", "foot");
+  const a = el("a", "btn primary", "この案を開く ↗"); a.href = `${id}/`; a.target = "_blank"; a.rel = "noopener";
+  const t = el("button", "btn", "ページ全体を見る"); t.type = "button"; t.setAttribute("aria-expanded", "false");
+  const full = el("div", "full"); full.hidden = true;
+  t.addEventListener("click", () => { if (!full.firstChild) { const i = el("img"); i.src = `thumbs/${id}-full.webp`; i.alt = `${name}のページ全体（縮小）`; full.append(i); } full.hidden = !full.hidden; t.textContent = full.hidden ? "ページ全体を見る" : "閉じる"; t.setAttribute("aria-expanded", String(!full.hidden)); });
+  foot.append(a, t);
+  card.append(shots, head, el("p", "note", note), foot, full);
+  grid.append(card);
+}
+</script>
+</body>
+</html>

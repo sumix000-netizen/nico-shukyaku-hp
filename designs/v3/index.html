@@ -1,0 +1,1016 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>NICO デザイン案 V3 上質ミニマル</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="WEB集客をはじめて行う会社・個人事業主向けの集客用ホームページ（LP・ランディングページ）制作＋WEB広告運用（Facebook・Instagram広告、Google広告、検索キーワード広告）。税込110,000円、広告費40,000円分込み。専門用語を使わず、初めてのWEB問い合わせを目指してサポートします。">
+<meta name="theme-color" content="#FFD600">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23FFD600'/%3E%3Ctext x='32' y='46' font-size='38' font-family='Arial' font-weight='900' text-anchor='middle' fill='%23111'%3EN%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Noto+Sans+JP:wght@400;500;700;900&family=Archivo:wght@700;900&display=swap">
+<style>
+/* レイアウト：工事看板の黄色×黒を骨格に、紙面（オフホワイト）の上で「悩み→診断→5つのサポート→デザイン例→価格→流れ→FAQ→相談」と一本道で下る。
+   看板の世界観に1つだけ振り切るため、ダークモードは持たない（全色をここで明示） */
+:root{
+  --yellow:#FFD600; --ink:#111111; --red:#E63224; --red-deep:#C8251A; --paper:#FFFDF5;
+  --paper-2:#F6F1DE; --line:#E4DCC0; --muted:#4F4B3E; --white:#ffffff;
+  --f-display:'Dela Gothic One','Noto Sans JP','Yu Gothic',sans-serif;
+  --f-body:'Noto Sans JP','Hiragino Sans','Yu Gothic','Meiryo',sans-serif;
+  --f-num:'Archivo','Noto Sans JP',sans-serif;
+  --wrap:1120px;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{background:var(--paper);color:var(--ink);font:400 16px/1.85 var(--f-body);-webkit-text-size-adjust:100%}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--ink)}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit}
+h1,h2,h3{text-wrap:balance;margin:0}
+p{margin:0}
+.band{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:var(--wrap);margin:0 auto}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:absolute;left:-999px;top:8px;background:var(--yellow);padding:8px 14px;z-index:99;font-weight:700}
+.skip:focus{left:16px}
+:focus-visible{outline:3px solid var(--red);outline-offset:3px}
+.stripe{height:12px;background:repeating-linear-gradient(-45deg,var(--yellow) 0 16px,var(--ink) 16px 32px)}
+
+/* ボタン */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:52px;padding:0 26px;border-radius:999px;font-weight:900;font-size:17px;text-decoration:none;border:3px solid var(--ink);cursor:pointer;font-family:var(--f-body);transition:transform .15s,box-shadow .15s}
+.btn-red{background:var(--red);color:var(--white);box-shadow:0 5px 0 var(--ink)}
+.btn-red:hover{transform:translateY(2px);box-shadow:0 3px 0 var(--ink)}
+.btn-ghost{background:var(--white);color:var(--ink)}
+.btn-ghost:hover{background:var(--yellow)}
+
+/* ヘッダー */
+.site-header{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--ink);color:var(--white)}
+.site-header .wrap{display:flex;align-items:center;gap:18px;min-height:64px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;line-height:1.2}
+.brand-mark{display:grid;place-items:center;width:38px;height:38px;border-radius:8px;background:var(--yellow);color:var(--ink);font:900 22px var(--f-num)}
+.brand b{display:block;font:900 17px var(--f-num);letter-spacing:.06em}
+.brand small{font-size:12px;color:#E9E3CC}
+.nav{display:flex;gap:4px;margin-left:auto}
+.nav a{text-decoration:none;font-size:14px;font-weight:700;padding:8px 12px;border-radius:6px}
+.nav a:hover{background:#2A2A2A}
+.header-cta{min-height:42px;font-size:15px;padding:0 18px;box-shadow:none;border-color:var(--yellow)}
+
+/* ファーストビュー */
+.hero{background:var(--paper);padding-block:44px 56px;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:40px;align-items:center}
+.hero-copy{min-width:0;display:grid;gap:20px}
+.kicker{display:inline-flex;align-items:center;gap:10px;font-weight:900;font-size:15px}
+.kicker{flex-wrap:wrap;gap:6px 0}
+.kicker span:first-child{margin-right:10px}
+.kicker .nw{flex:none}
+.kicker span:first-child{background:var(--ink);color:var(--yellow);font:900 12px var(--f-num);letter-spacing:.14em;padding:4px 10px;border-radius:4px}
+/* キャッチコピーは写真の枠の上部に、黒地の看板として載せる（写真の顔にかからない） */
+/* キャッチコピーは写真の左上（明るい壁と窓の部分）に重ねる。店主の顔は右上にあるので、左半分に収める */
+.hero-visual .frame{position:relative}
+/* 上の2行は左上の明るい壁に、「最初の1件へ。」は写真の下（机のあたり）に大きく置き、顔を挟む */
+.fv-catch{position:absolute;inset:5% 4% 5%;margin:0;font-family:var(--f-display);font-weight:400;font-size:clamp(32px,4.1vw,60px);line-height:1.12;letter-spacing:.01em;display:flex;flex-direction:column;align-items:flex-start;gap:8px;pointer-events:none}
+.fv-catch .em{margin-top:auto;font-size:1.22em;border-width:4px!important;box-shadow:0 6px 0 var(--ink)!important}
+.fv-catch span{display:block;background:var(--ink);color:var(--white);padding:.12em .3em .16em;border-radius:4px;box-shadow:0 4px 0 rgb(0 0 0 / .18)}
+.fv-catch .em{color:var(--ink);background:var(--yellow);border:3px solid var(--ink)}
+.hero .sub{font-family:var(--f-display);font-weight:400;font-size:clamp(20px,2.05vw,28px);line-height:1.4;text-wrap:balance}
+.hero .lead{color:var(--muted);max-width:34em}
+.price-line{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px;border-top:3px solid var(--ink);border-bottom:3px solid var(--ink);padding-block:10px;width:fit-content;max-width:100%}
+.price-line .label{font-weight:700;font-size:14px}
+.price-line .yen{font:900 clamp(34px,4.4vw,46px)/1 var(--f-num);color:var(--red)}
+.price-line .yen small{font-size:.42em;color:var(--ink);margin-left:2px;font-family:var(--f-body)}
+.price-line .inc{font-weight:900;background:var(--yellow);padding:2px 10px;font-size:15px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.ai-badge{display:flex;flex-wrap:wrap;align-items:center;gap:4px 10px;font-weight:700;font-size:15px}
+.ai-badge sup,.ai h2 sup,.sticky-cta sup{font-size:.55em;vertical-align:super;line-height:0}
+.fv-note{font-size:12px;color:var(--muted);margin-top:-12px}
+.survey{font-size:12px;color:var(--muted);border-top:1px dashed var(--line);padding-top:10px;line-height:1.7}
+.ai-badge b{background:var(--red);color:var(--white);padding:3px 12px;border-radius:4px;font-size:16px}
+/* AIで低価格 */
+.ai{background:var(--paper-2)}
+.ai .hl{background:linear-gradient(transparent 58%,var(--yellow) 58%)}
+.ai-steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.ai-steps li{background:var(--white);border:2px solid var(--ink);border-radius:14px;padding:20px;display:grid;gap:8px;align-content:start}
+.ai-steps h3{font-size:19px;font-weight:900}
+.ai-steps p{font-size:15px;color:var(--muted)}
+.who{display:grid;place-items:center;width:46px;height:46px;border-radius:50%;border:2px solid var(--ink);font:900 18px var(--f-num)}
+.ai-who{background:var(--ink);color:var(--yellow)}
+.human-who{background:var(--yellow);color:var(--ink);font-family:var(--f-body)}
+.yen-who{background:var(--red);color:var(--white)}
+.breakdown{margin-top:28px;background:var(--white);border:3px solid var(--ink);border-radius:16px;padding:22px 24px;display:grid;gap:12px}
+.bd-title{font-weight:900}
+.bd-bar{display:grid;grid-template-columns:7fr 4fr;border:2px solid var(--ink);border-radius:10px;overflow:hidden}
+.bd-bar>div{padding:12px 14px;display:grid;gap:2px;min-width:0}
+.bd-bar b{font:900 22px var(--f-num)}
+.bd-bar span{font-size:13px;font-weight:700;line-height:1.5}
+.bd-work{background:var(--yellow);border-right:2px solid var(--ink)}
+.bd-ad{background:var(--ink);color:var(--white)}
+.bd-note{font-size:15px}
+.bd-note b{color:var(--red-deep);font-size:18px}
+.media{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
+.media li{border:2px solid var(--ink);border-radius:6px;padding:2px 10px;font-size:13px;font-weight:700;background:var(--white)}
+.hero-visual{position:relative;min-width:0}
+.hero-visual .frame{border:4px solid var(--ink);border-radius:18px;overflow:hidden;background:var(--yellow);box-shadow:12px 12px 0 var(--yellow)}
+.hero-visual .frame img{aspect-ratio:5/4;object-fit:cover;object-position:center 40%;width:100%}
+.notice{position:absolute;right:-18px;top:-24px;background:var(--white);border:3px solid var(--ink);border-radius:14px;padding:12px 16px;display:flex;gap:12px;align-items:center;box-shadow:0 6px 0 var(--ink);max-width:270px}
+.notice i{flex:none;display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:var(--red);color:var(--white);font:900 17px var(--f-num);font-style:normal}
+.notice b{display:block;font-size:14px;line-height:1.4}
+.notice small{font-size:12px;color:var(--muted)}
+
+/* 安心材料の帯 */
+.assure{background:var(--ink);color:var(--white);padding-block:18px}
+.assure ul{list-style:none;margin:0 auto;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.assure li{display:flex;align-items:center;gap:10px;font-weight:700;font-size:15px;line-height:1.4}
+.assure li::before{content:"";flex:none;width:12px;height:12px;background:var(--yellow);transform:rotate(45deg)}
+
+/* 共通セクション */
+.sec{padding-block:84px}
+.sec-head{display:grid;gap:12px;margin-bottom:36px;max-width:760px}
+.eyebrow{font:900 13px var(--f-num);letter-spacing:.18em;color:var(--red)}
+.sec h2{font-family:var(--f-display);font-weight:400;font-size:clamp(28px,3.6vw,42px);line-height:1.35}
+.sec-head p{color:var(--muted)}
+
+/* 共感 */
+.worries{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;list-style:none;margin:0;padding:0}
+.worries li{background:var(--white);border:2px solid var(--ink);border-radius:12px;padding:18px 20px;font-weight:700;display:flex;gap:12px;align-items:flex-start;line-height:1.6}
+.worries li::before{content:"！";flex:none;display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--yellow);border:2px solid var(--ink);font-weight:900;font-size:14px}
+.close-note{margin-top:28px;background:var(--paper-2);border-left:6px solid var(--yellow);padding:20px 24px;font-weight:500;max-width:820px}
+
+/* 診断 */
+.diag{background:var(--yellow)}
+.diag .sec-head p{color:var(--ink)}
+.diag-box{background:var(--paper);border:4px solid var(--ink);border-radius:20px;padding:30px;display:grid;grid-template-columns:1.3fr 1fr;gap:30px;box-shadow:10px 10px 0 var(--ink)}
+.diag fieldset{border:0;margin:0 0 20px;padding:0;min-width:0}
+.diag legend{font-weight:900;font-size:17px;margin-bottom:10px;padding:0}
+.diag legend b{font-family:var(--f-num);color:var(--red);margin-right:6px}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opts label{position:relative}
+.opts input{position:absolute;opacity:0;inset:0;cursor:pointer}
+.opts span{display:inline-block;border:2px solid var(--ink);border-radius:999px;padding:8px 16px;font-weight:700;font-size:15px;background:var(--white);cursor:pointer}
+.opts input:checked+span{background:var(--ink);color:var(--yellow)}
+.opts input:focus-visible+span{outline:3px solid var(--red);outline-offset:2px}
+.diag-result{background:var(--ink);color:var(--white);border-radius:14px;padding:24px;display:grid;gap:12px;align-content:start;min-width:0}
+.diag-result .tag{font:900 12px var(--f-num);letter-spacing:.16em;color:var(--yellow)}
+.diag-result h3{font-family:var(--f-display);font-weight:400;font-size:24px;line-height:1.4}
+.diag-result ul{margin:0;padding-left:1.2em;display:grid;gap:4px;font-size:15px}
+.diag-result .err{color:#FFB4AB;font-weight:700}
+.diag-result .btn{justify-self:start}
+
+/* サービス */
+.services{display:grid;grid-template-columns:repeat(5,1fr);gap:30px;list-style:none;margin:0;padding:0;position:relative;z-index:1}
+.services li{position:relative;background:var(--white);border:2px solid var(--ink);border-radius:14px;display:grid;grid-template-rows:auto 1fr}
+.services img{aspect-ratio:1/1;object-fit:cover;width:100%;border-bottom:2px solid var(--ink);border-radius:12px 12px 0 0}
+/* 次のサポートへの矢印（横並びのとき） */
+.services li:not(:last-child)::after{content:"";position:absolute;right:-24px;top:calc(50% - 9px);border-left:16px solid var(--red);border-top:9px solid transparent;border-bottom:9px solid transparent}
+/* 5から1へ戻る線：カード列の下にU字を描き、左端に上向きの矢印 */
+.loop-back{position:relative;height:56px;margin:-2px 9% 0;border:3px dashed var(--ink);border-top:0;border-radius:0 0 22px 22px;display:flex;justify-content:center;align-items:flex-end}
+.loop-back::before{content:"";position:absolute;left:-10px;top:-6px;border-bottom:16px solid var(--ink);border-left:8px solid transparent;border-right:8px solid transparent}
+.loop-back span{transform:translateY(50%);background:var(--yellow);border:2px solid var(--ink);border-radius:999px;padding:6px 18px;font-weight:900;font-size:15px;text-align:center}
+.nw{display:inline-block}
+.loop-note{margin-top:34px;text-align:center;font-weight:700;color:var(--muted)}
+.services .body{padding:16px;display:grid;gap:6px;align-content:start}
+.services .n{font:900 13px var(--f-num);color:var(--red);letter-spacing:.1em}
+.services h3{font-size:18px;font-weight:900;line-height:1.4}
+.services p{font-size:14px;color:var(--muted);line-height:1.7}
+
+/* デザイン例 */
+.examples{background:var(--ink);color:var(--white)}
+.examples h2{color:var(--white)}
+.examples .sec-head p{color:#DCD6C2}
+.ex-points{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:34px}
+.ex-points div{border:2px solid #3A3A3A;border-radius:12px;padding:18px 20px;display:grid;gap:4px}
+.ex-points b{font:900 18px/1.45 var(--f-body);color:var(--yellow)}
+.ex-points b small{font-size:15px;margin-left:4px;font-family:var(--f-body)}
+.ex-points span{font-size:14px;color:#DCD6C2;line-height:1.6}
+/* 自動で流れる2段のカード列。カードの並びを2回つなげ、半分（=1周分）動いたら最初に戻す */
+.marquee{display:grid;gap:18px;margin-left:calc(-1 * max(16px,env(safe-area-inset-left,0px)));margin-right:calc(-1 * max(16px,env(safe-area-inset-right,0px)));overflow:hidden;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 3%,#000 97%,transparent);mask-image:linear-gradient(90deg,transparent,#000 3%,#000 97%,transparent)}
+.ex-track{display:flex;gap:18px;width:max-content;animation:ex-scroll var(--dur,70s) linear infinite}
+.ex-track.rev{animation-direction:reverse}
+@media (hover:hover){.marquee:hover .ex-track{animation-play-state:paused}}
+.marquee:focus-within .ex-track{animation-play-state:paused}
+@keyframes ex-scroll{from{transform:translateX(0)}to{transform:translateX(calc(-50% - 9px))}}
+.ex-card{flex:none;width:340px;background:var(--paper);color:var(--ink);border-radius:14px;overflow:hidden;display:grid;grid-template-rows:auto 1fr}
+.ex-shot{position:relative;background:var(--paper-2);padding:14px 14px 0;border-bottom:2px solid var(--ink)}
+.ex-shot .pc{width:100%;aspect-ratio:16/10;object-fit:cover;object-position:top;border:2px solid var(--ink);border-bottom:0;border-radius:8px 8px 0 0}
+.ex-shot .sp{position:absolute;right:12px;bottom:-14px;width:23%;aspect-ratio:250/541;object-fit:cover;object-position:top;border:3px solid var(--ink);border-radius:10px;background:var(--white);box-shadow:0 4px 0 var(--ink)}
+.ex-body{padding:22px 18px 18px;display:grid;gap:8px;align-content:start}
+.ex-meta{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.ex-cat{background:var(--ink);color:var(--yellow);font-weight:700;font-size:12px;padding:2px 10px;border-radius:4px}
+.ex-type{font-size:12px;font-weight:700;border:1.5px solid var(--ink);padding:1px 8px;border-radius:4px}
+.ex-card h3{font-size:18px;font-weight:900;line-height:1.45}
+.ex-goal{font-size:14px;font-weight:700}
+.ex-goal b{color:var(--red-deep)}
+.ex-card p.how{font-size:14px;color:var(--muted);line-height:1.7}
+.ex-note{margin-top:26px;font-size:13px;color:#BEB7A0;max-width:820px;line-height:1.8}
+
+/* 価格 */
+.price-box{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:start}
+.price-card{background:var(--white);border:4px solid var(--ink);border-radius:20px;overflow:hidden}
+.price-card .top{background:var(--yellow);padding:22px 26px;border-bottom:4px solid var(--ink);display:grid;gap:4px}
+.price-card .top small{font-weight:700}
+.price-card .top b{font:900 clamp(44px,5vw,58px)/1 var(--f-num);color:var(--ink)}
+.price-card .top b span{font-size:.36em;font-family:var(--f-body);margin-left:4px}
+.price-card .top em{font-style:normal;font-weight:900;color:var(--white);background:var(--red);justify-self:start;padding:2px 12px;border-radius:4px}
+.price-card ul{list-style:none;margin:0;padding:22px 26px;display:grid;gap:10px}
+.price-card li{display:flex;gap:10px;font-weight:700;align-items:flex-start;line-height:1.6}
+.price-card li::before{content:"";flex:none;margin-top:7px;width:14px;height:8px;border-left:3px solid var(--red);border-bottom:3px solid var(--red);transform:rotate(-45deg)}
+.price-card .caution{border-top:2px dashed var(--line);margin:0 26px;padding:16px 0 22px;font-size:13px;color:var(--muted)}
+.why{display:grid;gap:18px}
+.why img{border:3px solid var(--ink);border-radius:16px;aspect-ratio:16/10;object-fit:cover;width:100%}
+.why h3{font-size:21px;font-weight:900}
+.why p{color:var(--muted)}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.split div{border:2px solid var(--ink);border-radius:10px;padding:12px 14px;font-size:14px;line-height:1.6;background:var(--white)}
+.split b{display:block;font-size:13px;margin-bottom:2px}
+.split .ai b{color:var(--muted)}
+.split .human{background:var(--yellow)}
+
+/* 流れ */
+.flow-wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:40px;align-items:center}
+.flow-wrap img{border:3px solid var(--ink);border-radius:16px;width:100%;aspect-ratio:1/1;object-fit:cover}
+.flow{list-style:none;margin:0;padding:0;display:grid;gap:14px;counter-reset:f}
+.flow li{counter-increment:f;display:grid;grid-template-columns:56px 1fr;gap:16px;align-items:start;background:var(--white);border:2px solid var(--ink);border-radius:14px;padding:16px 18px}
+.flow li::before{content:counter(f);display:grid;place-items:center;width:56px;height:56px;border-radius:50%;background:var(--ink);color:var(--yellow);font:900 24px var(--f-num)}
+.flow h3{font-size:18px;font-weight:900}
+.flow p{font-size:15px;color:var(--muted)}
+
+/* FAQ */
+.faq{background:var(--paper-2)}
+.faq-list{display:grid;gap:10px;max-width:860px}
+.faq details{background:var(--white);border:2px solid var(--ink);border-radius:12px}
+.faq summary{cursor:pointer;list-style:none;padding:16px 50px 16px 18px;font-weight:900;position:relative;display:block}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::before{content:"Q";display:inline-block;margin-right:10px;font:900 18px var(--f-num);color:var(--red)}
+.faq summary::after{content:"+";position:absolute;right:18px;top:50%;transform:translateY(-50%);font:900 24px var(--f-num)}
+.faq details[open] summary::after{content:"−"}
+.faq details p{padding:0 18px 18px 46px;color:var(--muted)}
+
+/* 相談フォーム */
+.contact{background:var(--yellow)}
+.form-box{background:var(--paper);border:4px solid var(--ink);border-radius:20px;padding:34px;max-width:860px;box-shadow:10px 10px 0 var(--ink)}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.field{display:grid;gap:6px;min-width:0}
+.field.full{grid-column:1/-1}
+.field label{font-weight:900;font-size:15px}
+.field label .req{background:var(--red);color:var(--white);font-size:11px;padding:1px 6px;border-radius:3px;margin-left:6px;vertical-align:2px}
+.field label .opt{background:var(--paper-2);color:var(--muted);font-size:11px;padding:1px 6px;border-radius:3px;margin-left:6px;vertical-align:2px;border:1px solid var(--line)}
+.field input,.field textarea{width:100%;font:500 16px var(--f-body);border:2px solid var(--ink);border-radius:10px;padding:12px 14px;background:var(--white);color:var(--ink)}
+.field textarea{min-height:130px;resize:vertical}
+.field input[aria-invalid="true"],.field textarea[aria-invalid="true"]{border-color:var(--red);background:#FFF1EF}
+.field .msg{font-size:13px;color:var(--red-deep);font-weight:700;min-height:0}
+.agree{display:flex;gap:10px;align-items:flex-start;font-weight:700;font-size:15px}
+.agree input{width:22px;height:22px;margin-top:3px;accent-color:var(--ink)}
+.form-status{margin-top:18px;border:2px solid var(--ink);border-radius:12px;padding:14px 16px;font-weight:700;background:var(--white)}
+.form-status.ok{background:var(--paper-2)}
+.form-actions{margin-top:22px;display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.form-actions small{font-size:13px;color:var(--muted)}
+
+/* フッター */
+footer{background:var(--ink);color:#E9E3CC;padding-block:40px 120px;font-size:14px}
+footer .wrap{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+footer dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:4px 16px}
+footer dt{color:#BEB7A0}
+footer dd{margin:0}
+footer .copy{grid-column:1/-1;border-top:1px solid #333;padding-top:16px;font-size:12px;color:#BEB7A0}
+
+/* スマホ下部の固定ボタン */
+.sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--ink);border-top:3px solid var(--yellow);display:none;align-items:center;gap:12px;
+  padding:10px max(16px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+.sticky-cta p{color:var(--white);font-size:12px;line-height:1.35;font-weight:700}
+.sticky-cta p b{display:block;font:900 20px var(--f-num);color:var(--yellow)}
+.sticky-cta .btn{margin-left:auto;min-height:48px;font-size:16px;padding:0 20px;box-shadow:none;border-color:var(--yellow)}
+
+@media (max-width:1020px){
+  .services{grid-template-columns:repeat(3,1fr);gap:16px}
+  .services li::after{display:none}
+  .nav{display:none}
+  .header-cta{margin-left:auto}
+}
+@media (max-width:860px){
+  .hero{padding-block:24px 40px}
+  .hero .wrap,.price-box,.flow-wrap,.diag-box{grid-template-columns:1fr}
+  .hero-visual{order:-1}
+  .hero-visual .frame img{aspect-ratio:1/1;object-position:center 12%}
+  .notice{display:none}
+  .fv-catch{font-size:min(10vw,48px)}
+  .fv-catch .em{font-size:1.05em;white-space:nowrap}
+  .hero-copy{margin-top:18px}
+  .assure ul{grid-template-columns:1fr 1fr}
+  .worries,.ex-points,.ai-steps{grid-template-columns:1fr}
+  .flow-wrap img{aspect-ratio:16/9}
+  .sec{padding-block:60px}
+  .sticky-cta{display:flex}
+  footer .wrap{grid-template-columns:1fr}
+}
+@media (max-width:600px){
+  .services{grid-template-columns:1fr;gap:10px}
+  .services{gap:26px}
+  .services li{grid-template-columns:96px 1fr;grid-template-rows:auto}
+  .services img{border-bottom:0;border-right:2px solid var(--ink);height:100%;border-radius:12px 0 0 12px}
+  .services li:not(:last-child)::after{display:block;right:auto;left:40px;top:auto;bottom:-22px;border-top:14px solid var(--red);border-left:8px solid transparent;border-right:8px solid transparent;border-bottom:0}
+  .loop-back{margin:-2px 30px 0 40px;height:40px}
+  .loop-back span{font-size:13px;padding:6px 12px}
+  .services .body{padding:12px 14px}
+  .form-grid,.split{grid-template-columns:1fr}
+  .form-box,.diag-box{padding:20px;box-shadow:6px 6px 0 var(--ink)}
+  .ex-card{width:272px}
+  .brand small{display:none}
+  .hero-actions .btn{width:100%}
+  .hero-visual .frame{box-shadow:8px 8px 0 var(--yellow)}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}*{transition:none!important}
+  /* 動きを減らす設定では流さず、指やスクロールで横に送れるようにする（複製分は隠す） */
+  .ex-track{animation:none}
+  .marquee{overflow-x:auto}
+  .ex-track [aria-hidden="true"]{display:none}
+}
+/* 作り方の型（チラシ「LPの作り方ノウハウ」と同じ中身） */
+#knowhow{background:var(--paper)}
+.kh-head{display:grid;gap:12px;margin-bottom:34px;max-width:800px}
+.kh-head h2{font-family:var(--f-display);font-weight:400;font-size:clamp(26px,3.3vw,40px);line-height:1.4}
+.kh-mark{background:linear-gradient(transparent 60%,var(--yellow) 60%)}
+.kh-lead{color:var(--muted)}
+.kh-grid{display:grid;grid-template-columns:1.55fr 1fr;gap:28px;align-items:start}
+.kh-points{list-style:none;margin:0;padding:0;display:grid;gap:14px;counter-reset:kh}
+.kh-points li{counter-increment:kh;display:grid;grid-template-columns:68px 1fr;grid-template-rows:auto 1fr;background:var(--white)}
+.kh-points li::before{content:counter(kh);grid-row:1/3;display:grid;place-items:center;background:var(--yellow);font:900 30px var(--f-num)}
+.kh-points li:last-child::before{background:var(--red);color:var(--white)}
+.kh-points h3{font-size:18px;font-weight:900;padding:14px 16px 2px;line-height:1.45;text-wrap:balance;word-break:auto-phrase}
+.kh-points p{font-size:14px;color:var(--muted);padding:0 16px 14px;line-height:1.7}
+.kh-side{display:grid;gap:18px}
+.kh-box{background:var(--white);padding:18px}
+.kh-box-title{font-weight:900;font-size:17px}
+.kh-box-sub{font-size:13px;color:var(--muted)}
+.kh-order{list-style:none;margin:12px 0 0;padding:0;display:grid;gap:18px}
+.kh-order li{position:relative;text-align:center;font-weight:800;font-size:14px;padding:6px 8px;background:var(--paper)}
+.kh-order li:not(:last-child)::after{content:"";position:absolute;left:50%;bottom:-15px;transform:translateX(-50%);border-left:6px solid transparent;border-right:6px solid transparent}
+.kh-order li.first{background:var(--yellow)}
+.kh-order li.goal{background:var(--red);color:var(--white)}
+.kh-entry{background:var(--yellow)}
+.kh-entry dl{margin:8px 0 10px;display:grid;gap:6px}
+.kh-entry dl div{display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid rgb(17 17 17 / .3);padding-bottom:6px;font-size:14px}
+.kh-entry dt{font-weight:700}
+.kh-entry dd{margin:0;font-weight:900}
+.kh-entry dd::before{content:"→ "}
+.kh-points li{border:2px solid var(--ink);border-radius:12px;overflow:hidden}
+.kh-points li::before{border-right:2px solid var(--ink)}
+.kh-box{border:2px solid var(--ink);border-radius:12px}
+.kh-order li{border:2px solid var(--ink);border-radius:8px}
+.kh-order li:not(:last-child)::after{border-top:9px solid var(--ink)}
+.kh-entry .kh-box-sub{color:var(--ink)}
+@media (max-width:860px){.kh-grid{grid-template-columns:1fr}}
+@media (max-width:600px){.kh-points li{grid-template-columns:50px 1fr}.kh-points li::before{font-size:24px}.kh-points h3{font-size:16px}}
+/* 5つのサポート：円環（案A） */
+.ring-wrap{--rk:var(--ink,var(--black));display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.95fr);gap:44px;align-items:center}
+.ring{position:relative;width:min(100%,520px);aspect-ratio:1;margin:0 auto;container-type:inline-size}
+.ring svg{position:absolute;inset:0;width:100%;height:100%}
+.ring .hub{position:absolute;inset:31%;border-radius:50%;background:var(--yellow);border:4px solid var(--rk);color:var(--rk);display:grid;place-content:center;text-align:center;padding:8px}
+.ring .hub b{font-family:var(--f-display,var(--f-body));font-weight:900;font-size:22px;font-size:clamp(18px,5.4cqw,28px);line-height:1.3}
+.ring .hub small{font-size:12px;font-weight:700}
+.ring ol{list-style:none;margin:0;padding:0}
+.ring li{position:absolute;width:25%;transform:translate(-50%,-38%);text-align:center}
+.ring li img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:50%;border:4px solid var(--rk);background:var(--rk)}
+.ring li span{display:inline-block;margin-top:-14px;position:relative;background:var(--rk);color:var(--yellow);font:900 12px var(--f-num);padding:3px 9px;border-radius:99px}
+.ring li em{display:block;font-style:normal;font-weight:900;font-size:13px;line-height:1.3;margin-top:4px}
+.ring-list{list-style:none;margin:0;padding:0;display:grid;gap:12px;counter-reset:rl}
+.ring-list li{counter-increment:rl;display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:start;background:var(--white);border:2px solid var(--rk);border-radius:12px;padding:12px 16px}
+.ring-list li::before{content:counter(rl);display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:var(--yellow);border:2px solid var(--rk);font:900 19px var(--f-num);color:var(--rk)}
+.ring-list .rl-tag{font:900 12px var(--f-num);letter-spacing:.06em;color:var(--red)}
+.ring-list h3{font-size:17px;font-weight:900;line-height:1.45}
+.ring-list li p:last-child{font-size:14px;color:var(--muted);line-height:1.7}
+.ring-note{margin-top:28px;text-align:center;font-weight:700;color:var(--muted)}
+/* 看板版（黒地）では、線を黄色に、カードを暗く */
+.ring-dark .ring li img{border-color:var(--yellow)}
+.ring-dark .ring li em{color:var(--yellow)}
+.ring-dark .ring li span{background:var(--yellow);color:var(--black)}
+.ring-dark .ring-list li{background:#191919;border-color:#4D4600;color:var(--white)}
+.ring-dark .ring-list h3{color:var(--yellow)}
+.ring-dark .ring-list li p:last-child{color:#DDDDDD}
+.ring-dark + .ring-note{color:#DEDEDE;border:3px dashed var(--yellow);padding:14px 18px;border-radius:12px}
+@media (max-width:860px){
+  .ring-wrap{grid-template-columns:1fr;gap:28px}
+  .ring{order:-1;width:min(100%,420px)}
+  .ring li em{font-size:12px}
+  .ring-note{text-align:left}
+}
+
+/* ===== 試作：3つの演出 ===== */
+/* 1) ファーストビュー：写真がゆっくり寄り、問い合わせ通知が繰り返し届く */
+.frame.loop{isolation:isolate;-webkit-mask-image:-webkit-radial-gradient(white,black)}
+.frame.loop img{animation:kb 14s ease-in-out infinite alternate;transform-origin:62% 45%}
+.frame.loop .fv-catch{z-index:2}
+@keyframes kb{from{transform:scale(1)}to{transform:scale(1.09)}}
+.hero-visual .notice{animation:toast 6s ease-in-out infinite}
+@keyframes toast{0%,8%{opacity:0;transform:translateY(-14px) scale(.92)}14%,72%{opacity:1;transform:none}80%,100%{opacity:0;transform:translateY(-8px) scale(.96)}}
+.ping{position:absolute;right:30%;top:44%;width:16px;height:16px;pointer-events:none}
+.ping span{position:absolute;inset:0;border-radius:50%;border:3px solid var(--yellow);animation:ping 6s ease-out infinite}
+.ping span+span{animation-delay:.35s}
+@keyframes ping{0%,10%{opacity:0;transform:scale(.4)}14%{opacity:1}40%,100%{opacity:0;transform:scale(5)}}
+/* 2) 作り方の型：スクロールで進む物語 */
+.story{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:48px;align-items:start}
+.story-phone{position:sticky;top:96px;display:grid;justify-items:center;gap:12px}
+.phone{position:relative;width:260px;height:520px;border:6px solid var(--ink);border-radius:34px;background:var(--white);overflow:hidden;box-shadow:10px 10px 0 var(--yellow)}
+.screen{display:grid;gap:6px;padding:14px 10px 52px}
+.pb{position:relative;border:2px solid var(--line);border-radius:8px;padding:6px 8px 7px;background:var(--paper);transition:border-color .35s,background .35s,transform .35s,opacity .35s;display:grid;gap:4px}
+.pb b{font-size:11px;font-weight:900;line-height:1.3}
+.pb i{display:block;height:4px;border-radius:2px;background:var(--line)}
+.pb i+i{width:70%}
+.pb em{position:absolute;right:6px;top:6px;font-style:normal;font-size:9px;font-weight:900;background:var(--line);color:var(--muted);border-radius:99px;padding:1px 6px;transition:background .35s,color .35s}
+.pb-fv{min-height:84px;background:var(--paper-2)}
+.pb-goal{background:var(--paper-2)}
+.sticky-bar{position:absolute;left:0;right:0;bottom:0;height:40px;display:grid;place-items:center;background:var(--line);color:var(--muted);font-weight:900;font-size:13px;transition:background .35s,color .35s}
+.pb-data{position:absolute;left:12px;right:12px;top:14px;height:84px;display:flex;align-items:flex-end;gap:8px;padding:8px;border-radius:8px;background:rgb(17 17 17 / .82);opacity:0;transition:opacity .35s}
+.pb-data span{flex:1;height:var(--h);background:var(--yellow);border-radius:3px 3px 0 0}
+.story-cap{font-weight:900;font-size:14px;background:var(--ink);color:var(--yellow);border-radius:99px;padding:4px 16px;text-align:center}
+.screen.dim .pb{opacity:.35}
+.screen .pb.on{opacity:1;border-color:var(--ink);background:var(--yellow);transform:scale(1.03)}
+.screen.m-cta .pb em,.screen.m-cta+.sticky-bar{background:var(--red);color:var(--white)}
+.screen.m-cta .pb em{animation:blink 1.2s ease-in-out infinite}
+@keyframes blink{50%{transform:scale(1.15)}}
+.screen.m-form .pb-goal i{height:9px;background:var(--white);border:1.5px solid var(--ink)}
+.screen.m-rule .pb{border-style:dashed;border-color:var(--red);opacity:1}
+.screen.m-data .pb-data{opacity:1}
+.story-steps{list-style:none;margin:0;padding:0;display:grid;gap:0}
+.story-step{min-height:62vh;display:grid;align-content:center;gap:8px;padding:20px 0 20px 22px;border-left:4px solid var(--line);transition:border-color .35s,opacity .35s;opacity:.45}
+.story-step.on{border-color:var(--red);opacity:1}
+.story-step .sn{font:900 40px/1 var(--f-num);color:var(--yellow);-webkit-text-stroke:2px var(--ink)}
+.story-step h3{font-family:var(--f-display);font-weight:400;font-size:clamp(22px,2.4vw,30px);line-height:1.4}
+.story-step p{color:var(--muted);max-width:36em}
+.story-entry{margin-top:20px;max-width:560px}
+/* 3) 料金：ベントー型 */
+.bento{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-template-areas:"lp lp tg ad" "lp lp op rp" "mo mo to to";gap:14px}
+.bt{background:var(--white);border:3px solid var(--ink);border-radius:18px;padding:18px;display:grid;gap:6px;align-content:start;min-width:0}
+.bt h3{font-size:18px;font-weight:900;line-height:1.4}
+.bt p{font-size:14px;color:var(--muted);line-height:1.7}
+.bt-k{font:900 12px var(--f-num);letter-spacing:.1em;color:var(--red)!important}
+.bt-lp{grid-area:lp;padding:0;overflow:hidden;grid-template-rows:1fr auto}
+.bt-lp img{width:100%;height:100%;min-height:220px;object-fit:cover;border-bottom:3px solid var(--ink);background:var(--ink)}
+.bt-lp>div{padding:16px 18px 18px;display:grid;gap:4px}
+.bt-lp h3{font-family:var(--f-display);font-weight:400;font-size:clamp(20px,2.2vw,26px)}
+.bt-tg{grid-area:tg}.bt-ad{grid-area:ad}.bt-op{grid-area:op}.bt-rp{grid-area:rp}
+/* 小さなタイル：上に写真の丸、下に文字 */
+.bt-tg,.bt-ad,.bt-op,.bt-rp{grid-template-rows:auto auto auto 1fr}
+.bt-ic{width:84px;height:84px;border-radius:50%;object-fit:cover;border:3px solid var(--ink);background:var(--ink);margin-bottom:6px}
+.chips{list-style:none;margin:4px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:4px;align-items:flex-start;align-self:start}
+.chips li{font-size:12px;font-weight:700;border:1.5px solid var(--ink);border-radius:6px;padding:1px 7px}
+.bt-money{grid-area:mo;background:var(--yellow)}
+.bt-money b,.bt-total b{font:900 clamp(38px,4.4vw,54px)/1.05 var(--f-num)}
+.bt-money b span,.bt-total b span{font:900 16px var(--f-body);margin-left:4px}
+.bt-money p{color:var(--ink)}
+.bt-total{grid-area:to;background:var(--ink);color:var(--white);grid-template-columns:1fr auto;align-items:end;column-gap:16px}
+.bt-total .bt-k{grid-column:1/-1;color:var(--yellow)!important}
+.bt-total b{color:var(--yellow)}
+.bento-caution{margin:14px 0 0;padding:0;font-size:13px;color:var(--muted)}
+.why-wide{margin-top:40px}
+.why-wide .why{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);column-gap:32px;align-items:center}
+.why-wide .why img{grid-row:1/5}
+@media (max-width:860px){
+  .story{grid-template-columns:1fr;gap:0}
+  .story-phone{top:70px;z-index:2;background:var(--paper);padding-block:8px;grid-template-columns:auto 1fr;align-items:center;justify-items:start;gap:14px;border-bottom:2px solid var(--line)}
+  .phone{width:116px;height:220px;border-width:4px;border-radius:18px;box-shadow:5px 5px 0 var(--yellow)}
+  .screen{gap:3px;padding:6px 5px 26px}
+  .pb{padding:3px 4px;border-radius:4px;gap:2px}
+  .pb b{font-size:6px}.pb i{height:2px}.pb em{font-size:5px;padding:0 3px;right:3px;top:3px}
+  .pb-fv{min-height:34px}.sticky-bar{height:20px;font-size:8px}
+  .pb-data{top:6px;height:34px;left:6px;right:6px;padding:4px;gap:3px}
+  .story-cap{font-size:13px;text-align:left}
+  .story-step{min-height:46vh;padding-left:16px}
+  .bento{grid-template-columns:1fr;grid-template-areas:"lp" "tg" "ad" "op" "rp" "mo" "to"}
+  .bt-tg,.bt-ad,.bt-op,.bt-rp{grid-template-columns:64px 1fr;grid-template-rows:auto;column-gap:14px;align-items:center}
+  .bt-ic{grid-row:1/4;width:64px;height:64px;margin:0}
+  .bt-total{grid-template-columns:1fr}
+  .why-wide .why{grid-template-columns:1fr}
+  .why-wide .why img{grid-row:auto}
+}
+@media (prefers-reduced-motion:reduce){
+  .frame.loop img,.hero-visual .notice,.ping span,.screen.m-cta .pb em{animation:none}
+  .ping{display:none}
+}
+</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap">
+<style>
+/* デザイン案 v3：上質ミニマル（中身は今の版と同じ。色・書体・飾り・レイアウトだけを上書き） */
+:root{--ink:#1C1C1C;--yellow:#EAE3D6;--red:#8C6A3C;--red-deep:#6E5230;--paper:#FFFFFF;--paper-2:#F5F2EC;--line:#E5E0D6;--muted:#6B665E;--f-display:'Shippori Mincho B1',serif;--f-num:'Shippori Mincho B1',serif}
+.sec h2,.hero .sub,.fv-catch,.kh-head h2,.story-step h3,.bt-lp h3,.ring .hub b,.diag-result h3{font-weight:700!important;letter-spacing:.04em}
+.hero-visual .frame,.notice,.worries li,.diag-box,.diag-result,.services li,.ex-card,.price-card,.why img,.split div,.flow-wrap img,.flow li,.faq details,.form-box,.form-status,.kh-points li,.kh-box,.ring-list li,.ai-steps li,.breakdown,.bd-bar,.bt,.phone{border-radius:0px!important}
+.btn,.media li,.opts span,.ex-cat,.ex-type,.ai-badge b,.price-card .top em,.loop-back span,.fv-catch span,.close-note,.split div{border-radius:0px!important}
+[class]{box-shadow:none!important}
+.hero-visual .frame,.notice,.worries li,.diag-box,.diag-result,.services li,.ex-card,.price-card,.why img,.split div,.flow-wrap img,.flow li,.faq details,.form-box,.form-status,.kh-points li,.kh-box,.ring-list li,.ai-steps li,.breakdown,.bd-bar,.bt,.phone{border-width:1px!important}
+.btn{border-width:1px!important}
+.sec{padding-block:110px}
+.hero .wrap{grid-template-columns:1fr!important;text-align:center;gap:30px}.hero-copy{justify-items:center;max-width:860px;margin-inline:auto}.hero-visual{max-width:920px;width:100%;margin-inline:auto;order:-1}.hero-visual .frame img{aspect-ratio:16/9}.price-line{margin-inline:auto}.hero-actions,.media,.ai-badge,.kicker{justify-content:center}.hero .lead{margin-inline:auto}@media (min-width:861px){.hero-visual{max-width:760px}.hero-visual .frame img{aspect-ratio:2/1}.hero{padding-block:24px 40px}}.ping{display:none}
+.sec-head,.kh-head{margin-inline:auto;text-align:center;justify-items:center}
+.stripe{display:none}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">本文へ移動</a>
+<header class="site-header band">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="NICO 集客用ホームページ トップへ">
+      <span class="brand-mark" aria-hidden="true">N</span>
+      <span><b>NICO</b><small>集客用ホームページ</small></span>
+    </a>
+    <nav class="nav" aria-label="ページ内">
+      <a href="#service">サービス</a>
+      <a href="#examples">デザイン例</a>
+      <a href="#knowhow">作り方の型</a>
+      <a href="#price">料金</a>
+      <a href="#faq">よくある質問</a>
+    </nav>
+    <a class="btn btn-red header-cta" href="#contact" data-track="header_cta">無料相談</a>
+  </div>
+</header>
+<div class="stripe" aria-hidden="true"></div>
+
+<main id="main">
+  <section class="hero band" id="top">
+    <div class="wrap">
+      <div class="hero-copy">
+        <p class="kicker"><span>FIRST STEP</span><span class="nw">はじめてのWEB集客を、</span><span class="nw">まるごとサポート。</span></p>
+        <p class="sub"><span class="nw">WEB集客をはじめて行う</span><span class="nw">会社のための、</span><span class="nw">集客用ホームページ（LP）</span><span class="nw">＋WEB広告。</span></p>
+        <p class="lead">ホームページ用語がわからなくても大丈夫。伝え方を整え、広告で届け、初めてのWEB問い合わせを目指します。</p>
+        <p class="ai-badge"><b>AI活用で、業界最安値級<sup>※1</sup>。</b>制作・広告運用・広告費まで込みで、この価格です。</p>
+        <div class="price-line">
+          <span class="label">制作＋WEB広告運用</span>
+          <span class="yen">110,000<small>円（税込）</small></span>
+          <span class="inc">広告費40,000円分込み</span>
+        </div>
+        <p class="fv-note">※1 集客用ホームページ制作と広告運用のセット価格として。2026年10月 当社調べ。</p>
+        <ul class="media" aria-label="運用できる広告">
+          <li>Facebook・Instagram広告</li><li>Google広告</li><li>検索キーワード広告</li>
+        </ul>
+        <div class="hero-actions">
+          <a class="btn btn-red" href="#contact" data-track="fv_cta">無料で相談する</a>
+          <a class="btn btn-ghost" href="#diagnosis">3つの質問から始める</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="frame loop">
+          <h1 class="fv-catch"><span>問い合わせ</span><span>ゼロから、</span><span class="em">最初の1件へ。</span></h1>
+          <img src="../../assets/hero-01-first-inquiry.webp" alt="工房で、スマートフォンに届いた問い合わせを見てほほえむ店主。手前のノートパソコンには自分の店のホームページ" width="1100" height="1100">
+        </div>
+        <div class="notice" aria-hidden="true"><i>1</i><div><b>ホームページから<br>お問い合わせが届きました</b><small>はじめてのWEB問い合わせ</small></div></div>
+        <div class="ping" aria-hidden="true"><span></span><span></span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="assure band">
+    <ul class="wrap">
+      <li>誰に届けるかを一緒に整理</li>
+      <li>スマホ対応の集客用ホームページ制作</li>
+      <li>WEB広告の設定・運用</li>
+      <li>配信後のレポート</li>
+    </ul>
+  </div>
+
+  <section class="sec band" aria-labelledby="worry-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">WORRIES</p>
+        <h2 id="worry-title">WEBから問い合わせが来ない。<br>でも、何から始めればよいかわからない。</h2>
+      </div>
+      <ul class="worries">
+        <li>ホームページを作ったことがない</li>
+        <li>会社案内のホームページはあるが、問い合わせにつながらない</li>
+        <li>自社の強みを文章にできない</li>
+        <li>広告の出し方がわからない</li>
+        <li>制作会社と広告会社を別々に探せない</li>
+        <li>高額な費用をかける前に、小さく始めたい</li>
+      </ul>
+      <p class="close-note">NICOは、専門用語を使わず、事業のことを伺うところから始めます。最初から原稿や写真がすべてそろっていなくても、相談できます。</p>
+    </div>
+  </section>
+
+  <section class="sec diag band" id="diagnosis" aria-labelledby="diag-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow" style="color:var(--ink)">3 QUESTIONS</p>
+        <h2 id="diag-title">3つの質問で、相談したいことを整理しましょう。</h2>
+        <p>答えた内容は、下の相談フォームに書き写されます。お名前や連絡先はここでは聞きません。</p>
+      </div>
+      <form class="diag-box" id="diag-form" novalidate>
+        <div>
+          <fieldset>
+            <legend><b>Q1</b>いま、ホームページはありますか？</legend>
+            <div class="opts">
+              <label><input type="radio" name="q1" id="q1a" value="ある・制作途中"><span>ある・制作途中</span></label>
+              <label><input type="radio" name="q1" id="q1b" value="これから作りたい"><span>これから作りたい</span></label>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend><b>Q2</b>いちばん気になることは？</legend>
+            <div class="opts">
+              <label><input type="radio" name="q2" id="q2a" value="design"><span>文章やデザインがしっくりこない</span></label>
+              <label><input type="radio" name="q2" id="q2b" value="reach"><span>人に見てもらう方法がわからない</span></label>
+              <label><input type="radio" name="q2" id="q2c" value="time"><span>制作も広告も手が回らない</span></label>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend><b>Q3</b>WEB広告（Facebook・Google・キーワード広告など）の経験は？</legend>
+            <div class="opts">
+              <label><input type="radio" name="q3" id="q3a" value="はじめて"><span>はじめて</span></label>
+              <label><input type="radio" name="q3" id="q3b" value="配信したことがある"><span>配信したことがある</span></label>
+            </div>
+          </fieldset>
+          <button class="btn btn-red" type="submit" data-track="diag_complete">結果を見る</button>
+        </div>
+        <div class="diag-result" id="diag-result" aria-live="polite">
+          <p class="tag">RESULT</p>
+          <h3 id="diag-title-out">3つの質問に答えると、ここに相談のポイントが出ます。</h3>
+          <ul id="diag-points"><li>結果は成果の予測ではありません。</li><li>無料相談で確かめる項目の目安です。</li></ul>
+          <a class="btn btn-red" id="diag-go" href="#contact" hidden>この内容で相談する</a>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <section class="sec band" id="service" aria-labelledby="service-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">SERVICE</p>
+        <h2 id="service-title">作って終わらせない。<br><span class="nw">回し続ける、</span><span class="nw">5つのサポート。</span></h2>
+        <p>設計して、つくって、届けて、振り返る。振り返りで見つけた改善点を次の設計に戻し、この流れを繰り返します。</p>
+      </div>
+      <div class="ring-wrap">
+        <ol class="ring-list">
+          <li><div><p class="rl-tag">SUPPORT 1｜設計する</p><h3>ターゲット設計</h3><p>誰に、何を、どう伝えるか。届けたい相手と伝える軸を決めます。</p></div></li>
+          <li><div><p class="rl-tag">SUPPORT 2｜つくる</p><h3>集客用ホームページ制作</h3><p>LP（ランディングページ）を、スマホで読みやすく、無料相談へ進みやすい文章・構成・デザインに仕上げます。</p></div></li>
+          <li><div><p class="rl-tag">SUPPORT 3｜準備する</p><h3>WEB広告設定</h3><p>Facebook・Instagram広告、Google広告、検索キーワード広告から、事業に合う広告を選んで準備します。</p></div></li>
+          <li><div><p class="rl-tag">SUPPORT 4｜届ける</p><h3>広告運用代行</h3><p>設定した相手へ広告を配信し、反応を見ながら調整します。運用期間は契約前に確認します。</p></div></li>
+          <li><div><p class="rl-tag">SUPPORT 5｜振り返る</p><h3>配信後レポート</h3><p>クリック、広告費、問い合わせ状況を振り返り、次に直すところを見つけます。</p></div></li>
+        </ol>
+        <div class="ring" role="img" aria-label="設計する、つくる、準備する、届ける、振り返るの5つが輪になり、振り返りから設計へ戻る図">
+          <svg viewBox="0 0 100 100" aria-hidden="true">
+            <defs><marker id="ring-ah" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#E4291F"/></marker></defs>
+            <circle cx="50" cy="50" r="38" fill="none" stroke="#111" stroke-width="1.2" stroke-dasharray="3 2.2"/>
+            <path d="M50 12 A38 38 0 0 1 86.1 38.3" fill="none" stroke="#E4291F" stroke-width="1.6" marker-end="url(#ring-ah)"/>
+            <path d="M86.1 38.3 A38 38 0 0 1 72.3 80.7" fill="none" stroke="#E4291F" stroke-width="1.6" marker-end="url(#ring-ah)"/>
+            <path d="M72.3 80.7 A38 38 0 0 1 27.7 80.7" fill="none" stroke="#E4291F" stroke-width="1.6" marker-end="url(#ring-ah)"/>
+            <path d="M27.7 80.7 A38 38 0 0 1 13.9 38.3" fill="none" stroke="#E4291F" stroke-width="1.6" marker-end="url(#ring-ah)"/>
+            <path d="M13.9 38.3 A38 38 0 0 1 50 12" fill="none" stroke="#E4291F" stroke-width="1.6" marker-end="url(#ring-ah)"/>
+          </svg>
+          <div class="hub"><b>回し<br>続ける</b><small>振り返りを、次の設計へ</small></div>
+          <ol>
+          <li style="--a:0deg;left:50.0%;top:12.0%"><img src="../../assets/step-01-targeting.webp" alt="" width="520" height="520" loading="lazy"><span>1</span><em>設計する</em></li>
+          <li style="--a:72deg;left:86.1%;top:38.3%"><img src="../../assets/step-02-lp-design.webp" alt="" width="520" height="520" loading="lazy"><span>2</span><em>つくる</em></li>
+          <li style="--a:144deg;left:72.3%;top:80.7%"><img src="../../assets/step-03-ad-setup.webp" alt="" width="520" height="520" loading="lazy"><span>3</span><em>準備する</em></li>
+          <li style="--a:216deg;left:27.7%;top:80.7%"><img src="../../assets/step-04-operations.webp" alt="" width="520" height="520" loading="lazy"><span>4</span><em>届ける</em></li>
+          <li style="--a:288deg;left:13.9%;top:38.3%"><img src="../../assets/step-05-report.webp" alt="" width="520" height="520" loading="lazy"><span>5</span><em>振り返る</em></li>
+          </ol>
+        </div>
+      </div>
+      <p class="ring-note">振り返りで見つけた改善点を、SUPPORT 1の設計へ戻す。この繰り返しで、問い合わせにつながる形に近づけていきます。</p>
+    </div>
+  </section>
+
+  <section class="sec examples band" id="examples" aria-labelledby="ex-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow" style="color:var(--yellow)">DESIGN EXAMPLES</p>
+        <h2 id="ex-title">業種が違えば、<br>伝え方も変わります。</h2>
+        <p>お客さまの悩みも、してほしい行動も、業種によって違います。だから見せ方もボタンも、あなたの業種に合わせてゼロから設計します。</p>
+      </div>
+      <div class="ex-points">
+        <div><b>業種ごとに一から</b><span>テンプレートの使い回しはしません</span></div>
+        <div><b>相談の入口もお客さまに合わせて</b><span>予約・電話・LINE・診断など</span></div>
+        <div><b>業種のルールを守る</b><span>医療・不動産など、広告の決まりごとに沿った書き方</span></div>
+      </div>
+    </div>
+    <div class="marquee" aria-label="業種別デザイン例14例（自動で横に流れます。マウスを乗せると止まります）">
+      <div class="ex-track" id="ex-row1"></div>
+      <div class="ex-track rev" id="ex-row2"></div>
+    </div>
+    <div class="wrap">
+      <p class="ex-note">※掲載しているのはデザインのイメージです。</p>
+    </div>
+  </section>
+
+  <section class="sec band" id="knowhow" aria-labelledby="kh-title">
+    <div class="wrap">
+      <div class="kh-head">
+        <p class="eyebrow">KNOW-HOW</p>
+        <h2 id="kh-title"><span class="nw">問い合わせにつながる</span><span class="nw">ホームページには、</span><br><span class="kh-mark">作り方の「型」があります。</span></h2>
+        <p class="kh-lead">NICOが集客用ホームページ（LP・ランディングページ）を作るときに守っている、7つのポイントです。順番と入口を整えると、伝わりやすくなります。</p>
+      </div>
+      <div class="story">
+        <div class="story-phone" aria-hidden="true">
+          <div class="phone">
+            <div class="screen">
+              <div class="pb pb-fv"><b>最初の画面</b><i></i><i></i><em>相談する</em></div>
+              <div class="pb pb-worry-pain"><b>悩み・共感</b><i></i><i></i></div>
+              <div class="pb pb-sol"><b>解決策</b><i></i><i></i><em>相談する</em></div>
+              <div class="pb pb-voice"><b>根拠・お客さまの声</b><i></i><i></i></div>
+              <div class="pb pb-price"><b>料金</b><i></i><i></i><em>相談する</em></div>
+              <div class="pb pb-flow"><b>利用までの流れ</b><i></i><i></i></div>
+              <div class="pb pb-faq"><b>よくある質問</b><i></i><i></i></div>
+              <div class="pb pb-goal"><b>申込み・相談</b><i></i><i></i><em>相談する</em></div>
+              <div class="pb-data"><span style="--h:40%"></span><span style="--h:65%"></span><span style="--h:52%"></span><span style="--h:85%"></span></div>
+            </div>
+            <div class="sticky-bar">相談する</div>
+          </div>
+          <p class="story-cap" id="story-cap">最初の画面</p>
+        </div>
+        <ol class="story-steps">
+          <li class="story-step" data-mode="fv" data-cap="最初の画面"><span class="sn">01</span><h3>最初の画面で、答えを見せる</h3><p>「誰の・何の悩みを・どう解決するか」をひと目で。相談ボタンも、最初の画面に置きます。</p></li>
+          <li class="story-step" data-mode="goal" data-cap="ゴールは1つ"><span class="sn">02</span><h3>してほしい行動は、1つに絞る</h3><p>「無料相談」「予約」など、ゴールを1つに。ほかのページへのリンクは増やしすぎません。</p></li>
+          <li class="story-step" data-mode="cta" data-cap="ボタンは2〜4回＋画面下に固定"><span class="sn">03</span><h3>相談ボタンは、迷う前に何度も出す</h3><p>最初・途中・最後に2〜4回。スマホでは画面下に固定すると、いつでも押せます。</p></li>
+          <li class="story-step" data-mode="form" data-cap="フォームは3〜5項目"><span class="sn">04</span><h3>入力フォームは、短く・答えやすく</h3><p>目安は3〜5項目。質問が多いときは2〜3段に分けて、最初は選ぶだけに。</p></li>
+          <li class="story-step" data-mode="worry" data-cap="料金・流れ・よくある質問"><span class="sn">05</span><h3>申し込む前の不安を、先に消す</h3><p>料金・利用までの流れ・よくある質問を載せます。根拠やお客さまの声は、事実だけを丁寧に。</p></li>
+          <li class="story-step" data-mode="rule" data-cap="ページ全体の表現を確認"><span class="sn">06</span><h3>業種ごとの広告ルールを守る</h3><p>医療・不動産・士業などは、表現や表記に決まりがあります。作る前に確認します。</p></li>
+          <li class="story-step" data-mode="data" data-cap="数字を見て、最初の画面から直す"><span class="sn">07</span><h3>公開して終わりにしない</h3><p>広告の数字を見て、まず最初の画面から見直します。表示の速さもスマホで確認します。</p></li>
+        </ol>
+      </div>
+      <div class="kh-box kh-entry story-entry">
+        <p class="kh-box-title">入口は、業種で変える</p>
+        <dl>
+          <div><dt>不動産の売却</dt><dd>かんたん査定</dd></div>
+          <div><dt>住宅の見学会</dt><dd>日時を選ぶ</dd></div>
+          <div><dt>士業の相談</dt><dd>電話・相談</dd></div>
+        </dl>
+        <p class="kh-box-sub">読む人が動きやすい入口を選ぶことも、「型」の一部です。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec ai band" id="ai" aria-labelledby="ai-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">WHY SO LOW</p>
+        <h2 id="ai-title">AIで、作る手間を減らした。<br><span class="hl">だから、業界最安値級<sup>※1</sup>。</span></h2>
+        <p>ホームページづくりで時間がかかるのは、調べものや下書きの作業です。NICOはそこをAIに任せ、浮いた時間とコストを価格に回しています。</p>
+      </div>
+      <ol class="ai-steps">
+        <li><span class="who ai-who">AI</span><h3>下書きを速く作る</h3><p>業種や競合の調査、ページの構成案、文章の下書き、画像づくり。</p></li>
+        <li><span class="who human-who">人</span><h3>あなたの事業に合わせて仕上げる</h3><p>お話を伺って内容を決め、文章・デザインを直し、表現のルールを確認します。</p></li>
+        <li><span class="who yen-who">¥</span><h3>浮いたコストを、価格に</h3><p>制作も広告運用も、広告費まで含めて税込110,000円にしました。</p></li>
+      </ol>
+      <div class="breakdown" aria-label="税込110,000円の内訳">
+        <p class="bd-title">税込110,000円の内訳</p>
+        <div class="bd-bar">
+          <div class="bd-work"><b>70,000円</b><span>制作＋広告の設定・運用・レポート</span></div>
+          <div class="bd-ad"><b>40,000円</b><span>実際の広告費</span></div>
+        </div>
+        <p class="bd-note">広告費を除くと、集客用ホームページの制作と広告運用は<b>実質70,000円</b>です。</p>
+        <p class="survey">※1 2026年10月 当社調べ。WEB検索で集めた、集客用ホームページ（LP）制作と広告運用をセットで提供する会社の公開価格のうち、広告費を除いた最低契約期間の総額を比較。ホームページ制作だけ、広告運用だけのサービスとは比べていません。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec band" id="price" aria-labelledby="price-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">PRICE</p>
+        <h2 id="price-title">広告費も含めて、税込11万円。</h2>
+      </div>
+      <div class="bento" aria-label="税込110,000円に含まれるもの">
+        <div class="bt bt-lp"><img src="../../assets/step-02-lp-design.webp" alt="" width="520" height="520" loading="lazy"><div><p class="bt-k">つくる</p><h3><span class="nw">集客用ホームページ</span><span class="nw">（LP）制作</span></h3><p>スマホで読みやすく、無料相談へ進みやすい文章・構成・デザインに。</p></div></div>
+        <div class="bt bt-tg"><img class="bt-ic" src="../../assets/step-01-targeting.webp" alt="" width="520" height="520" loading="lazy"><p class="bt-k">設計する</p><h3>ターゲット設計</h3><p>誰に、何を、どう伝えるかを決めます。</p></div>
+        <div class="bt bt-ad"><img class="bt-ic" src="../../assets/step-03-ad-setup.webp" alt="" width="520" height="520" loading="lazy"><p class="bt-k">準備する</p><h3>WEB広告設定</h3><ul class="chips"><li>Facebook・Instagram</li><li>Google</li><li>検索キーワード</li></ul></div>
+        <div class="bt bt-op"><img class="bt-ic" src="../../assets/step-04-operations.webp" alt="" width="520" height="520" loading="lazy"><p class="bt-k">届ける</p><h3>広告運用代行</h3><p>反応を見ながら配信を調整します。</p></div>
+        <div class="bt bt-rp"><img class="bt-ic" src="../../assets/step-05-report.webp" alt="" width="520" height="520" loading="lazy"><p class="bt-k">振り返る</p><h3>配信後レポート</h3><p>結果から、次に直すところを見つけます。</p></div>
+        <div class="bt bt-money"><p class="bt-k">実際の広告費</p><b>40,000<span>円分</span></b><p>広告媒体へ支払う費用も、最初から含めています。</p></div>
+        <div class="bt bt-total"><p class="bt-k">ぜんぶ込みで</p><b>110,000<span>円（税込）</span></b><a class="btn btn-red" href="#contact" data-track="price_cta">無料で相談する</a></div>
+      </div>
+      <p class="caution bento-caution">制作期間、広告運用期間、修正回数、対応範囲は無料相談後に確認します。追加ページ、撮影、特殊機能、広告費の増額などは、着手前に別途お見積もりします。</p>
+      <div class="why-wide">
+        <div class="why">
+          <img src="../../assets/hero-03-ai-workflow.webp" alt="店主とAIのアシスタントが、ホームページ・広告・問い合わせの流れを一緒に整えているコラージュ" width="900" height="900" loading="lazy">
+          <h3>この価格でできる理由</h3>
+          <p>AIを制作の補助ツールとして使い、調査、構成案、文章案、画像制作などの工程を効率化しています。そのため開発コストを抑え、集客用ホームページ制作と広告運用を税込11万円で提供します。</p>
+          <div class="split">
+            <div class="ai"><b>AIが手伝うこと</b>調査・構成案・文章案・画像づくり</div>
+            <div class="human"><b>人が担当すること</b>事業内容の理解・最終判断・品質確認・広告運用</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec band" aria-labelledby="flow-title" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">FLOW</p>
+        <h2 id="flow-title">相談から広告配信まで、4つのステップ。</h2>
+      </div>
+      <div class="flow-wrap">
+        <img src="../../assets/hero-02-journey.webp" alt="小さなお店から、ノートパソコンのホームページを通って、スマートフォンの問い合わせへ矢印がつながる模型" width="900" height="900" loading="lazy">
+        <ol class="flow">
+          <li><div><h3>無料相談</h3><p>事業内容、いまの集客方法、困っていることを伺います。</p></div></li>
+          <li><div><h3>対応範囲と条件の確認</h3><p>制作内容、必要な素材、制作期間、広告運用期間、修正回数を決めます。</p></div></li>
+          <li><div><h3>集客用ホームページ制作・広告準備</h3><p>内容を確認していただきながら制作し、選んだWEB広告の配信準備を行います。</p></div></li>
+          <li><div><h3>広告配信・レポート</h3><p>広告を配信し、計測できる結果をレポートにまとめます。</p></div></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec faq band" id="faq" aria-labelledby="faq-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">FAQ</p>
+        <h2 id="faq-title">よくある質問</h2>
+      </div>
+      <div class="faq-list">
+        <details><summary>LP（ランディングページ）とは何ですか？</summary><p>広告や検索から来た人が最初に見る、1枚の縦長のページです。問い合わせや予約など、してほしい行動を1つに絞って作ります。NICOでは、わかりやすく「集客用ホームページ」と呼んでいます。</p></details>
+        <details><summary>ホームページや広告の知識がなくても相談できますか？</summary><p>はい。専門用語を使わず、事業内容といまのお悩みを伺うところから始めます。</p></details>
+        <details><summary>すでにホームページがある場合も相談できますか？</summary><p>はい。いまの制作環境を確認し、作り直しや修正など、対応できる範囲をご案内します。</p></details>
+        <details><summary>デザイン例のような見た目にしてもらえますか？</summary><p>デザイン例は、業種ごとの作り分けを見ていただくためのイメージです。実際のデザインは、あなたの事業と届けたい相手に合わせて一から考えます。気になるデザイン例があれば、相談のときにお伝えください。</p></details>
+        <details><summary>どの広告を使いますか？</summary><p>Facebook・Instagram広告、Google広告、検索キーワード広告（調べている人に表示する広告）から、事業内容と届けたい相手に合わせて選びます。1つに絞るか組み合わせるかも、無料相談で一緒に決めます。</p></details>
+        <details><summary>税込110,000円以外に費用はかかりますか？</summary><p>基本セットには広告費40,000円分を含みます。追加ページ、撮影、特殊機能、広告費の増額などをご希望の場合は、着手前に別途お見積もりします。</p></details>
+        <details><summary>制作期間や広告運用期間はどれくらいですか？</summary><p>内容や素材の準備状況で異なります。制作期間、広告運用期間、修正回数は、お申し込み前に個別に確認します。</p></details>
+        <details><summary>必ず問い合わせが来ますか？</summary><p>問い合わせ数や広告の成果を保証するサービスではありません。広告の反応や計測できる問い合わせ状況を振り返り、改善の材料を整理します。</p></details>
+        <details><summary>依頼するか決めていなくても相談できますか？</summary><p>はい。現状とご希望を伺い、対応範囲や進め方を確認したうえでご検討いただけます。</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec contact band" id="contact" aria-labelledby="contact-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow" style="color:var(--ink)">CONTACT</p>
+        <h2 id="contact-title">まずは「WEBから問い合わせがほしい」と、お聞かせください。</h2>
+      </div>
+      <form class="form-box" id="contact-form" novalidate>
+        <div class="form-grid">
+          <div class="field"><label for="f-name">お名前<span class="req">必須</span></label><input id="f-name" name="name" autocomplete="name" aria-describedby="m-name"><p class="msg" id="m-name"></p></div>
+          <div class="field"><label for="f-mail">メールアドレス<span class="req">必須</span></label><input id="f-mail" name="email" type="email" autocomplete="email" inputmode="email" aria-describedby="m-mail"><p class="msg" id="m-mail"></p></div>
+          <div class="field"><label for="f-company">会社名・屋号<span class="opt">任意</span></label><input id="f-company" name="company" autocomplete="organization"></div>
+          <div class="field"><label for="f-tel">電話番号<span class="opt">任意</span></label><input id="f-tel" name="tel" type="tel" autocomplete="tel" inputmode="tel" aria-describedby="m-tel"><p class="msg" id="m-tel"></p></div>
+          <div class="field full"><label for="f-url">いまのホームページのURL<span class="opt">任意</span></label><input id="f-url" name="url" type="url" inputmode="url" placeholder="https://"></div>
+          <div class="field full"><label for="f-body">相談内容<span class="opt">任意</span></label><textarea id="f-body" name="body" placeholder="例：チラシと紹介だけで集客しています。WEBから問い合わせを受けてみたいです。"></textarea></div>
+          <div class="field full"><label class="agree" for="f-agree"><input type="checkbox" id="f-agree" name="agree" aria-describedby="m-agree">個人情報の取り扱いに同意する<span class="req">必須</span></label><p class="msg" id="m-agree"></p></div>
+        </div>
+        <div class="form-actions">
+          <button class="btn btn-red" type="submit">入力内容を確認する</button>
+          <small>現在、このフォームは準備中です。入力内容の確認だけを行い、送信はされません。</small>
+        </div>
+        <div class="form-status" id="form-status" role="status" aria-live="polite" hidden></div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="band">
+  <div class="wrap">
+    <div>
+      <p style="font:900 20px var(--f-num);color:var(--yellow);letter-spacing:.06em">NICO</p>
+      <p>集客用ホームページ制作＋WEB広告運用</p>
+    </div>
+    <dl>
+      <dt>事業者名</dt><dd>公開前に記載</dd>
+      <dt>所在地</dt><dd>公開前に記載</dd>
+      <dt>連絡先</dt><dd>公開前に記載</dd>
+      <dt>規約</dt><dd>プライバシーポリシー・特定商取引法に基づく表記（準備中）</dd>
+    </dl>
+    <p class="copy">© NICO 集客用ホームページ</p>
+  </div>
+</footer>
+
+<div class="sticky-cta" aria-label="無料相談">
+  <p>AI活用で業界最安値級<sup>※1</sup>・広告費込み<b>税込110,000円</b></p>
+  <a class="btn btn-red" href="#contact" data-track="sticky_cta">無料相談</a>
+</div>
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "LP（ランディングページ）とは何ですか？", "acceptedAnswer": {"@type": "Answer", "text": "広告や検索から来た人が最初に見る、1枚の縦長のページです。問い合わせや予約など、してほしい行動を1つに絞って作ります。NICOでは、わかりやすく「集客用ホームページ」と呼んでいます。"}}, {"@type": "Question", "name": "ホームページや広告の知識がなくても相談できますか？", "acceptedAnswer": {"@type": "Answer", "text": "はい。専門用語を使わず、事業内容といまのお悩みを伺うところから始めます。"}}, {"@type": "Question", "name": "すでにホームページがある場合も相談できますか？", "acceptedAnswer": {"@type": "Answer", "text": "はい。いまの制作環境を確認し、作り直しや修正など、対応できる範囲をご案内します。"}}, {"@type": "Question", "name": "デザイン例のような見た目にしてもらえますか？", "acceptedAnswer": {"@type": "Answer", "text": "デザイン例は、業種ごとの作り分けを見ていただくためのイメージです。実際のデザインは、あなたの事業と届けたい相手に合わせて一から考えます。気になるデザイン例があれば、相談のときにお伝えください。"}}, {"@type": "Question", "name": "どの広告を使いますか？", "acceptedAnswer": {"@type": "Answer", "text": "Facebook・Instagram広告、Google広告、検索キーワード広告（調べている人に表示する広告）から、事業内容と届けたい相手に合わせて選びます。1つに絞るか組み合わせるかも、無料相談で一緒に決めます。"}}, {"@type": "Question", "name": "税込110,000円以外に費用はかかりますか？", "acceptedAnswer": {"@type": "Answer", "text": "基本セットには広告費40,000円分を含みます。追加ページ、撮影、特殊機能、広告費の増額などをご希望の場合は、着手前に別途お見積もりします。"}}, {"@type": "Question", "name": "制作期間や広告運用期間はどれくらいですか？", "acceptedAnswer": {"@type": "Answer", "text": "内容や素材の準備状況で異なります。制作期間、広告運用期間、修正回数は、お申し込み前に個別に確認します。"}}, {"@type": "Question", "name": "必ず問い合わせが来ますか？", "acceptedAnswer": {"@type": "Answer", "text": "問い合わせ数や広告の成果を保証するサービスではありません。広告の反応や計測できる問い合わせ状況を振り返り、改善の材料を整理します。"}}, {"@type": "Question", "name": "依頼するか決めていなくても相談できますか？", "acceptedAnswer": {"@type": "Answer", "text": "はい。現状とご希望を伺い、対応範囲や進め方を確認したうえでご検討いただけます。"}}]}</script>
+<script>
+// 作り方の型：画面の真ん中に来たポイントに合わせて、左のスマホ画面の該当部分を光らせる
+(() => {
+  const steps = [...document.querySelectorAll(".story-step")], screen = document.querySelector(".screen"), cap = document.getElementById("story-cap");
+  const MAP = { fv: ["fv"], goal: ["goal"], cta: [], form: ["goal"], worry: ["price", "flow", "faq"], rule: [], data: ["fv"] };
+  function activate(li) {
+    steps.forEach(s => s.classList.toggle("on", s === li));
+    const m = li.dataset.mode;
+    screen.className = "screen dim m-" + m;
+    screen.querySelectorAll(".pb").forEach(b => b.classList.toggle("on", MAP[m].some(k => b.classList.contains("pb-" + k))));
+    cap.textContent = li.dataset.cap;
+  }
+  // 画面の真ん中にいちばん近いポイントを選ぶ（スクロールのたびに1回だけ計算）
+  let cur = null, ticking = false;
+  function pick() {
+    ticking = false;
+    const mid = innerHeight / 2;
+    let best = steps[0], d = Infinity;
+    for (const s of steps) { const r = s.getBoundingClientRect(); const x = Math.abs((r.top + r.bottom) / 2 - mid); if (x < d) { d = x; best = s; } }
+    if (best !== cur) { cur = best; activate(best); }
+  }
+  addEventListener("scroll", () => { if (!ticking) { ticking = true; requestAnimationFrame(pick); } }, { passive: true });
+  addEventListener("resize", pick);
+  pick();
+})();
+</script>
+<script>
+// デザイン例（LP制作会社/LP の14本）。how はこのページの工夫、type はパターン一覧の「全体の型」
+const EXAMPLES = [
+  {id:"A-1-1",cat:"美容医療",name:"グランリュクス美容クリニック｜二重埋没法",goal:"無料カウンセリング予約",type:"共感→解決型",how:"料金とモニター条件を最初の画面に。リスク・副作用と、埋没法と切開法の比較を並べました。"},
+  {id:"A-1-2",cat:"美容医療",name:"ひなた皮フ科｜医療脱毛",goal:"初回カウンセリング予約",type:"診断・シミュレーター型",how:"駅前の大手と比べず、地元・皮膚科・駐車場で選ばれる作りに。部位を選ぶと料金が出ます。"},
+  {id:"A-2-1",cat:"歯科",name:"みなとみらい矯正歯科｜マウスピース矯正",goal:"3Dシミュレーション付き無料相談",type:"診断・シミュレーター型",how:"30秒のセルフチェックから相談へ。総額制の料金と、未承認装置の説明を載せています。"},
+  {id:"A-2-2",cat:"歯科",name:"さつき台デンタル｜インプラント",goal:"CT撮影付き無料相談（電話）",type:"共感→解決型",how:"大きな文字で電話を優先。入れ歯・ブリッジとの比較と、家族に送れるメッセージを用意しました。"},
+  {id:"A-3-1",cat:"不動産",name:"アーバンテラス千葉みなと｜新築マンション",goal:"物件エントリー（2ステップ）",type:"予告広告型",how:"販売前の事前登録用。目的地までの所要時間と販売スケジュールを見せています。"},
+  {id:"A-3-2",cat:"不動産",name:"ハマ不動産｜相続した家の売却査定",goal:"無料査定の依頼",type:"フォーム先行型",how:"最初の画面に3ステップの査定フォーム。相続から売却までの道のりを図にしました。"},
+  {id:"A-4-1",cat:"住宅・塗装",name:"木の香ホーム｜完成見学会",goal:"見学会の予約",type:"予約枠・イベント型",how:"毎月差し替えて使える作り。満席が分かる予約カレンダーから、そのまま申し込めます。"},
+  {id:"A-4-2",cat:"住宅・塗装",name:"プロテクト塗装｜セカンドオピニオン",goal:"無料ドローン診断",type:"反論先回り型",how:"訪問販売で不安になった方向け。施工前後の比較スライダーと、坪数別の費用の目安を載せました。"},
+  {id:"A-5-1",cat:"採用",name:"やすらぎ会｜介護職員の採用",goal:"施設見学の予約・応募",type:"採用型",how:"求人サイトから来た人の受け皿に。履歴書なしの見学と、働き方の3問チェックを置いています。"},
+  {id:"A-5-2",cat:"採用",name:"北関東ロジテック｜ドライバー採用",goal:"応募（電話・LINE・フォーム）",type:"採用型",how:"モデル年収のシミュレーターと免許取得支援。30秒で応募できるフォームにしました。"},
+  {id:"A-6-1",cat:"士業",name:"あおば総合法律事務所｜債務整理",goal:"無料相談（電話・LINE）",type:"診断・シミュレーター型",how:"夜中に検索する人向け。状況を整理するチェック（結果は断定しない）と費用表を載せています。"},
+  {id:"A-6-2",cat:"士業",name:"さくら相続センター｜相続手続き",goal:"無料相談の予約",type:"診断・シミュレーター型",how:"亡くなった日を入れると、期限とやることが一覧で出ます。丸ごと任せられる料金も明示。"},
+  {id:"A-7-1",cat:"スクール",name:"CodeBridge｜生成AIコース",goal:"無料カウンセリング",type:"診断・シミュレーター型",how:"給付金を使った自己負担額のシミュレーターと、8週間のカリキュラムを見せています。"},
+  {id:"A-7-2",cat:"スクール",name:"Hello World!｜子ども英語の無料体験",goal:"無料体験レッスンの予約",type:"予約枠・イベント型",how:"教室と年齢を選ぶと体験の空き枠が出て、そのまま予約できます。"}
+];
+
+function el(tag, cls, text) { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
+// 前半7例を上の段、後半7例を下の段（逆向き）に流す。切れ目なく回すため、同じ並びをもう1回（読み上げ対象外で）つなげる
+[["ex-row1", EXAMPLES.slice(0, 7)], ["ex-row2", EXAMPLES.slice(7)]].forEach(([id, items]) => {
+  const track = document.getElementById(id);
+  for (const copy of [false, true]) for (const e of items) {
+    const card = makeCard(e);
+    if (copy) card.setAttribute("aria-hidden", "true");
+    track.append(card);
+  }
+});
+function makeCard(e) {
+    const card = el("article", "ex-card");
+    const shot = el("div", "ex-shot");
+    const pc = el("img", "pc"); pc.src = `../../examples/${e.id}/thumb-pc.webp`; pc.alt = `${e.name}のパソコン表示`; pc.width = 720; pc.height = 450;
+    const sp = el("img", "sp"); sp.src = `../../examples/${e.id}/thumb-sp.webp`; sp.alt = `${e.name}のスマートフォン表示`; sp.width = 250; sp.height = 541;
+    shot.append(pc, sp);
+    const body = el("div", "ex-body");
+    const meta = el("div", "ex-meta"); meta.append(el("span", "ex-cat", e.cat), el("span", "ex-type", e.type));
+    const goal = el("p", "ex-goal"); goal.append(el("b", null, "してほしい行動："), e.goal);
+    body.append(meta, el("h3", null, e.name), goal, el("p", "how", e.how));
+    card.append(shot, body);
+    return card;
+}
+
+// 計測イベント（本番でアクセス解析を入れたときの受け口。個人情報は送らない）
+function track(name) { (window.dataLayer = window.dataLayer || []).push({ event: name }); }
+document.querySelectorAll("[data-track]").forEach(a => a.addEventListener("click", () => track(a.dataset.track)));
+
+// 3問診断
+const RESULTS = {
+  design: { title: "まずは、伝える順番と見せ方から。", points: ["誰に向けたページにするか", "いちばん伝えたい強みと、その順番", "写真や文章で足りないもの"] },
+  reach:  { title: "まずは、届けたい相手と導線から。", points: ["来てほしいお客さまの年齢・地域・悩み", "広告からホームページ、相談までの流れ", "最初に用意する広告の見せ方"] },
+  time:   { title: "まずは、任せたい範囲の整理から。", points: ["ご自身で用意できる素材と時間", "NICOに任せる作業の範囲", "確認や返信のやりとりの方法"] }
+};
+const diag = document.getElementById("diag-form");
+let started = false;
+diag.addEventListener("change", () => { if (!started) { started = true; track("diag_start"); } });
+diag.addEventListener("submit", ev => {
+  ev.preventDefault();
+  const v = n => (diag.querySelector(`input[name="${n}"]:checked`) || {}).value;
+  const q1 = v("q1"), q2 = v("q2"), q3 = v("q3");
+  const out = document.getElementById("diag-title-out"), ul = document.getElementById("diag-points"), go = document.getElementById("diag-go");
+  ul.textContent = "";
+  if (!q1 || !q2 || !q3) {
+    const left = [!q1 && "Q1", !q2 && "Q2", !q3 && "Q3"].filter(Boolean).join("・");
+    out.textContent = "まだ答えていない質問があります。";
+    const li = el("li", "err", `${left}を選んでから、もう一度「結果を見る」を押してください。`); ul.append(li);
+    go.hidden = true; return;
+  }
+  const r = RESULTS[q2];
+  out.textContent = r.title;
+  r.points.forEach(p => ul.append(el("li", null, `相談で確かめること：${p}`)));
+  go.hidden = false;
+  const label = { design: "文章やデザインがしっくりこない", reach: "人に見てもらう方法がわからない", time: "制作も広告も手が回らない" }[q2];
+  document.getElementById("f-body").value = `【3つの質問の答え】\nホームページ：${q1}\n気になること：${label}\nWEB広告の経験：${q3}\n\n`;
+});
+
+// 相談フォーム（送信先が未接続のため、確認だけ行う）
+const form = document.getElementById("contact-form");
+let typing = false;
+form.addEventListener("input", () => { if (!typing) { typing = true; track("form_start"); } });
+function setErr(input, msgId, text) {
+  input.setAttribute("aria-invalid", text ? "true" : "false");
+  document.getElementById(msgId).textContent = text || "";
+  return !text;
+}
+form.addEventListener("submit", ev => {
+  ev.preventDefault();
+  const name = document.getElementById("f-name"), mail = document.getElementById("f-mail"), tel = document.getElementById("f-tel"), agree = document.getElementById("f-agree");
+  const ok = [
+    setErr(name, "m-name", name.value.trim() ? "" : "お名前を入力してください。"),
+    setErr(mail, "m-mail", !mail.value.trim() ? "メールアドレスを入力してください。" : /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail.value.trim()) ? "" : "メールアドレスの形が正しくありません（例：info@example.jp）。"),
+    setErr(tel, "m-tel", !tel.value.trim() || /^[0-9０-９\-－ ]{10,14}$/.test(tel.value.trim()) ? "" : "電話番号は数字とハイフンで入力してください。"),
+    setErr(agree, "m-agree", agree.checked ? "" : "個人情報の取り扱いへの同意にチェックを入れてください。")
+  ];
+  const st = document.getElementById("form-status");
+  st.hidden = false;
+  if (ok.includes(false)) {
+    st.className = "form-status";
+    st.textContent = "入力内容に確認が必要な項目があります。赤い枠の項目を直してください。";
+    form.querySelector('[aria-invalid="true"]').focus();
+    return;
+  }
+  st.className = "form-status ok";
+  st.textContent = "入力内容に問題はありません。ただし、現在このフォームは準備中のため、送信はされていません。";
+});
+</script>
+
+</body>
+</html>
