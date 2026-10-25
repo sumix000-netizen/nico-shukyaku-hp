@@ -46,12 +46,12 @@ footer{color:var(--muted);font-size:12px;padding-block:20px 40px;border-top:1px 
 <body>
 <header class="gutter"><div class="inner">
   <h1>NICO デザイン案一覧</h1>
-  <p class="lead">これまでに作った3つの版と、今の版の中身はそのままで色・書体・角の丸み・影・最初の画面の並びだけを変えた8案を並べました。カードの「このページを開く」で、実際に動くページを見られます。</p>
+  <p class="lead">これまでに作った3つの版と、今の版の中身はそのままで色・書体・角の丸み・影・背景・最初の画面の並びだけを変えた9案を並べました。カードの「このページを開く」で、実際に動くページを見られます。</p>
 </div></header>
 <main class="gutter"><div class="inner">
   <h2 class="group">今までの版</h2>
   <div class="grid" id="grid-base"></div>
-  <h2 class="group">デザイン案8種（中身は今の版と同じ）</h2>
+  <h2 class="group">デザイン案9種（中身は今の版と同じ）</h2>
   <div class="grid" id="grid"></div>
 </div></main>
 <footer class="gutter"><div class="inner">確認用のページです（検索には出ません）。撮影日：2026-10-25。</div></footer>
@@ -71,7 +71,8 @@ const V = [
   ["v5", "和モダン", "生成りと朱、明朝体の見出し。角を立て、細い線で区切る。和食・工務店・士業向け"],
   ["v6", "コーポレートブルー", "紺と青、すっきりしたゴシック。細い線と軽い影で、きちんとした会社の印象"],
   ["v7", "ネオブルータル", "白黒とライム、極太の黒枠と大きなずらし影。いちばん目立つ、尖った印象"],
-  ["v8", "エディトリアル", "新聞・雑誌のような明朝の大見出しと罫線。写真を上に大きく。読み物として信頼感"]
+  ["v8", "エディトリアル", "新聞・雑誌のような明朝の大見出しと罫線。写真を上に大きく。読み物として信頼感"],
+  ["v9", "制作例の背景", "最初の画面と相談フォームの背景に、制作例14本の画面を斜めに敷きつめてゆっくり流す。リッチで、実績の量が伝わる"]
 ];
 function el(t, c, x) { const e = document.createElement(t); if (c) e.className = c; if (x != null) e.textContent = x; return e; }
 function addCard(grid, id, name, note, href, label, isBase) {
