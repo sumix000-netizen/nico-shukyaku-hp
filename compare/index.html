@@ -190,7 +190,8 @@ p{margin:0}
   -webkit-mask-image:linear-gradient(90deg,transparent,#000 3%,#000 97%,transparent);mask-image:linear-gradient(90deg,transparent,#000 3%,#000 97%,transparent)}
 .ex-track{display:flex;gap:18px;width:max-content;animation:ex-scroll var(--dur,70s) linear infinite}
 .ex-track.rev{animation-direction:reverse}
-.marquee:hover .ex-track,.marquee:focus-within .ex-track{animation-play-state:paused}
+@media (hover:hover){.marquee:hover .ex-track{animation-play-state:paused}}
+.marquee:focus-within .ex-track{animation-play-state:paused}
 @keyframes ex-scroll{from{transform:translateX(0)}to{transform:translateX(calc(-50% - 9px))}}
 .ex-card{flex:none;width:340px;background:var(--paper);color:var(--ink);border-radius:14px;overflow:hidden;display:grid;grid-template-rows:auto 1fr}
 .ex-shot{position:relative;background:var(--paper-2);padding:14px 14px 0;border-bottom:2px solid var(--ink)}
@@ -241,9 +242,9 @@ p{margin:0}
 .faq{background:var(--paper-2)}
 .faq-list{display:grid;gap:10px;max-width:860px}
 .faq details{background:var(--white);border:2px solid var(--ink);border-radius:12px}
-.faq summary{cursor:pointer;list-style:none;padding:16px 50px 16px 18px;font-weight:900;position:relative;display:flex;gap:10px}
+.faq summary{cursor:pointer;list-style:none;padding:16px 50px 16px 18px;font-weight:900;position:relative;display:block}
 .faq summary::-webkit-details-marker{display:none}
-.faq summary::before{content:"Q";font:900 18px var(--f-num);color:var(--red)}
+.faq summary::before{content:"Q";display:inline-block;margin-right:10px;font:900 18px var(--f-num);color:var(--red)}
 .faq summary::after{content:"+";position:absolute;right:18px;top:50%;transform:translateY(-50%);font:900 24px var(--f-num)}
 .faq details[open] summary::after{content:"−"}
 .faq details p{padding:0 18px 18px 46px;color:var(--muted)}
@@ -369,10 +370,10 @@ footer .copy{grid-column:1/-1;border-top:1px solid #333;padding-top:16px;font-si
 .ring{position:relative;width:min(100%,520px);aspect-ratio:1;margin:0 auto;container-type:inline-size}
 .ring svg{position:absolute;inset:0;width:100%;height:100%}
 .ring .hub{position:absolute;inset:31%;border-radius:50%;background:var(--yellow);border:4px solid var(--rk);color:var(--rk);display:grid;place-content:center;text-align:center;padding:8px}
-.ring .hub b{font-family:var(--f-display,var(--f-body));font-weight:900;font-size:clamp(18px,5.4cqw,28px);line-height:1.3}
+.ring .hub b{font-family:var(--f-display,var(--f-body));font-weight:900;font-size:22px;font-size:clamp(18px,5.4cqw,28px);line-height:1.3}
 .ring .hub small{font-size:12px;font-weight:700}
 .ring ol{list-style:none;margin:0;padding:0}
-.ring li{position:absolute;left:50%;top:50%;width:25%;transform:translate(-50%,-50%) rotate(var(--a)) translateY(-38cqw) rotate(calc(-1 * var(--a)));text-align:center}
+.ring li{position:absolute;width:25%;transform:translate(-50%,-38%);text-align:center}
 .ring li img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:50%;border:4px solid var(--rk);background:var(--rk)}
 .ring li span{display:inline-block;margin-top:-14px;position:relative;background:var(--rk);color:var(--yellow);font:900 12px var(--f-num);padding:3px 9px;border-radius:99px}
 .ring li em{display:block;font-style:normal;font-weight:900;font-size:13px;line-height:1.3;margin-top:4px}
@@ -400,6 +401,7 @@ footer .copy{grid-column:1/-1;border-top:1px solid #333;padding-top:16px;font-si
 
 /* ===== 試作：3つの演出 ===== */
 /* 1) ファーストビュー：写真がゆっくり寄り、問い合わせ通知が繰り返し届く */
+.frame.loop{isolation:isolate;-webkit-mask-image:-webkit-radial-gradient(white,black)}
 .frame.loop img{animation:kb 14s ease-in-out infinite alternate;transform-origin:62% 45%}
 .frame.loop .fv-catch{z-index:2}
 @keyframes kb{from{transform:scale(1)}to{transform:scale(1.09)}}
@@ -493,7 +495,7 @@ footer .copy{grid-column:1/-1;border-top:1px solid #333;padding-top:16px;font-si
 .hero-img{padding-block:22px 44px}
 .hero-img .wrap{display:block}
 .fv-shot{margin:0;border:4px solid var(--ink);border-radius:18px;overflow:hidden;box-shadow:10px 10px 0 var(--yellow);background:var(--paper-2)}
-.fv-shot{position:relative}
+.fv-shot{position:relative;isolation:isolate;-webkit-mask-image:-webkit-radial-gradient(white,black)}
 .fv-shot img{width:100%;aspect-ratio:3/2;object-fit:cover;animation:kb 14s ease-in-out infinite alternate;transform-origin:65% 45%}
 .fv-notice{left:auto;right:24px;top:auto;bottom:24px;z-index:2;animation:toast 6s ease-in-out infinite}
 @media (max-width:600px){.fv-notice{right:10px;bottom:10px;padding:8px 10px;max-width:220px}.fv-notice i{width:28px;height:28px;font-size:13px}.fv-notice b{font-size:12px}.fv-notice small{display:none}}
@@ -511,7 +513,7 @@ footer .copy{grid-column:1/-1;border-top:1px solid #333;padding-top:16px;font-si
 .switcher .cp{font-size:13px;line-height:1.5;font-weight:700}
 .switcher button,.switcher select{font:700 13px var(--f-body);border-radius:8px;border:1px solid #777;background:#222;color:var(--white);padding:6px 10px;cursor:pointer}
 .switcher button.pick{background:var(--yellow);color:var(--ink);border-color:var(--yellow)}
-.switcher select{flex:1;min-width:0}
+.switcher select{flex:1;min-width:0;font-size:16px}
 .switcher .hide{margin-left:auto;font-size:12px;padding:4px 8px}
 .switcher.min .body{display:none}
 .switcher .help{font-size:11px;color:#BDB7A3}
@@ -661,7 +663,7 @@ footer .copy{grid-column:1/-1;border-top:1px solid #333;padding-top:16px;font-si
         </ol>
         <div class="ring" role="img" aria-label="設計する、つくる、準備する、届ける、振り返るの5つが輪になり、振り返りから設計へ戻る図">
           <svg viewBox="0 0 100 100" aria-hidden="true">
-            <defs><marker id="ring-ah" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#E4291F"/></marker></defs>
+            <defs><marker id="ring-ah" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#E4291F"/></marker></defs>
             <circle cx="50" cy="50" r="38" fill="none" stroke="#111" stroke-width="1.2" stroke-dasharray="3 2.2"/>
             <path d="M50 12 A38 38 0 0 1 86.1 38.3" fill="none" stroke="#E4291F" stroke-width="1.6" marker-end="url(#ring-ah)"/>
             <path d="M86.1 38.3 A38 38 0 0 1 72.3 80.7" fill="none" stroke="#E4291F" stroke-width="1.6" marker-end="url(#ring-ah)"/>
@@ -671,11 +673,11 @@ footer .copy{grid-column:1/-1;border-top:1px solid #333;padding-top:16px;font-si
           </svg>
           <div class="hub"><b>回し<br>続ける</b><small>振り返りを、次の設計へ</small></div>
           <ol>
-          <li style="--a:0deg"><img src="assets/step-01-targeting.webp" alt="" width="520" height="520" loading="lazy"><span>1</span><em>設計する</em></li>
-          <li style="--a:72deg"><img src="assets/step-02-lp-design.webp" alt="" width="520" height="520" loading="lazy"><span>2</span><em>つくる</em></li>
-          <li style="--a:144deg"><img src="assets/step-03-ad-setup.webp" alt="" width="520" height="520" loading="lazy"><span>3</span><em>準備する</em></li>
-          <li style="--a:216deg"><img src="assets/step-04-operations.webp" alt="" width="520" height="520" loading="lazy"><span>4</span><em>届ける</em></li>
-          <li style="--a:288deg"><img src="assets/step-05-report.webp" alt="" width="520" height="520" loading="lazy"><span>5</span><em>振り返る</em></li>
+          <li style="--a:0deg;left:50.0%;top:12.0%"><img src="assets/step-01-targeting.webp" alt="" width="520" height="520" loading="lazy"><span>1</span><em>設計する</em></li>
+          <li style="--a:72deg;left:86.1%;top:38.3%"><img src="assets/step-02-lp-design.webp" alt="" width="520" height="520" loading="lazy"><span>2</span><em>つくる</em></li>
+          <li style="--a:144deg;left:72.3%;top:80.7%"><img src="assets/step-03-ad-setup.webp" alt="" width="520" height="520" loading="lazy"><span>3</span><em>準備する</em></li>
+          <li style="--a:216deg;left:27.7%;top:80.7%"><img src="assets/step-04-operations.webp" alt="" width="520" height="520" loading="lazy"><span>4</span><em>届ける</em></li>
+          <li style="--a:288deg;left:13.9%;top:38.3%"><img src="assets/step-05-report.webp" alt="" width="520" height="520" loading="lazy"><span>5</span><em>振り返る</em></li>
           </ol>
         </div>
       </div>
