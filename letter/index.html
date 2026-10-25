@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>NICO 代表からの手紙</title>
+<meta name="robots" content="noindex">
+<meta name="description" content="WEB集客をはじめて行う会社・個人事業主の方へ。集客用ホームページ（LP・ランディングページ）制作とWEB広告運用を、広告費込み税込110,000円で。NICO代表からの手紙です。">
+<meta name="theme-color" content="#E7DDC7">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Zen+Old+Mincho:wght@600;900&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+/* レイアウト：机の上（クラフト紙）に置いた1枚の便せん。代表が書いた手紙を上から読み進め、写真はテープで貼り、
+   大事なところには赤ペンの丸と書き込み。料金は「お見積書」、申込みは「申込用紙」。紙の世界に振り切るため、ダークモードは持たない */
+:root{
+  --desk:#E7DDC7; --sheet:#FFFDF6; --ink:#2A2620; --pen:#C9352B; --pencil:#6D665B; --rule:#D9E3EC; --margin:#F0B7B0; --tape:rgb(250 222 120 / .78); --stamp:#C9352B;
+  --f-hand:'Klee One','Zen Kaku Gothic New',serif;
+  --f-body:'Zen Kaku Gothic New','Hiragino Sans','Yu Gothic',sans-serif;
+  --f-title:'Zen Old Mincho','Hiragino Mincho ProN',serif;
+  --f-mono:'IBM Plex Mono','Zen Kaku Gothic New',monospace;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--desk);color:var(--ink);font:400 17px/2.05 var(--f-body);-webkit-text-size-adjust:100%;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.7' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .35 0 0 0 0 .27 0 0 0 0 .16 0 0 0 .22 0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E")}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--desk)}
+img{max-width:100%;height:auto;display:block}
+h1,h2,h3,p{margin:0}
+:focus-visible{outline:3px solid var(--pen);outline-offset:3px}
+.desk{padding:40px max(16px,env(safe-area-inset-right,0px)) 120px max(16px,env(safe-area-inset-left,0px))}
+/* 便せん：左に赤い余白線、横罫 */
+.sheet{position:relative;max-width:760px;margin:0 auto;background:var(--sheet);padding:56px 56px 64px 84px;box-shadow:0 1px 0 rgb(0 0 0 / .06),0 18px 40px rgb(60 40 10 / .18);
+  background-image:linear-gradient(90deg,transparent 58px,var(--margin) 58px,var(--margin) 60px,transparent 60px),repeating-linear-gradient(transparent 0 34px,var(--rule) 34px 35px);background-position:0 0,0 22px}
+.sheet>*+*{margin-top:30px}
+.to{font-family:var(--f-hand);font-size:18px;color:var(--pencil)}
+.brand{position:absolute;top:26px;right:30px;font:600 14px var(--f-mono);letter-spacing:.2em;color:var(--pencil)}
+h1{font-family:var(--f-title);font-weight:900;font-size:clamp(30px,5vw,46px);line-height:1.5;letter-spacing:.02em}
+h1 .circle{position:relative;white-space:nowrap}
+h1 .circle svg{position:absolute;left:-6%;top:-12%;width:112%;height:130%;overflow:visible;pointer-events:none}
+h2{font-family:var(--f-title);font-weight:900;font-size:clamp(23px,3.4vw,30px);line-height:1.5}
+.pen{font-family:var(--f-hand);font-weight:600;color:var(--pen)}
+.under{background:linear-gradient(transparent 62%,rgb(250 222 120 / .8) 62%)}
+.note{font-family:var(--f-hand);font-weight:600;color:var(--pen);font-size:16px;transform:rotate(-2deg);display:inline-block}
+/* 貼った写真 */
+.photo{margin:0;background:#fff;padding:10px 10px 34px;box-shadow:0 6px 16px rgb(0 0 0 / .14);position:relative;width:fit-content;max-width:100%}
+.photo::before{content:"";position:absolute;top:-11px;left:50%;width:96px;height:24px;margin-left:-48px;background:var(--tape);transform:rotate(-4deg)}
+.photo figcaption{position:absolute;left:12px;right:12px;bottom:6px;font-family:var(--f-hand);font-size:14px;color:var(--pencil)}
+.photo.big{transform:rotate(-1.5deg);margin-inline:-14px}
+.photo.r{transform:rotate(2deg)}
+.photo.l{transform:rotate(-2.5deg)}
+/* チェックリスト */
+.checks{list-style:none;margin:0;padding:0;display:grid;gap:4px}
+.checks li{display:grid;grid-template-columns:30px 1fr;align-items:start}
+.checks li::before{content:"✓";width:20px;height:20px;margin-top:8px;border:2px solid var(--ink);border-radius:3px;display:grid;place-items:center;font:600 20px/1 var(--f-hand);color:var(--pen);padding:0 0 3px 3px;overflow:visible}
+/* やること（5つ） */
+.todo{list-style:none;margin:0;padding:0;display:grid;gap:26px;counter-reset:t}
+.todo li{counter-increment:t;display:grid;grid-template-columns:150px 1fr;gap:22px;align-items:center}
+.todo li:nth-child(even){grid-template-columns:1fr 150px}
+.todo li:nth-child(even) .photo{order:2}
+.todo .photo{padding:7px 7px 7px}
+.todo .photo::before{width:60px;margin-left:-30px;height:18px;top:-8px}
+.todo .photo img{width:136px;aspect-ratio:1;object-fit:cover}
+.todo h3{font-size:19px;font-weight:700;line-height:1.6}
+.todo h3::before{content:counter(t) "．";font-family:var(--f-hand);font-weight:600;color:var(--pen);font-size:24px}
+.todo p{font-size:15px;line-height:1.9;color:#4A443A}
+.loop{font-family:var(--f-hand);font-weight:600;color:var(--pen);font-size:18px;border:2px dashed var(--pen);border-radius:40px;padding:8px 18px;transform:rotate(-1deg);display:inline-block}
+/* 見積書 */
+.quote{background:#fff;border:1px solid #CFC6B3;box-shadow:0 8px 18px rgb(0 0 0 / .1);padding:26px 26px 22px;transform:rotate(.6deg);position:relative;font-family:var(--f-mono);font-size:15px;line-height:1.8}
+.quote h3{font-family:var(--f-title);font-size:22px;text-align:center;letter-spacing:.4em;border-bottom:3px double var(--ink);padding-bottom:6px;margin-bottom:14px}
+.quote table{width:100%;border-collapse:collapse}
+.quote td{padding:7px 4px;border-bottom:1px dashed #CFC6B3;vertical-align:top}
+.quote td:last-child{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+.quote .sum td{border-bottom:3px double var(--ink);font-weight:600;font-size:19px;padding-top:12px}
+.quote small{display:block;font-family:var(--f-body);font-size:12px;color:var(--pencil);line-height:1.7;margin-top:10px}
+.stamp{position:absolute;right:-22px;top:-30px;width:92px;height:92px;border:3px solid var(--stamp);border-radius:50%;color:var(--stamp);display:grid;place-content:center;text-align:center;font:700 13px/1.35 var(--f-body);transform:rotate(-14deg);opacity:.85;
+  -webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='92' height='92'%3E%3Cfilter id='g'%3E%3CfeTurbulence baseFrequency='.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -2.2 1.7'/%3E%3C/filter%3E%3Crect width='92' height='92' filter='url(%23g)'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='92' height='92'%3E%3Cfilter id='g'%3E%3CfeTurbulence baseFrequency='.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -2.2 1.7'/%3E%3C/filter%3E%3Crect width='92' height='92' filter='url(%23g)'/%3E%3C/svg%3E")}
+/* Q&A */
+.qa{display:grid;gap:18px}
+.qa div{display:grid;gap:2px}
+.qa b{font-weight:700}
+.qa b::before{content:"Q．";font-family:var(--f-hand);color:var(--pen)}
+.qa span{color:#4A443A;font-size:15.5px}
+.qa span::before{content:"A．";font-family:var(--f-hand);font-weight:600;color:var(--pencil)}
+/* 申込用紙 */
+.form{border:2px solid var(--ink);padding:22px 22px 18px;background:#fff;display:grid;gap:14px}
+.form h3{font-family:var(--f-title);font-size:21px;letter-spacing:.2em;text-align:center}
+.f{display:grid;grid-template-columns:150px 1fr;align-items:end;gap:12px;border-bottom:1px solid var(--ink);padding-bottom:4px}
+.f label{font-size:14px;font-weight:700}
+.f label em{font-style:normal;color:var(--pen);font-size:12px;margin-left:4px}
+.f input,.f textarea{width:100%;border:0;background:transparent;font:500 16px var(--f-hand);color:var(--ink);padding:4px 2px}
+.f textarea{min-height:90px;resize:vertical;line-height:1.9}
+.f input:focus,.f textarea:focus{outline:none;background:rgb(250 222 120 / .25)}
+.f.err{border-bottom-color:var(--pen)}
+.agree{display:flex;gap:10px;align-items:center;font-size:15px}
+.agree input{width:20px;height:20px;accent-color:var(--pen)}
+.send{justify-self:center;font:700 17px var(--f-body);background:var(--pen);color:#fff;border:0;border-radius:6px;padding:14px 34px;cursor:pointer;box-shadow:0 4px 0 #8F231C}
+.send:active{transform:translateY(2px);box-shadow:0 2px 0 #8F231C}
+.status{font-family:var(--f-hand);font-weight:600;color:var(--pen);text-align:center}
+.ps{border-top:1px dashed var(--pencil);padding-top:20px}
+.ps b{font-family:var(--f-hand);color:var(--pen);font-size:20px;margin-right:6px}
+.signoff{text-align:right;font-family:var(--f-hand);font-weight:600;font-size:21px}
+.legal{max-width:760px;margin:22px auto 0;font-size:12px;line-height:1.8;color:#6B6252}
+/* スマホ下の固定ボタン（付せん風） */
+.fixed{position:fixed;left:0;right:0;bottom:0;z-index:20;display:flex;justify-content:flex-end;padding:10px max(16px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));pointer-events:none}
+.fixed a{pointer-events:auto;background:#FFE680;color:var(--ink);text-decoration:none;font:600 16px var(--f-hand);padding:12px 22px;box-shadow:0 6px 14px rgb(0 0 0 / .2);transform:rotate(-1.5deg)}
+@media (max-width:640px){
+  .fixed{justify-content:center}
+  body{font-size:16px}
+  .desk{padding-top:18px}
+  .sheet{padding:44px 20px 48px 40px;background-image:linear-gradient(90deg,transparent 26px,var(--margin) 26px,var(--margin) 27px,transparent 27px),repeating-linear-gradient(transparent 0 32px,var(--rule) 32px 33px)}
+  .brand{top:14px;right:16px}
+  .todo li,.todo li:nth-child(even){grid-template-columns:96px 1fr;gap:14px}
+  .todo li:nth-child(even) .photo{order:0}
+  .todo .photo img{width:84px}
+  .f{grid-template-columns:1fr;gap:0}
+  .photo.big{margin-inline:-6px}
+  .stamp{width:70px;height:70px;font-size:11px;right:-8px;top:-26px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+
+<main class="desk">
+  <article class="sheet">
+    <p class="brand">NICO</p>
+    <p class="to">WEB集客をはじめて行う、会社・お店のみなさまへ</p>
+    <h1>問い合わせゼロから、<br><span class="circle">最初の1件へ。<svg viewBox="0 0 200 70" preserveAspectRatio="none" aria-hidden="true"><path d="M8 40 C 10 12, 120 4, 186 22 C 204 30, 196 58, 130 64 C 70 70, 6 62, 14 34" fill="none" stroke="#C9352B" stroke-width="3" stroke-linecap="round"/></svg></span></h1>
+
+    <figure class="photo big"><img src="assets/n-01.webp" alt="木のカウンターで、届いた通知を見ようとスマートフォンを手に取る店主の手元" width="1200" height="800" fetchpriority="high"><figcaption>はじめて、知らない人から連絡が来た日。</figcaption></figure>
+
+    <p>はじめまして。集客用ホームページ（LP・ランディングページ）とWEB広告をまとめてお手伝いしている、NICOの代表です。</p>
+    <p>今日は、まだWEBから問い合わせを受けたことがない会社やお店の方に向けて、手紙を書いています。もし、こんなことに思い当たったら、少しだけ読み進めてください。</p>
+    <ul class="checks">
+      <li>ホームページを作ったことがない</li>
+      <li>会社案内のページはあるけれど、問い合わせにつながらない</li>
+      <li>自分の強みを、うまく文章にできない</li>
+      <li>広告の出し方がわからない</li>
+      <li>制作会社と広告会社を、別々に探す時間がない</li>
+    </ul>
+    <p>腕はいいのに、WEBでは見つけてもらえない。紹介とチラシで頑張ってきたお店ほど、ホームページは後回しになりがちです。でも、<span class="under">知らない人から最初の1件が届くと、仕事の景色が少し変わります。</span></p>
+
+    <h2>わたしたちが、やること</h2>
+    <p>やることは5つです。作って終わりにせず、振り返ったら、また最初に戻ります。</p>
+    <ol class="todo">
+      <li><figure class="photo l"><img src="assets/n-04.webp" alt="" width="520" height="520" loading="lazy"></figure><div><h3>誰に届けるかを、一緒に決める</h3><p>誰に、何を、どう伝えるか。まずはあなたの仕事の話を聞かせてください。</p></div></li>
+      <li><figure class="photo r"><img src="assets/n-05.webp" alt="" width="520" height="520" loading="lazy"></figure><div><h3>集客用ホームページをつくる</h3><p>スマホで読みやすく、相談へ進みやすいページに仕上げます。</p></div></li>
+      <li><figure class="photo l"><img src="assets/n-06.webp" alt="" width="520" height="520" loading="lazy"></figure><div><h3>WEB広告を準備する</h3><p>Facebook・Instagram、Google、検索キーワード広告から、合うものを選びます。</p></div></li>
+      <li><figure class="photo r"><img src="assets/n-07.webp" alt="" width="520" height="520" loading="lazy"></figure><div><h3>広告を届ける</h3><p>反応を見ながら、配信を調整します。</p></div></li>
+      <li><figure class="photo l"><img src="assets/n-08.webp" alt="" width="520" height="520" loading="lazy"></figure><div><h3>結果を振り返る</h3><p>クリックや問い合わせの数を見て、次に直すところを決めます。</p></div></li>
+    </ol>
+    <p class="loop">↺ 5まで来たら、1に戻ってもう一度。</p>
+
+    <h2>なぜ、11万円でやるのか</h2>
+    <p>制作会社に頼むと数十万円、広告はまた別の会社へ。それでは、はじめての一歩が重すぎると思いました。</p>
+    <p>NICOは、調べものや下書きをAIに手伝ってもらっています。その分、浮いた時間とお金を、価格と、あなたの話を聞く時間に回しています。最後の判断や仕上げ、広告の運用は、人が担当します。</p>
+
+    <div class="quote" aria-label="お見積書">
+      <h3>お見積書</h3>
+      <table>
+        <tr><td>ターゲット設計</td><td>込み</td></tr>
+        <tr><td>集客用ホームページ（LP）制作</td><td>込み</td></tr>
+        <tr><td>WEB広告の設定・運用代行</td><td>込み</td></tr>
+        <tr><td>配信後レポート</td><td>込み</td></tr>
+        <tr><td>実際の広告費</td><td>40,000円分</td></tr>
+        <tr class="sum"><td>合計（税込）</td><td>110,000円</td></tr>
+      </table>
+      <small>広告費を除くと、制作と運用は70,000円です。制作期間・広告運用期間・修正回数・対応範囲は、無料相談のあとで一緒に確認します。追加ページや撮影などは、始める前にお見積りします。</small>
+      <div class="stamp" aria-hidden="true">広告費<br>込み</div>
+    </div>
+
+    <figure class="photo r" style="margin-inline:auto"><img src="assets/n-09.webp" alt="便せんに手紙を書いている手元" width="900" height="1350" loading="lazy" style="width:min(300px,60vw);aspect-ratio:3/4;object-fit:cover"><figcaption>手紙は、手書きの下書きから。</figcaption></figure>
+
+    <h2>よく聞かれること</h2>
+    <div class="qa">
+      <div><b>ホームページや広告の知識がなくても大丈夫ですか？</b><span>はい。専門用語は使わず、仕事の話を伺うところから始めます。</span></div>
+      <div><b>11万円以外にお金はかかりますか？</b><span>基本は広告費40,000円分を含めた11万円です。追加ページや撮影、広告費を増やしたいときは、始める前にお見積りします。</span></div>
+      <div><b>必ず問い合わせが来ますか？</b><span>お約束はできません。そのかわり、数字を見て、次に何を直すかを一緒に考えます。</span></div>
+      <div><b>頼むか決めていなくても相談できますか？</b><span>はい。話を聞いてから決めていただいて大丈夫です。</span></div>
+    </div>
+
+    <form class="form" id="form" novalidate>
+      <h3>ご相談の申込用紙</h3>
+      <div class="f"><label for="f-name">お名前<em>必須</em></label><input id="f-name" autocomplete="name"></div>
+      <div class="f"><label for="f-mail">メールアドレス<em>必須</em></label><input id="f-mail" type="email" autocomplete="email" inputmode="email"></div>
+      <div class="f"><label for="f-shop">会社名・お店の名前</label><input id="f-shop" autocomplete="organization"></div>
+      <div class="f"><label for="f-msg">ひとこと</label><textarea id="f-msg" placeholder="例：チラシだけで集客しています。WEBからも問い合わせがほしいです。"></textarea></div>
+      <label class="agree" for="f-ok"><input type="checkbox" id="f-ok">個人情報の取り扱いに同意します</label>
+      <button class="send" type="submit">この内容で相談する</button>
+      <p class="status" id="status" role="status" aria-live="polite">※いまは準備中のため、送信はされません。</p>
+    </form>
+
+    <p class="signoff">NICO 代表</p>
+    <p class="ps"><b>P.S.</b>最初から原稿や写真がそろっていなくても大丈夫です。「何を載せたらいいかわからない」という段階から、ご相談ください。</p>
+  </article>
+  <p class="legal">事業者名・所在地・連絡先：公開前に記載／プライバシーポリシー・特定商取引法に基づく表記（準備中）。写真はイメージです。</p>
+</main>
+<nav class="fixed" aria-label="相談への近道"><a href="#form">✎ 無料で相談してみる</a></nav>
+
+<script>
+// 申込用紙：必須の入力だけ確認する（送信先が未接続のため、送信はしない）
+const form = document.getElementById("form"), st = document.getElementById("status");
+form.addEventListener("submit", e => {
+  e.preventDefault();
+  const name = document.getElementById("f-name"), mail = document.getElementById("f-mail"), ok = document.getElementById("f-ok");
+  const bad = [];
+  name.parentElement.classList.toggle("err", !name.value.trim()); if (!name.value.trim()) bad.push("お名前");
+  const mailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail.value.trim());
+  mail.parentElement.classList.toggle("err", !mailOk); if (!mailOk) bad.push("メールアドレス");
+  if (!ok.checked) bad.push("同意のチェック");
+  st.textContent = bad.length ? `${bad.join("・")}を確かめてください。` : "ありがとうございます。いまは準備中のため、送信はされていません。";
+});
+</script>
+
+</body>
+</html>
