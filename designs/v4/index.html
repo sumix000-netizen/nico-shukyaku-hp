@@ -491,6 +491,13 @@ footer .copy{grid-column:1/-1;border-top:1px solid #333;padding-top:16px;font-si
   .frame.loop img,.hero-visual .notice,.ping span,.screen.m-cta .pb em{animation:none}
   .ping{display:none}
 }
+
+/* デザイン例：スワイプ・ドラッグで動かせる列（流れはスクリプトで動かす） */
+.ex-track{width:auto!important;animation:none!important;transform:none!important;overflow-x:auto;overflow-y:hidden;scrollbar-width:none;cursor:grab;overscroll-behavior-x:contain;padding-block:4px 16px;-webkit-user-select:none;user-select:none}
+.ex-track::-webkit-scrollbar{display:none}
+.ex-track.dragging{cursor:grabbing}
+.ex-track img{-webkit-user-drag:none;pointer-events:none}
+.ex-hint{margin:6px 0 0;text-align:center;font-size:13px;font-weight:700;opacity:.75}
 </style>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700;800;900&display=swap">
 <style>
@@ -898,6 +905,45 @@ footer .copy{grid-column:1/-1;border-top:1px solid #333;padding-top:16px;font-si
   addEventListener("scroll", () => { if (!ticking) { ticking = true; requestAnimationFrame(pick); } }, { passive: true });
   addEventListener("resize", pick);
   pick();
+})();
+</script>
+<script>
+// デザイン例の列：自動で流しつつ、指のスワイプ・マウスのドラッグでも動かせる
+(() => {
+  const tracks = [...document.querySelectorAll(".ex-track")];
+  if (!tracks.length) return;
+  const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const marquee = tracks[0].closest(".marquee");
+  if (marquee && !document.querySelector(".ex-hint")) { const p = document.createElement("p"); p.className = "ex-hint"; p.textContent = "← スワイプ・ドラッグで動かせます →"; marquee.after(p); }
+  tracks.forEach((el, i) => {
+    const dir = el.classList.contains("rev") ? -1 : 1;
+    let pos = 0, holdUntil = 0, hover = false, drag = null, moved = false, ours = false;
+    const half = () => el.scrollWidth / 2;                    // 同じ並びを2回つなげているので、半分で1周
+    const wrap = () => { const h = half(); if (h <= 0) return; if (pos >= h) pos -= h; if (pos < 0) pos += h; };
+    const apply = () => { ours = true; el.scrollLeft = pos; };
+    requestAnimationFrame(() => { pos = dir < 0 ? half() * 0.5 : 0; apply(); });
+    const hold = ms => { holdUntil = performance.now() + ms; };
+    // 自分以外（指・ホイール）で動いたら位置を合わせ、しばらく自動を止める
+    el.addEventListener("scroll", () => { if (ours) { ours = false; return; } pos = el.scrollLeft; wrap(); if (Math.abs(pos - el.scrollLeft) > 1) apply(); hold(2500); }, { passive: true });
+    el.addEventListener("touchstart", () => hold(4000), { passive: true });
+    el.addEventListener("mouseenter", () => { hover = true; });
+    el.addEventListener("mouseleave", () => { hover = false; });
+    // マウスのドラッグ
+    el.addEventListener("pointerdown", e => { if (e.pointerType !== "mouse" || e.button !== 0) return; drag = { x: e.clientX, start: pos }; moved = false; el.classList.add("dragging"); el.setPointerCapture(e.pointerId); });
+    el.addEventListener("pointermove", e => { if (!drag) return; const dx = e.clientX - drag.x; if (Math.abs(dx) > 4) moved = true; pos = drag.start - dx; wrap(); if (pos !== drag.start - dx) drag.start += (pos - (drag.start - dx)); apply(); });
+    const end = () => { if (!drag) return; drag = null; el.classList.remove("dragging"); hold(2000); };
+    el.addEventListener("pointerup", end); el.addEventListener("pointercancel", end);
+    el.addEventListener("click", e => { if (moved) { e.preventDefault(); e.stopPropagation(); moved = false; } }, true);
+    // 自動で流す（1周およそ70秒）
+    if (still) return;
+    let last = performance.now();
+    const tick = now => {
+      const dt = Math.min(64, now - last); last = now;
+      if (!drag && !hover && now > holdUntil && document.visibilityState === "visible") { pos += dir * half() / 70000 * dt; wrap(); apply(); }
+      requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  });
 })();
 </script>
 <script>
