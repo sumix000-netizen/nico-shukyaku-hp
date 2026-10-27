@@ -57,7 +57,7 @@ footer{color:var(--muted);font-size:12px;padding-block:20px 40px;border-top:1px 
 <body>
 <header class="gutter"><div class="inner">
   <h1>NICO デザイン案一覧</h1>
-  <p class="lead">これまでに作った3つの版と、今の版の中身はそのままで色・書体・角の丸み・影・背景・最初の画面の並びだけを変えた9案を並べました。いちばん下には、業種別のデザイン例14例も並べています。カードの「このページを開く」で、実際に動くページを見られます。</p>
+  <p class="lead">これまでに作った3つの版と、今の版の中身はそのままで色・書体・角の丸み・影・背景・最初の画面の並びだけを変えた9案を並べました。下には、業種別のデザイン例14例と、最先端の表現を入れた第2シリーズ20例も並べています。カードの「このページを開く」で、実際に動くページを見られます。</p>
   <p class="lead" style="margin-top:8px"><a href="https://claude.ai/artifact/3XB9FoJox26GW6L7xVXFgg" target="_blank" rel="noopener" style="color:inherit;font-weight:700">▶ アクセスランキング付きの一覧（claude.ai）</a></p>
 </div></header>
 <main class="gutter"><div class="inner">
@@ -69,6 +69,10 @@ footer{color:var(--muted);font-size:12px;padding-block:20px 40px;border-top:1px 
   <p class="note" style="margin:-4px 0 12px">ホームページの「デザイン例」に載せている、業種ごとのデザインのイメージです。</p>
   <div class="ex-filter" id="ex-filter" role="group" aria-label="業種で絞り込み"></div>
   <div class="grid" id="ex-grid"></div>
+  <h2 class="group" id="next">第2シリーズ「NEXT」最先端の表現（20例）</h2>
+  <p class="note" style="margin:-4px 0 12px">通販・ジム・SaaS・結婚相談所・FP・葬儀・イベント・クラファン・補助金・新店オープンの20例。スクロールに合わせた動き、触って試せる計算や切り替えなど、いまのWEB表現を入れています。</p>
+  <div class="ex-filter" id="bc-filter" role="group" aria-label="業種で絞り込み"></div>
+  <div class="grid" id="bc-grid"></div>
 </div></main>
 <footer class="gutter"><div class="inner">確認用のページです（検索には出ません）。撮影日：2026-10-25。</div></footer>
 <script>
@@ -140,6 +144,50 @@ const EXAMPLES = [
       const t = el("div", "tags"); t.append(el("span", "tag", e.cat), el("span", "tag", e.type));
       const goal = el("p", "goal"); goal.append(el("b", null, "してほしい行動："), e.goal);
       const a = el("a", "btn primary", "このページを開く ↗"); a.href = `../examples/${e.id}/index.html`; a.target = "_blank"; a.rel = "noopener"; a.style.justifySelf = "start";
+      c.append(s, t, el("h3", null, e.name), goal, el("p", "note", e.how), a); g.append(c);
+    });
+  }
+  draw();
+})();
+
+// 第2シリーズ「NEXT」20例
+const NEXT = [
+  {id:"B-8-1",cat:"通販",name:"ナチュレラボ｜オールインワン美容液",goal:"定期コースの初回購入",show:"商品を回して眺める3D",how:"朝の余白を主役にした淡い配色。定期の条件（回数・解約）を購入ボタンの近くに明記。"},
+  {id:"B-8-2",cat:"通販",name:"やまびこ農園｜青汁お試しセット",goal:"お試し10包の購入",show:"畑の物語のスクロール",how:"縦書きの見出しと畑の大きな写真。健康食品の表現ルールに沿って、効き目は書かず産地を見せる。"},
+  {id:"B-9-1",cat:"ジム・整体",name:"BODY FORGE｜パーソナルジム",goal:"カウンセリング＋体験の予約",show:"週の予定から通い方を組み立てる",how:"黒×金の大きな英字で迫力を。体験談は個人の感想と明記し、効果の断定はしない。"},
+  {id:"B-9-2",cat:"ジム・整体",name:"ゆらり整体院｜産後の骨盤ケア",goal:"初回の予約",show:"院内を横にめくって見るギャラリー",how:"丸い写真とくすみピンクでやさしく。子連れで行ける安心を、部屋の写真で先に見せる。"},
+  {id:"B-10-1",cat:"SaaS・IT",name:"KAKERU｜施工管理アプリ",goal:"導入ガイド（資料）の請求",show:"マウスで傾く製品画面",how:"現場と事務所の両方の目線で、画面のモックを大きく。4つの機能はタブで切り替え。料金は人数で増えない点を強調。"},
+  {id:"B-10-2",cat:"SaaS・IT",name:"ミライ会計システム｜経理のIT導入",goal:"無料オンライン相談",show:"実績の数字が回るカウンター",how:"「担当者に頼りきり」の不安から入る構成。経理の流れを組み立てるデモ付き。"},
+  {id:"B-11-1",cat:"結婚相談所",name:"えにしブライダル｜地方の結婚相談所",goal:"無料相談の予約",show:"縁をつなぐ線が描かれるCanvas",how:"アーチ型の写真と静かな線の演出。費用を入会前にすべて見せる。"},
+  {id:"B-11-2",cat:"結婚相談所",name:"ステラ・マリッジ｜ハイクラス向け",goal:"無料カウンセリングの予約",show:"サロンの扉が開く3D",how:"夜景と紺×金の上質な世界観。昼と夜で相談サロンの雰囲気を切り替えられる。"},
+  {id:"B-12-1",cat:"保険・FP",name:"マネーパートナーズ相談室｜保険相談",goal:"相談の予約",show:"ライフイベント別の相談準備ナビ",how:"商品から入らず、家族の希望から。保険の募集ルールに合わせ、保障額は決めつけない。"},
+  {id:"B-12-2",cat:"保険・FP",name:"ライフデザインFP事務所｜有料相談",goal:"有料相談の申込",show:"積立額を動かすグラフ",how:"相談料をいただく理由を正面から説明。利益の予測はせず、元本だけで見せる。"},
+  {id:"B-13-1",cat:"葬儀・整理",name:"やすらぎ葬祭｜家族葬の事前相談",goal:"事前相談の予約",show:"花の写真を固定した3章の物語",how:"悲しみを強調しない花と光。「プラン」と「総額」を分けて見せ、追加費用を先に書く。"},
+  {id:"B-13-2",cat:"葬儀・整理",name:"おもいで整理サービス｜遺品整理",goal:"無料見積もり",show:"間取りを選ぶと目安が出る",how:"離れて暮らす家族向け。写真で状況を伝えられる流れと、金額は現地確認後と明記。"},
+  {id:"C-14-1",cat:"イベント",name:"日本スマートファクトリー協議会｜カンファレンス",goal:"参加登録（無料）",show:"工場をつなぐ線のCanvas背景",how:"青と大きな「2027」で一目で分かる告知。聞きたいテーマと日にちから参加を選べる。"},
+  {id:"C-14-2",cat:"イベント",name:"ひだまりマルシェ｜出店者募集",goal:"出店の申込",show:"出店の様子を横に流すギャラリー",how:"イラストで手づくりの温かさを。出店料をお店の形ごとに表で比べられる。"},
+  {id:"C-15-1",cat:"クラファン",name:"ハンズクラフト｜薄型長財布",goal:"公開のお知らせ登録",show:"角度を変えて見る商品",how:"革の質感を黒背景で。厚さ9mmを、角度スライダーで確かめられる。"},
+  {id:"C-15-2",cat:"クラファン",name:"ルーツ酒造｜酒蔵の修復",goal:"リターンを選んで支援",show:"楽しみ方でリターンを選ぶ",how:"縦書き×墨×朱。購入型であることと20歳未満へ販売しないことを明記。英語の案内つき。"},
+  {id:"C-16-1",cat:"補助金",name:"○○市商工会｜補助金の説明会",goal:"説明会・個別相談の申込",show:"目的別の相談準備チェック",how:"「調べるだけで一日が終わる」に寄り添う。受給できるかは判定せず、持ち物を案内。"},
+  {id:"C-16-2",cat:"補助金",name:"アクセルパートナーズ｜補助金申請の支援",goal:"無料の採択可能性診断",show:"着手金・成功報酬の計算",how:"紺×オレンジ。補助金額から税込の費用が出て、不採択のときの条件も見える。"},
+  {id:"C-17-1",cat:"新店オープン",name:"麺処 たけ蔵｜2号店オープン",goal:"オープン案内・特典の登録",show:"丼から湯気が立つCanvas",how:"大きな丸いラーメン写真と極太の見出し。特典の条件も一緒に書く。"},
+  {id:"C-17-2",cat:"新店オープン",name:"CASA VERDE｜ボタニカルカフェ",goal:"プレオープンの招待登録",show:"マウスで傾く植物の写真",how:"ピンク×深緑。小さな森を持ち帰るテラリウムのワークショップを見せる。"}
+];
+(() => {
+  const g = document.getElementById("bc-grid"), f = document.getElementById("bc-filter");
+  const cats = ["すべて", ...new Set(NEXT.map(e => e.cat))]; let cur = "すべて";
+  cats.forEach(c => { const b = el("button", null, c); b.type = "button"; b.addEventListener("click", () => { cur = c; draw(); }); f.append(b); });
+  function draw() {
+    f.querySelectorAll("button").forEach(b => b.setAttribute("aria-pressed", String(b.textContent === cur)));
+    g.textContent = "";
+    NEXT.filter(e => cur === "すべて" || e.cat === cur).forEach(e => {
+      const c = el("article", "card"); const s = el("div", "ex-shot");
+      const pc = el("img", "pc"); pc.src = `../examples_bc/${e.id}/thumb-pc.webp`; pc.width = 720; pc.height = 450; pc.loading = "lazy"; pc.alt = `${e.name}のパソコン表示`;
+      const sp = el("img", "sp"); sp.src = `../examples_bc/${e.id}/thumb-sp.webp`; sp.width = 250; sp.height = 541; sp.loading = "lazy"; sp.alt = `${e.name}のスマートフォン表示`;
+      s.append(pc, sp);
+      const t = el("div", "tags"); t.append(el("span", "tag", e.cat), el("span", "tag", e.show));
+      const goal = el("p", "goal"); goal.append(el("b", null, "してほしい行動："), e.goal);
+      const a = el("a", "btn primary", "このページを開く ↗"); a.href = `../examples_bc/${e.id}/index.html`; a.target = "_blank"; a.rel = "noopener"; a.style.justifySelf = "start";
       c.append(s, t, el("h3", null, e.name), goal, el("p", "note", e.how), a); g.append(c);
     });
   }
