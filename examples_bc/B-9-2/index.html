@@ -21,6 +21,42 @@ body{background:var(--paper);color:var(--ink);font:16px/1.85 'Noto Sans JP',sans
 @media(max-width:760px){.form-grid,.show-grid{grid-template-columns:1fr}}
 @layer components{.feature-list{& article:last-child{padding-bottom:0}}}
 
+/* HERO COMPOSITION 1 */
+
+.hero[class*="hc-"]{isolation:isolate;min-width:0}
+.hero[class*="hc-"] *{min-width:0}
+.hero[class*="hc-"] :is(.btn,.cta){max-width:100%;color:#fff}
+.hero[class*="hc-"] :is(.fine,.note,figcaption){color:inherit;opacity:1}
+@media(prefers-reduced-motion:reduce){.hero[class*="hc-"] *{animation:none!important;transition:none!important}}
+
+.hero.hc-glass{position:relative;display:flex;flex-direction:row;align-items:flex-end;width:100%;max-width:none;min-height:690px;padding:55px max(40px,calc((100% - 1120px)/2));margin:0;color:#34443c;overflow:hidden}
+.hc-glass .hero-figure{position:absolute;inset:0;z-index:-1;margin:0;padding:0;height:100%}
+.hc-glass .hero-figure img{width:100%;height:100%;border-radius:0;transform:none;object-fit:cover;object-position:67% 43%}
+.hc-glass .hero-figure figcaption{position:absolute;right:28px;top:22px;margin:0;background:#fff;padding:6px 12px;border-radius:20px;font-size:12px}
+.hc-glass .hero-copy{padding:30px 34px;width:450px;max-width:100%;background:#fff;border:1px solid #fff;border-radius:28px;box-shadow:0 15px 60px #203c3226}
+@supports ((backdrop-filter:blur(16px)) or (-webkit-backdrop-filter:blur(16px))){.hc-glass .hero-copy{background:rgb(255 255 255/.91);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px)}}
+.hc-glass .hero-copy .kicker{margin:0 0 10px;font-size:11px;color:#34443c}
+.hc-glass .little-note{margin-bottom:8px;font-size:12px}
+.hc-glass h1{font-size:48px;line-height:1.38;letter-spacing:.04em}
+.hc-glass .hero-copy>p:not(.kicker):not(.fine){margin:16px 0 0;font-size:14px;line-height:1.8}
+.hc-glass .hero-copy .btn{margin-top:20px;background-color:#456354}
+.hc-glass .hero-copy .fine{margin-top:14px;font-size:12px;line-height:1.7}
+.hc-glass .yurari-wave{display:none}
+@media(max-width:760px){
+.hero.hc-glass{min-height:650px;min-height:min(650px,calc(100svh - 78px));padding:128px 16px 18px;display:flex;gap:0}
+.hc-glass .hero-figure img{object-position:38% 35%}
+.hc-glass .hero-figure figcaption{top:14px;right:14px;font-size:10px}
+.hc-glass .hero-copy{padding:20px 22px;border-radius:24px;width:323px}
+.hc-glass h1{font-size:36px;line-height:1.35}
+.hc-glass .hero-copy .kicker{font-size:10px;margin:0 0 8px}
+.hc-glass .little-note{font-size:11px;margin:0 0 6px}
+.hc-glass .hero-copy>p:not(.kicker):not(.fine){font-size:13px;line-height:1.65;margin-top:12px}
+.hc-glass .hero-copy .btn{font-size:12px;padding:12px 16px;gap:16px;margin-top:14px;min-height:48px}
+.hc-glass .hero-copy .fine{font-size:11px;margin-top:10px}
+}
+
+/* END HERO COMPOSITION 1 */
+
 /* NEXT改善：@propertyで登録した変数を動かす（読み進みバー・ボタンの光） */
 @property --nx-p{syntax:'<percentage>';inherits:false;initial-value:0%}
 @property --nx-s{syntax:'<percentage>';inherits:false;initial-value:-40%}
@@ -32,7 +68,7 @@ body{background:var(--paper);color:var(--ink);font:16px/1.85 'Noto Sans JP',sans
 a[href="#apply"]{background-image:linear-gradient(105deg,transparent calc(var(--nx-s) - 18%),rgb(255 255 255/.34) var(--nx-s),transparent calc(var(--nx-s) + 18%));background-repeat:no-repeat;animation:nx-s 5s ease-in-out infinite}
 @keyframes nx-s{0%,60%{--nx-s:-40%}100%{--nx-s:140%}}
 @media (prefers-reduced-motion:reduce){a[href="#apply"]{animation:none;background-image:none}.nx-progress{display:none}}
-</style></head><body class="yurari"><a class="skip" href="#main">本文へ移動</a><header class="header wrap"><a class="brand" href="#">ゆらり</a><span class="tag">宮城県仙台市泉区<br>DESIGN SAMPLE / NEXT</span></header><main id="main"><section class="hero wrap"><div class="hero-copy"><p class="kicker">仙台市泉区・富谷市のママへ</p><span class="little-note">赤ちゃんも、ご一緒に。</span><h1>ママのための、<br>ひと息。</h1><p>抱っこの毎日に、<br>あなたのからだを気づかう時間を。<br>女性スタッフによる産後の自費整体。</p><a class="btn" href="#apply">初回の予約希望を送る</a><p class="fine">初回4,980円（税込）／駐車場3台<br>キッズスペース・ベビーベッドあり</p></div><figure class="hero-figure"><img src="images/hero.webp" alt="柔らかな光の差す部屋で赤ちゃんを抱いてくつろぐ母親。生成イメージ" width="1536" height="1024" fetchpriority="high" ><figcaption>今日は、あなたのペースで。</figcaption></figure><div class="yurari-wave" aria-hidden="true">yurari, yurari.</div></section>
+</style></head><body class="yurari"><a class="skip" href="#main">本文へ移動</a><header class="header wrap"><a class="brand" href="#">ゆらり</a><span class="tag">宮城県仙台市泉区<br>DESIGN SAMPLE / NEXT</span></header><main id="main"><section class="hero hc-glass"><div class="hero-copy"><p class="kicker">仙台市泉区・富谷市のママへ</p><span class="little-note">赤ちゃんも、ご一緒に。</span><h1>ママのための、<br>ひと息。</h1><p>抱っこの毎日に、<br>あなたのからだを気づかう時間を。<br>女性スタッフによる産後の自費整体。</p><a class="btn" href="#apply">初回の予約希望を送る</a><p class="fine">初回4,980円（税込）／駐車場3台<br>キッズスペース・ベビーベッドあり</p></div><figure class="hero-figure"><img src="images/hero.webp" alt="柔らかな光の差す部屋で赤ちゃんを抱いてくつろぐ母親。生成イメージ" width="1536" height="1024" fetchpriority="high" ><figcaption>今日は、あなたのペースで。</figcaption></figure><div class="yurari-wave" aria-hidden="true">yurari, yurari.</div></section>
 <section class="section wrap yurari-intro"><p class="kicker">その毎日に、寄り添う時間。</p><h2>赤ちゃんは大切。<br>あなたのからだも、大切。</h2><p class="lead">抱っこ、授乳、寝かしつけ。<br>自分のことは、つい後回し。<br>「赤ちゃんを預けられないから」と、<br>ひとりで抱えなくて大丈夫です。</p><div class="dotted-note">泣いても、途中で休んでも。<br>親子のペースを、大切にします。</div></section>
 <section class="band"><div class="section wrap split"><img src="images/detail-1.webp" alt="明るい整体室で話を聞く女性スタッフ。生成イメージ" width="1536" height="1024" loading="lazy" ><div><p class="kicker">WELCOME, BOTH OF YOU.</p><h2>ここでは、<br>遠慮をひとつ減らして。</h2><div class="feature-list"><article class="reveal"><span class="num">01</span><div><h3>女性スタッフがお迎えします</h3><p>話しづらいことも、無理のない範囲で。気になる力加減や休憩の希望をお伝えください。</p></div></article><article class="reveal"><span class="num">02</span><div><h3>赤ちゃんの居場所もあります</h3><p>ベビーベッドとキッズスペースを用意。スタッフの見守りを希望する場合は予約時にご相談ください。</p></div></article><article class="reveal"><span class="num">03</span><div><h3>1回ずつ、相談できます</h3><p>回数券の購入を前提とせず、あなたの希望や日々の都合を伺います。</p></div></article></div></div></div></section>
 <section class="section wrap"><p class="kicker">SMALL PLACE, GENTLE PACE.</p><h2>小さな場所で、<br>お話から、ゆっくり。</h2><div class="proof"><strong>3<small>台</small></strong><p>住宅街の一軒家を改装した整体院、駐車場3台という設定です。仙台市泉区・富谷市で、親子で通う時間を探している方へ。写真や人物はすべてイメージです。</p></div></section>

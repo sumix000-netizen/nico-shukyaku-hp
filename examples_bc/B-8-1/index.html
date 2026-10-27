@@ -22,6 +22,41 @@ body{background:var(--paper);color:var(--ink);font:16px/1.85 'Noto Sans JP',sans
 @layer components{.feature-list{& article:last-child{padding-bottom:0}}}
 @media(max-width:760px){.nature .sticky-cta{gap:10px;padding-inline:12px}.nature .sticky-cta .btn{font-size:11px;gap:8px;padding-inline:10px}.nature .sticky-cta small{font-size:10px}}
 
+/* HERO COMPOSITION 1 */
+
+.hero[class*="hc-"]{isolation:isolate;min-width:0}
+.hero[class*="hc-"] *{min-width:0}
+.hero[class*="hc-"] :is(.btn,.cta){max-width:100%;color:#fff}
+.hero[class*="hc-"] :is(.fine,.note,figcaption){color:inherit;opacity:1}
+@media(prefers-reduced-motion:reduce){.hero[class*="hc-"] *{animation:none!important;transition:none!important}}
+
+.hero.hc-cover{--photo-h:300px;display:block;position:relative;text-align:center;padding:24px 28px 0;border-inline:1px solid #d4c2bd;color:#382e2e}
+.hc-cover .hero-copy{padding:0}
+.hc-cover .hero-copy .kicker{font-size:11px;letter-spacing:.14em;margin:0 0 16px;color:#63473f}
+.hc-cover h1{font-size:64px;line-height:1.15;letter-spacing:.04em;display:flex;flex-direction:column;gap:calc(var(--photo-h) + 28px);margin:0}
+.hc-cover .hero-figure{position:absolute;top:114px;left:50%;transform:translateX(-50%);width:260px;height:var(--photo-h);margin:0}
+.hc-cover .hero-figure img{width:100%;height:100%;object-fit:cover;object-position:50% 52%;clip-path:inset(0 0 0 0 round 100px 100px 0 0)}
+.hc-cover .hero-orbit{right:-24px;top:20px;color:#63473f;font-size:10px;letter-spacing:.15em}
+.hc-cover .image-caption{position:absolute;bottom:6px;left:8px;right:8px;background:#fffcfc;font-size:10px;padding:2px 4px;color:#382e2e}
+.hc-cover .hero-copy>p:not(.kicker):not(.fine){margin:16px 0 0;font-size:15px;line-height:1.7}
+.hc-cover .hero-copy .btn{margin-top:18px;background-color:#785248}
+.hc-cover .hero-copy .fine{margin:14px 0 0;font-size:12px;line-height:1.65}
+.hc-cover .hero-bottom{display:flex;justify-content:space-between;gap:16px;padding:20px 0;font-size:11px;margin-top:20px;border-top:1px solid #d4c2bd}
+@media(max-width:760px){
+.hero.hc-cover{--photo-h:175px;padding:12px 12px 0}
+.hc-cover .hero-copy .kicker{font-size:9px;letter-spacing:.06em;margin:0 0 12px}
+.hc-cover h1{font-size:37px;line-height:1.2;gap:calc(var(--photo-h) + 20px);letter-spacing:.02em}
+.hc-cover .hero-figure{top:88px;width:164px}
+.hc-cover .hero-orbit{font-size:9px;right:-21px;top:8px}
+.hc-cover .image-caption{font-size:9px;left:3px;right:3px;bottom:4px;padding:1px}
+.hc-cover .hero-copy>p:not(.kicker):not(.fine){font-size:13px;line-height:1.55;margin-top:10px}
+.hc-cover .hero-copy .btn{font-size:12px;gap:12px;padding:13px 15px;min-height:48px;margin-top:13px}
+.hc-cover .hero-copy .fine{font-size:10px;line-height:1.65;margin-top:10px}
+.hc-cover .hero-bottom{font-size:9px;padding:12px 0;margin-top:12px;gap:8px}
+}
+
+/* END HERO COMPOSITION 1 */
+
 /* NEXT改善：@propertyで登録した変数を動かす（読み進みバー・ボタンの光） */
 @property --nx-p{syntax:'<percentage>';inherits:false;initial-value:0%}
 @property --nx-s{syntax:'<percentage>';inherits:false;initial-value:-40%}
@@ -33,7 +68,7 @@ body{background:var(--paper);color:var(--ink);font:16px/1.85 'Noto Sans JP',sans
 a[href="#apply"]{background-image:linear-gradient(105deg,transparent calc(var(--nx-s) - 18%),rgb(255 255 255/.34) var(--nx-s),transparent calc(var(--nx-s) + 18%));background-repeat:no-repeat;animation:nx-s 5s ease-in-out infinite}
 @keyframes nx-s{0%,60%{--nx-s:-40%}100%{--nx-s:140%}}
 @media (prefers-reduced-motion:reduce){a[href="#apply"]{animation:none;background-image:none}.nx-progress{display:none}}
-</style></head><body class="nature"><a class="skip" href="#main">本文へ移動</a><header class="header wrap"><a class="brand" href="#">nature labo</a><span class="tag">福岡市博多区<br>DESIGN SAMPLE / NEXT</span></header><main id="main"><section class="hero wrap"><div class="hero-copy"><p class="kicker">LUMINA ESSENCE / DAILY SKIN RITUAL</p><h1>朝の肌に、<br>ひとつの余白。</h1><p>重ねていたケアを、ひとつに。<br>うるおいで満たして、肌を整える<br>オールインワン美容液。</p><a class="btn" href="#apply">定期コースの内容を確認する</a><p class="fine">定期初回1,980円（税込）・2回目以降5,980円<br>毎回1本／30日ごと／最低購入回数なし／送料無料<br>解約は次回発送10日前まで（モデル条件）</p></div><figure class="hero-figure"><img src="images/hero.webp" alt="パールの台に置いたローズゴールドのポンプ付き美容液ボトル。生成イメージ" width="1536" height="1024" fetchpriority="high" ><span class="hero-orbit en" aria-hidden="true">ONE BOTTLE. MORE SPACE.</span><figcaption class="image-caption">商品・容器は生成イメージです。</figcaption></figure><div class="hero-bottom"><span class="en">LESS STEPS, MORE YOU.</span><span>化粧水から下地まで、6つの役割。</span></div></section>
+</style></head><body class="nature"><a class="skip" href="#main">本文へ移動</a><header class="header wrap"><a class="brand" href="#">nature labo</a><span class="tag">福岡市博多区<br>DESIGN SAMPLE / NEXT</span></header><main id="main"><section class="hero wrap hc-cover"><div class="hero-copy"><p class="kicker">LUMINA ESSENCE / DAILY SKIN RITUAL</p><h1><span>朝の肌に、</span><span>ひとつの余白。</span></h1><p>重ねていたケアを、ひとつに。<br>うるおいで満たして、肌を整える<br>オールインワン美容液。</p><a class="btn" href="#apply">定期コースの内容を確認する</a><p class="fine">定期初回1,980円（税込）・2回目以降5,980円<br>毎回1本／30日ごと／最低購入回数なし／送料無料<br>解約は次回発送10日前まで（モデル条件）</p></div><figure class="hero-figure"><img src="images/hero.webp" alt="パールの台に置いたローズゴールドのポンプ付き美容液ボトル。生成イメージ" width="1536" height="1024" fetchpriority="high" ><span class="hero-orbit en" aria-hidden="true">ONE BOTTLE. MORE SPACE.</span><figcaption class="image-caption">商品・容器は生成イメージです。</figcaption></figure><div class="hero-bottom"><span class="en">LESS STEPS, MORE YOU.</span><span>化粧水から下地まで、6つの役割。</span></div></section>
 <section class="section wrap split reveal"><div><p class="kicker">A LITTLE LESS, A LITTLE BETTER.</p><h2>丁寧にしたい。<br>でも、朝は忙しい。</h2><p class="lead">化粧水、美容液、乳液……。<br>増えるボトルと、足りない時間。<br>肌を気づかう気持ちは、そのままで。<br>手順に、余白をつくりませんか。</p></div><img src="images/detail-1.webp" alt="透明な美容液のしずくと柔らかな光。テクスチャの生成イメージ" width="1536" height="1024" loading="lazy" ></section>
 <section class="band"><div class="section wrap"><p class="kicker">THE 6-IN-1 FORMULA</p><div class="six-layout"><div class="six en" aria-hidden="true">06</div><div><h2>ひとつのケアに、<br>6つの役割。</h2><div class="feature-list"><article class="reveal"><span class="num">01</span><div><h3>うるおいを与える</h3><p>化粧水・美容液・乳液・クリーム・パック・化粧下地。毎日の工程をまとめる発想です。</p></div></article><article class="reveal"><span class="num">02</span><div><h3>肌を、すこやかに整える</h3><p>ナイアシンアミド、ヒト幹細胞培養液を整肌成分として配合する商品設定。肌の再生や改善をうたうものではありません。</p></div></article></div></div></div></div></section>
 <section class="section wrap"><p class="kicker">OUR EVERYDAY ESSENTIAL</p><h2>特別な日より、<br>いつもの朝のために。</h2><div class="proof"><strong>120<small>万本</small></strong><p>累計販売本数というペルソナの架空設定です。集計期間・販売記録は本番前に確認が必要なため、効果の根拠としては使用していません。</p></div><div class="ritual-images"><img src="images/detail-2.webp" alt="窓辺に置かれた美容液とタオル。生成イメージ" width="1536" height="1024" loading="lazy" ><img src="images/detail-3.webp" alt="手のひらで美容液を伸ばす自然な手元。生成イメージ" width="1536" height="1024" loading="lazy" ></div></section>

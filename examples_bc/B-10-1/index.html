@@ -21,6 +21,53 @@ body{background:var(--paper);color:var(--ink);font:16px/1.85 'Noto Sans JP',sans
 @media(max-width:760px){.form-grid,.show-grid{grid-template-columns:1fr}}
 @layer components{.feature-list{& article:last-child{padding-bottom:0}}}
 
+/* HERO COMPOSITION 1 */
+
+.hero[class*="hc-"]{isolation:isolate;min-width:0}
+.hero[class*="hc-"] *{min-width:0}
+.hero[class*="hc-"] :is(.btn,.cta){max-width:100%;color:#fff}
+.hero[class*="hc-"] :is(.fine,.note,figcaption){color:inherit;opacity:1}
+@media(prefers-reduced-motion:reduce){.hero[class*="hc-"] *{animation:none!important;transition:none!important}}
+
+.hero.hc-stage{display:block;padding:35px 0 60px;background:none;text-align:center;color:#252a2c}
+.hc-stage .hero-copy{padding:0}
+.hc-stage .hero-copy .kicker{margin:0 0 20px;font-size:12px}
+.hc-stage h1{font-size:clamp(30px,3.25vw,48px);line-height:1.35;font-weight:800;white-space:nowrap;letter-spacing:-.055em}
+.hc-stage h1 em{color:#9a3d20}
+.hc-stage .hero-copy>p:not(.kicker):not(.fine){margin:22px 0 0;font-size:15px;line-height:1.8}
+.hc-stage .hero-copy .btn{margin-top:20px;background-color:#9a3d20}
+.hc-stage .hero-copy .fine{margin-top:12px;font-size:12px;line-height:1.7}
+.hc-stage .hc-perspective{perspective:1400px;padding:22px 36px 12px;overflow:hidden}
+.hc-stage .hero-product{width:100%;max-width:980px;margin:0 auto;transform:rotateX(14deg) rotateY(-8deg) rotateZ(2deg);transform-origin:50% 30%;box-shadow:15px 20px 35px #252a2c25;text-align:left;display:grid;grid-template-columns:1.4fr 1fr;background:#fff}
+.hc-stage .product-top{grid-column:1/-1;font-size:11px;padding:13px 20px}
+.hc-stage .hero-product>img{width:100%;height:280px;aspect-ratio:auto;grid-row:2/4}
+.hc-stage .product-summary{display:block;padding:30px 24px 10px;font-size:17px}
+.hc-stage .product-summary small{font-size:11px;margin-top:6px}
+.hc-stage .product-summary b{display:block;margin-top:14px;color:#9a3d20}
+.hc-stage .mini-tasks{padding:0 24px 20px;font-size:12px}
+@media(max-width:760px){
+.hero.hc-stage{padding:22px 0 30px}
+.hc-stage .hero-copy .kicker{font-size:11px;margin:0 0 14px}
+.hc-stage h1{white-space:normal;font-size:36px;line-height:1.4;letter-spacing:-.04em}
+.hc-stage h1 em{display:block}
+.hc-stage .hero-copy>p:not(.kicker):not(.fine){font-size:13px;line-height:1.7;margin-top:14px}
+.hc-stage .hero-copy .btn{margin-top:16px;min-height:48px;font-size:13px}
+.hc-stage .hero-copy .fine{font-size:11px;margin-top:12px}
+.hc-stage .hc-perspective{padding:20px 6px 18px;perspective:900px}
+.hc-stage .hero-product{grid-template-columns:1.1fr 1fr;transform:rotateX(8deg) rotateY(-5deg) rotateZ(1deg);border-radius:8px;box-shadow:5px 10px 15px #252a2c20}
+.hc-stage .product-top{font-size:8px;padding:9px;gap:8px}
+.hc-stage .hero-product>img{height:165px}
+.hc-stage .product-summary{font-size:10px;padding:12px 10px 5px}
+.hc-stage .product-summary small{font-size:8px;margin-top:3px}
+.hc-stage .product-summary b{font-size:9px;margin-top:8px}
+.hc-stage .mini-tasks{font-size:8px;padding:0 8px 8px}
+.hc-stage .mini-tasks p{padding:5px 0}
+.hc-stage .mini-tasks i{width:5px;height:5px;margin-right:4px}
+}
+@media(prefers-reduced-motion:reduce){.hc-stage .hero-product{transform:none}}
+
+/* END HERO COMPOSITION 1 */
+
 /* NEXT改善：@propertyで登録した変数を動かす（読み進みバー・ボタンの光） */
 @property --nx-p{syntax:'<percentage>';inherits:false;initial-value:0%}
 @property --nx-s{syntax:'<percentage>';inherits:false;initial-value:-40%}
@@ -32,7 +79,7 @@ body{background:var(--paper);color:var(--ink);font:16px/1.85 'Noto Sans JP',sans
 a[href="#apply"]{background-image:linear-gradient(105deg,transparent calc(var(--nx-s) - 18%),rgb(255 255 255/.34) var(--nx-s),transparent calc(var(--nx-s) + 18%));background-repeat:no-repeat;animation:nx-s 5s ease-in-out infinite}
 @keyframes nx-s{0%,60%{--nx-s:-40%}100%{--nx-s:140%}}
 @media (prefers-reduced-motion:reduce){a[href="#apply"]{animation:none;background-image:none}.nx-progress{display:none}}
-</style></head><body class="kakeru"><a class="skip" href="#main">本文へ移動</a><header class="header wrap"><a class="brand" href="#">KAKERU</a><span class="tag">東京都千代田区<br>DESIGN SAMPLE / NEXT</span></header><main id="main"><section class="hero wrap"><div class="hero-copy"><p class="kicker">現場と事務所を、ひとつにつなぐ。</p><h1>現場は動く。<br>書類は、<br><em>たまらない。</em></h1><p>写真・工程・日報・図面をひとつに。<br>職人さんも、事務所も、同じ画面で。</p><a class="btn" href="#apply">導入ガイドを受け取る</a><p class="fine">ユーザー数無制限／協力会社のID無料<br>資料請求で契約が始まることはありません。</p></div><div class="hero-product"><div class="product-top en"><span>WORKSPACE / PROJECT 01</span><span>● SAMPLE</span></div><img src="images/hero.webp" alt="木造建設現場でタブレットを確認する2人の現場監督。生成イメージ" width="1536" height="1024" fetchpriority="high" ><div class="product-summary"><span>青葉邸 新築工事<small>画面・案件はすべて架空</small></span><b>現場と、つながる。</b></div><div class="mini-tasks"><p><i></i> 本日の写真を共有</p><p><i></i> 最新図面を確認</p><p><i></i> 日報を提出</p></div></div></section><div class="metric-strip wrap"><p><strong class="en">1,400</strong> 社 導入<span>ペルソナの架空設定</span></p><p><strong>∞</strong> ユーザー<span>協力会社のIDも無料</span></p><p><strong>全国</strong> 訪問サポート<span>対応範囲・費用は要確認</span></p></div>
+</style></head><body class="kakeru"><a class="skip" href="#main">本文へ移動</a><header class="header wrap"><a class="brand" href="#">KAKERU</a><span class="tag">東京都千代田区<br>DESIGN SAMPLE / NEXT</span></header><main id="main"><section class="hero wrap hc-stage"><div class="hero-copy"><p class="kicker">現場と事務所を、ひとつにつなぐ。</p><h1>現場は動く。<wbr>書類は、<wbr><em>たまらない。</em></h1><p>写真・工程・日報・図面をひとつに。<br>職人さんも、事務所も、同じ画面で。</p><a class="btn" href="#apply">導入ガイドを受け取る</a><p class="fine">ユーザー数無制限／協力会社のID無料<br>資料請求で契約が始まることはありません。</p></div><div class="hc-perspective"><div class="hero-product"><div class="product-top en"><span>WORKSPACE / PROJECT 01</span><span>● SAMPLE</span></div><img src="images/hero.webp" alt="木造建設現場でタブレットを確認する2人の現場監督。生成イメージ" width="1536" height="1024" fetchpriority="high" ><div class="product-summary"><span>青葉邸 新築工事<small>画面・案件はすべて架空</small></span><b>現場と、つながる。</b></div><div class="mini-tasks"><p><i></i> 本日の写真を共有</p><p><i></i> 最新図面を確認</p><p><i></i> 日報を提出</p></div></div></div></section><div class="metric-strip wrap"><p><strong class="en">1,400</strong> 社 導入<span>ペルソナの架空設定</span></p><p><strong>∞</strong> ユーザー<span>協力会社のIDも無料</span></p><p><strong>全国</strong> 訪問サポート<span>対応範囲・費用は要確認</span></p></div>
 <section class="section wrap problem-grid"><div><p class="kicker">THE WORK AFTER THE WORK.</p><h2>現場を出てから、<br>また仕事が始まる。</h2></div><div class="problem-lines"><p><span>01</span>スマホの写真を、パソコンに移す。</p><p><span>02</span>最新の工程表を、電話で確かめる。</p><p><span>03</span>事務所に戻って、日報をまとめる。</p><strong>その行き来を、ひとつの画面へ。</strong></div></section>
 <section class="band"><div class="section wrap"><p class="kicker">ONE WORKSPACE. EVERYONE CONNECTED.</p><h2>機能を増やすより、<br>やり取りを減らす。</h2><div class="app-demo"><div class="app-nav" role="tablist" aria-label="施工管理機能"><button role="tab" id="tab-photo" aria-controls="feature-panel" aria-selected="true" data-feature="photo">写真管理</button><button role="tab" id="tab-plan" aria-controls="feature-panel" aria-selected="false" tabindex="-1" data-feature="plan">工程表</button><button role="tab" id="tab-daily" aria-controls="feature-panel" aria-selected="false" tabindex="-1" data-feature="daily">日報</button><button role="tab" id="tab-drawing" aria-controls="feature-panel" aria-selected="false" tabindex="-1" data-feature="drawing">図面共有</button></div><div class="app-window" id="feature-panel" role="tabpanel" aria-labelledby="tab-photo" tabindex="0"><div class="app-title"><span class="en">PROJECT / 青葉邸新築工事</span><span>サンプル画面</span></div><div id="app-content"></div></div></div><p class="fine">UIは操作イメージです。実際の製品仕様や同期状況を示すものではありません。</p></div></section>
 <section class="section wrap split"><div><p class="kicker">ON YOUR SIDE, ON YOUR SITE.</p><h2>導入してから、<br>使えるまでを一緒に。</h2><div class="feature-list"><article class="reveal"><span class="num">01</span><div><h3>協力会社のIDは無料</h3><p>ユーザー数を気にせず、現場に関わる人へ。データ容量や利用条件は見積で確認してください。</p></div></article><article class="reveal"><span class="num">02</span><div><h3>全国への訪問導入サポート</h3><p>現場での使い方、Excelからの移行、運用のルールづくり。支援の具体的な範囲と費用を導入前に相談します。</p></div></article></div></div><img src="images/detail-1.webp" alt="工事事務所でパソコンの操作を相談するスタッフ。生成イメージ" width="1536" height="1024" loading="lazy" ></section>
