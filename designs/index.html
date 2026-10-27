@@ -139,7 +139,8 @@ const EXAMPLES = [
       s.append(pc, sp);
       const t = el("div", "tags"); t.append(el("span", "tag", e.cat), el("span", "tag", e.type));
       const goal = el("p", "goal"); goal.append(el("b", null, "してほしい行動："), e.goal);
-      c.append(s, t, el("h3", null, e.name), goal, el("p", "note", e.how)); g.append(c);
+      const a = el("a", "btn primary", "このページを開く ↗"); a.href = `../examples/${e.id}/index.html`; a.target = "_blank"; a.rel = "noopener"; a.style.justifySelf = "start";
+      c.append(s, t, el("h3", null, e.name), goal, el("p", "note", e.how), a); g.append(c);
     });
   }
   draw();
