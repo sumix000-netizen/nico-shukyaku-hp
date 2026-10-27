@@ -40,13 +40,24 @@ h2.group{font-size:13px;letter-spacing:.14em;color:var(--accent);margin:30px 0 1
 .btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .full{max-height:560px;overflow:auto;border:1px solid var(--line);border-radius:8px;background:var(--chip);text-align:center;padding:8px}
 .full img{width:360px;max-width:100%;height:auto}
+.ex-filter{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.ex-filter button{font:700 13px var(--f-body);border:1px solid var(--line);background:var(--panel);color:var(--fg);border-radius:99px;padding:5px 14px;cursor:pointer}
+.ex-filter button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.ex-filter button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.ex-shot{position:relative;padding-bottom:12px}
+.ex-shot .pc{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;object-position:top;border:1px solid var(--line);border-radius:6px}
+.ex-shot .sp{position:absolute;right:8px;bottom:0;width:22%;height:auto;aspect-ratio:250/541;object-fit:cover;object-position:top;border:2px solid var(--fg);border-radius:8px;background:var(--panel)}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-size:12px;font-weight:700;border-radius:4px;padding:1px 8px;background:var(--chip);color:var(--muted)}
+.goal{margin:0;font-size:14px;font-weight:700}
+.goal b{color:var(--accent)}
 footer{color:var(--muted);font-size:12px;padding-block:20px 40px;border-top:1px solid var(--line)}
 </style>
 </head>
 <body>
 <header class="gutter"><div class="inner">
   <h1>NICO デザイン案一覧</h1>
-  <p class="lead">これまでに作った3つの版と、今の版の中身はそのままで色・書体・角の丸み・影・背景・最初の画面の並びだけを変えた9案を並べました。カードの「このページを開く」で、実際に動くページを見られます。</p>
+  <p class="lead">これまでに作った3つの版と、今の版の中身はそのままで色・書体・角の丸み・影・背景・最初の画面の並びだけを変えた9案を並べました。いちばん下には、業種別のデザイン例14例も並べています。カードの「このページを開く」で、実際に動くページを見られます。</p>
   <p class="lead" style="margin-top:8px"><a href="https://claude.ai/artifact/3XB9FoJox26GW6L7xVXFgg" target="_blank" rel="noopener" style="color:inherit;font-weight:700">▶ アクセスランキング付きの一覧（claude.ai）</a></p>
 </div></header>
 <main class="gutter"><div class="inner">
@@ -54,6 +65,10 @@ footer{color:var(--muted);font-size:12px;padding-block:20px 40px;border-top:1px 
   <div class="grid" id="grid-base"></div>
   <h2 class="group">デザイン案9種（中身は今の版と同じ）</h2>
   <div class="grid" id="grid"></div>
+  <h2 class="group" id="examples">デザイン例の一覧（業種別14例）</h2>
+  <p class="note" style="margin:-4px 0 12px">ホームページの「デザイン例」に載せている、業種ごとのデザインのイメージです。</p>
+  <div class="ex-filter" id="ex-filter" role="group" aria-label="業種で絞り込み"></div>
+  <div class="grid" id="ex-grid"></div>
 </div></main>
 <footer class="gutter"><div class="inner">確認用のページです（検索には出ません）。撮影日：2026-10-25。</div></footer>
 <script>
@@ -92,6 +107,43 @@ function addCard(grid, id, name, note, href, label, isBase) {
 }
 BASE.forEach(([id, name, note, href, label]) => addCard(document.getElementById("grid-base"), id, name, note, href, label, true));
 V.forEach(([id, name, note]) => addCard(document.getElementById("grid"), id, name, note, `${id}/`, id.toUpperCase(), false));
+
+// デザイン例の一覧（業種別14例）。データはホームページの「デザイン例」と同じ
+const EXAMPLES = [
+  {id:"A-1-1",cat:"美容医療",name:"グランリュクス美容クリニック｜二重埋没法",goal:"無料カウンセリング予約",type:"共感→解決型",how:"料金とモニター条件を最初の画面に。リスク・副作用と、埋没法と切開法の比較を並べました。"},
+  {id:"A-1-2",cat:"美容医療",name:"ひなた皮フ科｜医療脱毛",goal:"初回カウンセリング予約",type:"診断・シミュレーター型",how:"駅前の大手と比べず、地元・皮膚科・駐車場で選ばれる作りに。部位を選ぶと料金が出ます。"},
+  {id:"A-2-1",cat:"歯科",name:"みなとみらい矯正歯科｜マウスピース矯正",goal:"3Dシミュレーション付き無料相談",type:"診断・シミュレーター型",how:"30秒のセルフチェックから相談へ。総額制の料金と、未承認装置の説明を載せています。"},
+  {id:"A-2-2",cat:"歯科",name:"さつき台デンタル｜インプラント",goal:"CT撮影付き無料相談（電話）",type:"共感→解決型",how:"大きな文字で電話を優先。入れ歯・ブリッジとの比較と、家族に送れるメッセージを用意しました。"},
+  {id:"A-3-1",cat:"不動産",name:"アーバンテラス千葉みなと｜新築マンション",goal:"物件エントリー（2ステップ）",type:"予告広告型",how:"販売前の事前登録用。目的地までの所要時間と販売スケジュールを見せています。"},
+  {id:"A-3-2",cat:"不動産",name:"ハマ不動産｜相続した家の売却査定",goal:"無料査定の依頼",type:"フォーム先行型",how:"最初の画面に3ステップの査定フォーム。相続から売却までの道のりを図にしました。"},
+  {id:"A-4-1",cat:"住宅・塗装",name:"木の香ホーム｜完成見学会",goal:"見学会の予約",type:"予約枠・イベント型",how:"毎月差し替えて使える作り。満席が分かる予約カレンダーから、そのまま申し込めます。"},
+  {id:"A-4-2",cat:"住宅・塗装",name:"プロテクト塗装｜セカンドオピニオン",goal:"無料ドローン診断",type:"反論先回り型",how:"訪問販売で不安になった方向け。施工前後の比較スライダーと、坪数別の費用の目安を載せました。"},
+  {id:"A-5-1",cat:"採用",name:"やすらぎ会｜介護職員の採用",goal:"施設見学の予約・応募",type:"採用型",how:"求人サイトから来た人の受け皿に。履歴書なしの見学と、働き方の3問チェックを置いています。"},
+  {id:"A-5-2",cat:"採用",name:"北関東ロジテック｜ドライバー採用",goal:"応募（電話・LINE・フォーム）",type:"採用型",how:"モデル年収のシミュレーターと免許取得支援。30秒で応募できるフォームにしました。"},
+  {id:"A-6-1",cat:"士業",name:"あおば総合法律事務所｜債務整理",goal:"無料相談（電話・LINE）",type:"診断・シミュレーター型",how:"夜中に検索する人向け。状況を整理するチェック（結果は断定しない）と費用表を載せています。"},
+  {id:"A-6-2",cat:"士業",name:"さくら相続センター｜相続手続き",goal:"無料相談の予約",type:"診断・シミュレーター型",how:"亡くなった日を入れると、期限とやることが一覧で出ます。丸ごと任せられる料金も明示。"},
+  {id:"A-7-1",cat:"スクール",name:"CodeBridge｜生成AIコース",goal:"無料カウンセリング",type:"診断・シミュレーター型",how:"給付金を使った自己負担額のシミュレーターと、8週間のカリキュラムを見せています。"},
+  {id:"A-7-2",cat:"スクール",name:"Hello World!｜子ども英語の無料体験",goal:"無料体験レッスンの予約",type:"予約枠・イベント型",how:"教室と年齢を選ぶと体験の空き枠が出て、そのまま予約できます。"}
+];
+(() => {
+  const g = document.getElementById("ex-grid"), f = document.getElementById("ex-filter");
+  const cats = ["すべて", ...new Set(EXAMPLES.map(e => e.cat))]; let cur = "すべて";
+  cats.forEach(c => { const b = el("button", null, c); b.type = "button"; b.addEventListener("click", () => { cur = c; draw(); }); f.append(b); });
+  function draw() {
+    f.querySelectorAll("button").forEach(b => b.setAttribute("aria-pressed", String(b.textContent === cur)));
+    g.textContent = "";
+    EXAMPLES.filter(e => cur === "すべて" || e.cat === cur).forEach(e => {
+      const c = el("article", "card"); const s = el("div", "ex-shot");
+      const pc = el("img", "pc"); pc.src = `../examples/${e.id}/thumb-pc.webp`; pc.width = 720; pc.height = 450; pc.loading = "lazy"; pc.alt = `${e.name}のパソコン表示`;
+      const sp = el("img", "sp"); sp.src = `../examples/${e.id}/thumb-sp.webp`; sp.width = 250; sp.height = 541; sp.loading = "lazy"; sp.alt = `${e.name}のスマートフォン表示`;
+      s.append(pc, sp);
+      const t = el("div", "tags"); t.append(el("span", "tag", e.cat), el("span", "tag", e.type));
+      const goal = el("p", "goal"); goal.append(el("b", null, "してほしい行動："), e.goal);
+      c.append(s, t, el("h3", null, e.name), goal, el("p", "note", e.how)); g.append(c);
+    });
+  }
+  draw();
+})();
 </script>
 </body>
 </html>

@@ -498,18 +498,6 @@ footer .copy{grid-column:1/-1;border-top:1px solid #333;padding-top:16px;font-si
 .ex-track.dragging{cursor:grabbing}
 .ex-track img{-webkit-user-drag:none;pointer-events:none}
 .ex-hint{margin:6px 0 0;text-align:center;font-size:13px;font-weight:700;opacity:.75}
-
-/* デザイン例の一覧（流れる列の下） */
-.ex-list{margin-top:30px;display:grid;gap:14px}
-.ex-list-title{font-size:20px;font-weight:900}
-.ex-filter{display:flex;flex-wrap:wrap;gap:8px}
-.ex-filter button{font:700 14px var(--f-body);border:2px solid currentColor;background:transparent;color:inherit;border-radius:999px;padding:5px 14px;cursor:pointer;opacity:.85}
-.ex-filter button[aria-pressed="true"]{background:var(--yellow);border-color:var(--yellow);color:var(--ink,var(--black));opacity:1}
-.ex-filter button:focus-visible,.ex-more:focus-visible{outline:3px solid var(--red);outline-offset:2px}
-.ex-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:18px}
-.ex-grid .ex-card{width:auto}
-.ex-more{justify-self:center;font:900 15px var(--f-body);border:2px solid currentColor;background:transparent;color:inherit;border-radius:999px;padding:9px 26px;cursor:pointer}
-@media (max-width:600px){.ex-grid{grid-template-columns:1fr}}
 </style>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap">
 <style>
@@ -704,12 +692,6 @@ footer .copy{grid-column:1/-1;border-top:1px solid #333;padding-top:16px;font-si
       <div class="ex-track rev" id="ex-row2"></div>
     </div>
     <div class="wrap">
-      <div class="ex-list" id="ex-list">
-        <h3 class="ex-list-title">デザイン例の一覧</h3>
-        <div class="ex-filter" id="ex-filter" role="group" aria-label="業種で絞り込み"></div>
-        <div class="ex-grid" id="ex-grid"></div>
-        <button class="ex-more" id="ex-more" type="button" hidden>すべて見る</button>
-      </div>
       <p class="ex-note">※掲載しているのはデザインのイメージです。</p>
     </div>
   </section>
@@ -965,26 +947,6 @@ footer .copy{grid-column:1/-1;border-top:1px solid #333;padding-top:16px;font-si
     requestAnimationFrame(tick);
   });
 })();
-</script>
-<script>
-// デザイン例の一覧：業種で絞り込み、最初は6件だけ見せて「すべて見る」で全部（デザイン例のデータは後ろのスクリプトにあるので、読み込み後に動かす）
-addEventListener("DOMContentLoaded", () => {
-  const grid = document.getElementById("ex-grid"); if (!grid || typeof EXAMPLES === "undefined") return;
-  const filter = document.getElementById("ex-filter"), more = document.getElementById("ex-more");
-  const cats = ["すべて", ...new Set(EXAMPLES.map(e => e.cat))];
-  let cur = "すべて", open = false;
-  cats.forEach(c => { const b = document.createElement("button"); b.type = "button"; b.textContent = c; b.addEventListener("click", () => { cur = c; open = false; render(); }); filter.append(b); });
-  function render() {
-    filter.querySelectorAll("button").forEach(b => b.setAttribute("aria-pressed", String(b.textContent === cur)));
-    const list = EXAMPLES.filter(e => cur === "すべて" || e.cat === cur);
-    const shown = open ? list : list.slice(0, 6);
-    grid.textContent = ""; shown.forEach(e => grid.append(makeCard(e)));
-    more.hidden = list.length <= 6;
-    more.textContent = open ? "閉じる" : `すべて見る（${list.length}例）`;
-  }
-  more.addEventListener("click", () => { open = !open; render(); if (!open) document.getElementById("ex-list").scrollIntoView({ block: "start" }); });
-  render();
-});
 </script>
 <script>
 // デザイン例（LP制作会社/LP の14本）。how はこのページの工夫、type はパターン一覧の「全体の型」
