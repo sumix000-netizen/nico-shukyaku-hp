@@ -65,6 +65,8 @@ footer{color:var(--muted);font-size:12px;padding-block:20px 40px;border-top:1px 
   <div class="grid" id="grid-base"></div>
   <h2 class="group">デザイン案9種（中身は今の版と同じ）</h2>
   <div class="grid" id="grid"></div>
+  <h2 class="group" id="service">サービス画面のデザイン</h2>
+  <div class="grid" id="grid-service"></div>
   <h2 class="group" id="examples">デザイン例の一覧（業種別14例）</h2>
   <p class="note" style="margin:-4px 0 12px">ホームページの「デザイン例」に載せている、業種ごとのデザインのイメージです。</p>
   <div class="ex-filter" id="ex-filter" role="group" aria-label="業種で絞り込み"></div>
@@ -111,6 +113,7 @@ function addCard(grid, id, name, note, href, label, isBase) {
   card.append(shots, head, el("p", "note", note), foot, full);
   grid.append(card);
 }
+addCard(document.getElementById("grid-service"), "portal", "NICOポータル", "開発チームの予定・チャット・アプリをまとめたポータル画面。3Dホログラムと動くロゴ入り。開くにはログインが必要です", "https://claude.ai/artifact/S3hd5rqVUZ84bFFvd64Hk2", "PORTAL", false);
 BASE.forEach(([id, name, note, href, label]) => addCard(document.getElementById("grid-base"), id, name, note, href, label, true));
 V.forEach(([id, name, note]) => addCard(document.getElementById("grid"), id, name, note, `${id}/`, id.toUpperCase(), false));
 
