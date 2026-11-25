@@ -32,8 +32,8 @@
         </a>
         <nav class="main-nav" aria-label="メインナビゲーション">
           <a href="#news">最新ニュース</a>
+          <a href="#economy">AI経済指標</a>
           <a href="#guide">使いどころ</a>
-          <a href="#newsletter">ニュースレター</a>
           <a href="#nico">NICOについて</a>
         </nav>
         <div class="language-switch" role="group" aria-label="表示言語">
@@ -46,16 +46,16 @@
         </button>
       </div>
       <nav class="mobile-nav" id="mobile-menu" aria-label="モバイルナビゲーション" hidden>
-        <a href="#news">最新ニュース</a><a href="#guide">使いどころ</a><a href="#newsletter">ニュースレター</a><a href="#nico">NICOについて</a>
+        <a href="#news">最新ニュース</a><a href="#economy">AI経済指標</a><a href="#guide">使いどころ</a><a href="#newsletter">ニュースレター</a><a href="#nico">NICOについて</a>
       </nav>
     </header>
 
     <main id="top">
       <section class="hero shell" aria-labelledby="hero-title">
         <div class="hero-copy">
-          <div class="eyebrow"><span class="eyebrow-line"></span> THE AI PRACTICAL JOURNAL</div>
+          <div class="eyebrow"><span class="eyebrow-line"></span> AI × ECONOMY JOURNAL</div>
           <h1 id="hero-title">AIの進化を、<br /><em>あなたの力に。</em></h1>
-          <p class="hero-description">世界中のAIニュースを、日本語で、わかりやすく。<br />知るだけで終わらず、今日から使えるヒントまで。</p>
+          <p class="hero-description">AIが経済・仕事・家計をどう変えるのかを、わかりやすく。<br />知るだけで終わらず、今日から使えるヒントまで。</p>
           <div class="hero-actions">
             <a class="button button-primary" href="#news">ニュースを読む <span aria-hidden="true">↗</span></a>
             <a class="button button-ghost" href="#guide">使いどころを探す</a>
@@ -73,21 +73,31 @@
         <div class="digest-items" id="digest-items"></div>
       </section>
 
+      <section class="indicators shell" id="economy" aria-labelledby="indicators-title">
+        <div class="section-heading">
+          <div><p class="section-kicker">AI ECONOMY WATCH</p><h2 id="indicators-title">今週の<br /><span>AI経済指標。</span></h2></div>
+          <p>AIが企業・雇用・家計に与える影響を、数字で追います。<span class="sample-flag">表示例：数値はすべて架空のサンプルです。公開時は出典と更新日を表示します。</span></p>
+        </div>
+        <div class="indicator-grid" id="indicator-grid"></div>
+      </section>
+
       <section class="news-section shell section-spacing" id="news" aria-labelledby="news-title">
         <div class="section-heading">
           <div><p class="section-kicker">DISCOVER</p><h2 id="news-title">AIニュースを、<br /><span>自分ごとに。</span></h2></div>
-          <p>技術の話だけでなく、「自分には何ができるのか」を起点にした記事をお届けします。</p>
+          <p>技術の話だけでなく、経済・仕事・家計への影響と「自分には何ができるのか」を起点にした記事をお届けします。</p>
         </div>
         <div class="news-toolbar">
           <div class="filter-group" role="group" aria-label="記事カテゴリ">
             <button class="filter active" data-filter="all" aria-pressed="true">すべて</button>
+            <button class="filter" data-filter="economy" aria-pressed="false">経済・産業</button>
             <button class="filter" data-filter="work" aria-pressed="false">仕事のAI</button>
-            <button class="filter" data-filter="life" aria-pressed="false">暮らしのAI</button>
+            <button class="filter" data-filter="life" aria-pressed="false">お金・暮らし</button>
             <button class="filter" data-filter="tools" aria-pressed="false">ツール比較</button>
           </div>
           <label class="search-field"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"></circle><path d="m16 16 5 5"></path></svg><input id="news-search" type="search" placeholder="記事を探す" aria-label="記事を検索" /></label>
         </div>
         <div class="news-grid" id="news-grid" aria-live="polite"></div>
+        <div class="news-more-wrap"><button type="button" class="news-more" id="news-more" hidden>すべての記事を見る</button></div>
         <p id="news-empty" class="empty-message" hidden>該当する記事がありません。別のキーワードでお試しください。</p>
         <p class="status-legend"><span class="status-chip" data-status="report">発表ベース</span>公式発表・一次資料の要約　<span class="status-chip" data-status="tested">検証あり</span>編集部で試した内容　<span class="status-chip" data-status="outlook">予測を含む</span>見通し・未確認情報を含む</p>
         <p class="sample-note">※掲載内容はサイト構成の確認用に制作したサンプルで、実際の速報記事ではありません。日付・出典欄も表示例です。</p>
@@ -97,7 +107,7 @@
         <div class="shell">
           <div class="section-heading value-heading"><div><p class="section-kicker">THE NICO POINT OF VIEW</p><h2 id="value-title">読むだけで、<br /><span>終わらせない。</span></h2></div><p>ニュースが気になったら、まず「自分の仕事や生活に置き換える」。その一歩をメディアが支えます。</p></div>
           <div class="value-grid">
-            <div class="value-card"><span class="value-index">01 / KNOW</span><div class="value-symbol">◎</div><h3>知る</h3><p>新機能の要点と、一次情報へのリンクを短く整理。</p></div>
+            <div class="value-card"><span class="value-index">01 / KNOW</span><div class="value-symbol">◎</div><h3>知る</h3><p>技術・投資・政策の動きを、一次情報へのリンクとともに短く整理。</p></div>
             <div class="value-card"><span class="value-index">02 / UNDERSTAND</span><div class="value-symbol">◉</div><h3>理解する</h3><p>個人・法人それぞれへの影響や、使う際の注意点まで。</p></div>
             <div class="value-card"><span class="value-index">03 / TRY</span><div class="value-symbol">✳</div><h3>試す</h3><p>実践ガイドと、検証できた結果を公開。</p></div>
             <div class="value-card accent-card"><span class="value-index">04 / DELEGATE</span><div class="value-symbol">↗</div><h3>任せる</h3><p>将来はNICOのAIエージェントに、面倒な作業を任せる。</p></div>
@@ -108,7 +118,7 @@
       <section class="audience-section shell section-spacing" aria-labelledby="audience-title">
         <div class="section-heading"><div><p class="section-kicker">FOR YOU</p><h2 id="audience-title">あなたに合う<br /><span>AIの使いどころ。</span></h2></div><p>一つのニュースも、使う人が違えば価値が変わります。関心の近い入口を選んでください。</p></div>
         <div class="audience-cards">
-          <a class="audience-card life-card" href="#news" data-go-filter="life"><span class="audience-top">FOR PERSONAL</span><div class="audience-decoration" aria-hidden="true">●<span>○</span></div><div class="audience-bottom"><p>暮らしのAI</p><h3>毎日を、<br />ちょっと軽く。</h3><span>予定・情報整理・日常のヒント</span><b>記事を見る <span aria-hidden="true">↗</span></b></div></a>
+          <a class="audience-card life-card" href="#news" data-go-filter="life"><span class="audience-top">FOR PERSONAL</span><div class="audience-decoration" aria-hidden="true">●<span>○</span></div><div class="audience-bottom"><p>お金・暮らしのAI</p><h3>毎日を、<br />ちょっと軽く。</h3><span>家計・予定・情報整理・日常のヒント</span><b>記事を見る <span aria-hidden="true">↗</span></b></div></a>
           <a class="audience-card work-card" href="#news" data-go-filter="work"><span class="audience-top">FOR BUSINESS</span><div class="audience-decoration squares" aria-hidden="true"><span></span><span></span><span></span><span></span></div><div class="audience-bottom"><p>仕事のAI</p><h3>仕事の時間を、<br />もっと価値あるものに。</h3><span>経理・営業・議事録・業務自動化</span><b>記事を見る <span aria-hidden="true">↗</span></b></div></a>
         </div>
       </section>
@@ -135,7 +145,7 @@
       <section class="editorial shell" aria-labelledby="editorial-title"><div><p class="section-kicker">OUR PROMISE</p><h2 id="editorial-title">情報の、<br />確かさを大切に。</h2></div><div class="editorial-rules"><p><strong>出典を明示する。</strong> 公式発表や一次資料を確認し、記事から参照できるようにします。</p><p><strong>「発表」と「検証」を区別する。</strong> 未確認情報や予測は、その旨を明記します。</p><p><strong>運営者を隠さない。</strong> NICOの運営メディアであることを表示し、広告と編集記事を区別します。</p></div></section>
     </main>
 
-    <footer class="site-footer"><div class="shell footer-inner"><div><a href="#top" class="brand footer-brand" aria-label="日本AI経済ラボ、トップへ"><span class="brand-mark" aria-hidden="true"><span></span></span><span class="brand-type">日本AI経済ラボ<small>by NICO</small></span></a><p>AIの進化を、あなたの力に。</p></div><div class="footer-links"><a href="#news">ニュース</a><a href="#guide">使いどころ</a><a href="#newsletter">ニュースレター</a><a href="#nico">NICOについて</a></div></div><div class="shell footer-bottom"><span>© 2026 NICO / 日本AI経済ラボ　—　企画・開発プレビュー</span><span>本サイトは公開中の開発プレビューです（検索エンジン非掲載）。</span></div></footer>
+    <footer class="site-footer"><div class="shell footer-inner"><div><a href="#top" class="brand footer-brand" aria-label="日本AI経済ラボ、トップへ"><span class="brand-mark" aria-hidden="true"><span></span></span><span class="brand-type">日本AI経済ラボ<small>by NICO</small></span></a><p>AIの進化を、あなたの力に。</p></div><div class="footer-links"><a href="#news">ニュース</a><a href="#economy">AI経済指標</a><a href="#guide">使いどころ</a><a href="#newsletter">ニュースレター</a><a href="#nico">NICOについて</a></div></div><div class="shell footer-bottom"><span>© 2026 NICO / 日本AI経済ラボ　—　企画・開発プレビュー</span><span>本サイトは公開中の開発プレビューです（検索エンジン非掲載）。</span></div></footer>
 
     <dialog id="article-dialog" class="content-dialog" aria-labelledby="dialog-title"><button type="button" class="dialog-close" aria-label="閉じる" id="dialog-close">×</button><div id="dialog-content"></div></dialog>
     <dialog id="route-dialog" class="route-dialog" aria-labelledby="route-title"><button type="button" class="dialog-close" aria-label="閉じる" id="route-close">×</button><div id="route-content"></div></dialog>

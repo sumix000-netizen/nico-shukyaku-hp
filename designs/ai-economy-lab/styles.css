@@ -94,3 +94,31 @@ html.i18n-pending body{visibility:hidden}
 @media(max-width:830px){.hero-visual{min-height:0}}
 @media(max-width:560px){.hero-description br{display:none}}
 @media(max-width:380px){.eyebrow{letter-spacing:.1em}.hero-actions .button{flex:1 1 100%}}
+/* AI economy watch */
+.indicators{padding-top:96px}
+.indicator-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.indicator-card{background:#fff;border:1px solid var(--line);border-radius:9px;padding:20px 20px 18px;display:flex;flex-direction:column;gap:8px}
+.indicator-top{display:flex;justify-content:space-between;align-items:flex-start;gap:8px}
+.indicator-label{font-size:13px;font-weight:800;color:#2b4159;line-height:1.5}
+.sample-tag{flex:none;font-size:12px;font-weight:800;color:#5e4500;background:#fff1c2;border-radius:4px;padding:3px 6px}
+.indicator-value{font-family:'DM Sans','Noto Sans JP',sans-serif;font-size:36px;letter-spacing:-.04em;line-height:1.2;color:#142943;margin-top:4px}
+.indicator-change{font-size:13px;font-weight:800}.indicator-change small{font-size:12px;font-weight:600;color:#56697d;margin-left:4px}
+.indicator-change[data-dir="up"]{color:#0c6a3d}.indicator-change[data-dir="down"]{color:#b42318}.indicator-change[data-dir="flat"]{color:#4f6378}
+.indicator-note{font-size:13px;line-height:1.7;color:#4f6378;margin:2px 0 0;flex:1}
+.indicator-card .text-button{margin-top:6px;align-self:flex-start}
+.sample-flag{display:block;margin-top:8px;font-size:13px;font-weight:700;color:#5e4500}
+.visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.news-art[data-art="economy"]{background:linear-gradient(120deg,#fdf3cf,#f2c25b)}
+.impact-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.impact-card{background:#f4f7fb;border:1px solid var(--line);border-radius:8px;padding:16px 18px}
+.impact-card>span{font-size:12px;font-weight:800;color:#1d4fb8;letter-spacing:.04em}
+.content-dialog .impact-card p{font-size:14px;line-height:1.8;margin:6px 0 4px}
+.impact-card .text-button{margin-top:4px}
+@media(max-width:1090px){.indicator-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:830px){.indicators{padding-top:72px}}
+@media(max-width:560px){.indicators{padding-top:56px}.indicator-grid{gap:10px}.indicator-card{padding:15px 14px}.indicator-top{flex-direction:column-reverse;gap:6px}.indicator-value{font-size:26px}.impact-grid{grid-template-columns:1fr}}
+.news-more-wrap{display:flex;justify-content:center}.news-more{margin-top:24px;border:1px solid #173457;background:#fff;color:#173457;font-size:14px;font-weight:800;padding:13px 26px;border-radius:6px}.news-more:hover{background:#173457;color:#fff}.news-more[hidden]{display:none}
+.newsletter-inner{grid-template-columns:minmax(0,1.08fr) minmax(0,1fr)}
+@media(max-width:830px){.newsletter-inner{grid-template-columns:1fr}}
+@media(max-width:560px){.news-more{width:100%}}
+
