@@ -1,27 +1,20 @@
 // All translations are authored locally; none are fetched or generated at runtime.
 // Japanese HTML is the canonical fallback, and is restored when switching back.
 const ENGLISH_HTML = [
-  ['.preview-ribbon', 'Development preview: all stories and examples are illustrative. No registration information is sent.'],
+  ['.preview-ribbon', '<span class="ribbon-long">Development preview: all stories and examples are illustrative. No registration information is sent.</span><span class="ribbon-short">Preview: sample stories, nothing is sent</span>'],
   ['.brand-type', 'Japan AI Economy Lab<small>by NICO</small>'],
   ['.main-nav a[href="#news"], .mobile-nav a[href="#news"], .footer-links a[href="#news"]', 'Latest news'],
   ['.main-nav a[href="#guide"], .mobile-nav a[href="#guide"], .footer-links a[href="#guide"]', 'Practical guides'],
   ['.main-nav a[href="#newsletter"], .mobile-nav a[href="#newsletter"], .footer-links a[href="#newsletter"]', 'Newsletter'],
   ['.main-nav a[href="#nico"], .mobile-nav a[href="#nico"], .footer-links a[href="#nico"]', 'About NICO'],
-  ['.header-cta', 'Read for free'],
+  ['.header-cta', 'Get the newsletter'],
   ['#hero-title', 'Make the future of AI<br /><em>work for you.</em>'],
   ['.hero-description', 'AI news from around the world, made clear and practical.<br />Go beyond the headline—and discover what you can do today.'],
   ['.hero-actions .button-primary', 'Explore stories <span aria-hidden="true">↗</span>'],
   ['.hero-actions .button-ghost', 'Find practical ideas'],
   ['.hero-note', '<span class="hero-mini-icon">✳</span> For life and work. AI made more approachable.'],
-  ['.visual-caption', 'From insight to action.'],
   ['.digest-heading h2', 'Today’s highlights'],
   ['.digest-heading p', 'Find what you can use, not just what is trending.'],
-  ['.digest-item[data-open-article="agent-workflow"] strong', 'What tasks can AI agents handle?'],
-  ['.digest-item[data-open-article="agent-workflow"] small', 'AI at work · Sample guide'],
-  ['.digest-item[data-open-article="daily-planning"] strong', 'Using AI to organize everyday plans'],
-  ['.digest-item[data-open-article="daily-planning"] small', 'AI for life · Sample guide'],
-  ['.digest-item[data-open-article="tools-compare"] strong', 'Five things to compare in AI tools'],
-  ['.digest-item[data-open-article="tools-compare"] small', 'Tool comparison · Sample guide'],
   ['#news-title', 'Make AI news<br /><span>relevant to you.</span>'],
   ['.news-section .section-heading>p', 'Not only what the technology does, but what it could mean for your work and everyday life.'],
   ['.filter[data-filter="all"]', 'All'],
@@ -29,7 +22,8 @@ const ENGLISH_HTML = [
   ['.filter[data-filter="life"]', 'Everyday life'],
   ['.filter[data-filter="tools"]', 'Tool reviews'],
   ['#news-empty', 'No matching stories. Try a different keyword.'],
-  ['.sample-note', '* These articles are illustrative examples created to review the site design. They are not live news reports.'],
+  ['.status-legend', '<span class="status-chip" data-status="report">Announced</span>Summary of official announcements　<span class="status-chip" data-status="tested">Tested</span>Tried by our editors　<span class="status-chip" data-status="outlook">Includes outlook</span>Contains forecasts or unverified information'],
+  ['.sample-note', '* These articles are illustrative examples created to review the site design. They are not live news reports. Dates and sources are also examples.'],
   ['#value-title', 'Don’t just read.<br /><span>Put AI to work.</span>'],
   ['.value-heading>p', 'When a story catches your eye, the next step is to ask: how could I use this in my own life or business?'],
   ['.value-card:nth-child(1) h3', 'Discover'],
@@ -73,7 +67,7 @@ const ENGLISH_HTML = [
   ['.editorial-rules p:nth-child(3)', '<strong>Be transparent.</strong> NICO operates this publication; advertisements and editorial content are identified separately.'],
   ['.footer-inner>div>p', 'Make the future of AI work for you.'],
   ['.footer-bottom span:nth-child(1)', '© 2026 NICO / Japan AI Economy Lab — Development preview'],
-  ['.footer-bottom span:nth-child(2)', 'Private MVP for design review.']
+  ['.footer-bottom span:nth-child(2)', 'Public development preview (not indexed by search engines).']
 ];
 
 const ENGLISH_ATTRIBUTES = [
@@ -83,6 +77,7 @@ const ENGLISH_ATTRIBUTES = [
   ['.language-switch', 'aria-label', 'Display language'],
   ['.menu-toggle', 'aria-label', 'Open menu'],
   ['.digest', 'aria-label', 'Today’s highlights'],
+  ['#top-story', 'aria-label', 'Top story this week'],
   ['.filter-group', 'aria-label', 'Story categories'],
   ['#news-search', 'aria-label', 'Search stories'],
   ['#news-search', 'placeholder', 'Search stories'],

@@ -1,6 +1,7 @@
 const ARTICLES = [
   {
-    id: 'agent-workflow',
+    id: 'agent-workflow', date: '2026-11-24', status: 'report',
+    source: '出典：各社の製品発表・公式ドキュメント（例）',
     category: 'work', label: '仕事のAI', art: 'AGENT', artStyle: 'work', minutes: 5,
     title: 'AIエージェントは、どの仕事を任せられる？',
     excerpt: 'AIエージェントと従来のチャットAIの違いを、会社の実務を例に整理します。',
@@ -10,7 +11,8 @@ const ARTICLES = [
     nico: 'NICOでは業務効率化ツールやパーソナルAIエージェントを開発中です。現時点では機能の公開・利用可否を確約するものではありません。'
   },
   {
-    id: 'daily-planning',
+    id: 'daily-planning', date: '2026-11-22', status: 'tested',
+    source: '出典：編集部の試用メモ（例）',
     category: 'life', label: '暮らしのAI', art: 'DAY', artStyle: 'life', minutes: 4,
     title: '予定整理の負担をAIで軽くする、最初の一歩',
     excerpt: '家族の予定や買い物リストなど、日常の小さな作業から考えるAI活用。',
@@ -20,7 +22,8 @@ const ARTICLES = [
     nico: 'NICOの個人向けエージェントは開発中です。利用開始の案内は正式な登録先の公開後に行います。'
   },
   {
-    id: 'tools-compare',
+    id: 'tools-compare', date: '2026-11-21', status: 'tested',
+    source: '出典：各社の料金・機能ページ（例）',
     category: 'tools', label: 'ツール比較', art: 'AI / AI', artStyle: 'tools', minutes: 6,
     title: 'AIツール比較で確認したい5つの条件',
     excerpt: '性能だけで選ばないために、料金・日本語・安全性・連携・サポートをチェック。',
@@ -30,7 +33,8 @@ const ARTICLES = [
     nico: 'NICOの運営メディアとして、競合製品も含めて必要な情報を公平に紹介する編集方針です。'
   },
   {
-    id: 'invoice-work',
+    id: 'invoice-work', date: '2026-11-20', status: 'report',
+    source: '出典：国税庁などの公的資料（例）',
     category: 'work', label: '仕事のAI', art: 'PDF', artStyle: 'work', minutes: 4,
     title: '請求書・領収書処理を自動化する前に確認すること',
     excerpt: 'OCRだけで終わらない。確認・仕訳・承認まで業務の流れを見直します。',
@@ -40,7 +44,8 @@ const ARTICLES = [
     nico: 'NICOでは領収書・経理関連の支援機能を開発・検討しています。実装や提供状況は正式案内をご確認ください。'
   },
   {
-    id: 'family-ai',
+    id: 'family-ai', date: '2026-11-18', status: 'tested',
+    source: '出典：編集部の試用メモ（例）',
     category: 'life', label: '暮らしのAI', art: 'LIFE', artStyle: 'life', minutes: 3,
     title: 'AI初心者が最初の1週間で試せること',
     excerpt: '調べもの・文章整理・献立のヒント。小さな成功体験から始める使い方。',
@@ -50,7 +55,8 @@ const ARTICLES = [
     nico: 'NICOは誰もが使いやすいAIを目指していますが、現在は開発段階です。'
   },
   {
-    id: 'meeting-work',
+    id: 'meeting-work', date: '2026-11-17', status: 'outlook',
+    source: '出典：各社の製品発表・導入事例（例）',
     category: 'work', label: '仕事のAI', art: 'MEET', artStyle: 'work', minutes: 5,
     title: '議事録AIを導入するときの設計ポイント',
     excerpt: '文字起こしの精度だけでなく、話者・要点・TODO・情報管理を見ます。',
@@ -63,6 +69,7 @@ const ARTICLES = [
 
 const EN_ARTICLES = {
   'agent-workflow': {
+    source: 'Source: vendor announcements and official docs (example)',
     label: 'AI at work', title: 'What tasks can AI agents actually handle?',
     excerpt: 'Understand the difference between AI agents and chat assistants through everyday business tasks.',
     intro: 'AI agents are systems designed to carry out several steps toward a goal. Their capabilities and safeguards depend on the product and its configuration.',
@@ -71,6 +78,7 @@ const EN_ARTICLES = {
     nico: 'NICO is developing productivity tools and a personal AI agent. This preview does not promise the availability or release of any particular feature.'
   },
   'daily-planning': {
+    source: 'Source: editorial test notes (example)',
     label: 'AI for life', title: 'A simple way to organize your schedule with AI',
     excerpt: 'Start with small everyday tasks, from family calendars to shopping lists.',
     intro: 'AI can help turn scattered notes and appointments into a clearer plan.',
@@ -79,6 +87,7 @@ const EN_ARTICLES = {
     nico: 'NICO’s personal AI agent is in development. Official sign-up details will be provided when a verified registration channel is available.'
   },
   'tools-compare': {
+    source: 'Source: vendor pricing and feature pages (example)',
     label: 'Tool comparison', title: 'Five things to check when comparing AI tools',
     excerpt: 'Look beyond performance scores: price, language support, safety, integrations, and help.',
     intro: 'The best AI tool is not always the one with the highest benchmark score. It is the one that fits your actual task.',
@@ -87,6 +96,7 @@ const EN_ARTICLES = {
     nico: 'As a NICO-operated publication, we aim to discuss competing services fairly and distinguish editorial content from promotion.'
   },
   'invoice-work': {
+    source: 'Source: official government guidance (example)',
     label: 'AI at work', title: 'What to check before automating invoice processing',
     excerpt: 'Look beyond OCR to review, approval, accounting entries, and record keeping.',
     intro: 'Digitizing invoices and receipts is a practical starting point for improving many business workflows.',
@@ -95,6 +105,7 @@ const EN_ARTICLES = {
     nico: 'NICO is exploring and developing receipt and accounting support features. Actual availability will be announced separately.'
   },
   'family-ai': {
+    source: 'Source: editorial test notes (example)',
     label: 'AI for life', title: 'What AI beginners can try in their first week',
     excerpt: 'Research, writing, and everyday planning—start with small wins.',
     intro: 'You do not need to master technical jargon to begin using AI. Start with one simple task you can evaluate yourself.',
@@ -103,6 +114,7 @@ const EN_ARTICLES = {
     nico: 'NICO aims to make AI approachable, but the personal service is still in development.'
   },
   'meeting-work': {
+    source: 'Source: vendor announcements and case studies (example)',
     label: 'AI at work', title: 'How to plan a useful AI meeting-notes workflow',
     excerpt: 'Accuracy matters, but so do speaker labels, decisions, tasks, and information security.',
     intro: 'Meeting AI works best when transcription, summarization, decisions, and task assignment are designed as one workflow.',
@@ -122,11 +134,50 @@ const EN_UI = {
   businessBody: 'We plan to offer a consultation entry point for small, practical workflow improvements.',
   routeInfo: 'Official registration and consultation channels are being prepared. This preview does not accept applications.',
   routeNote: 'Before launch, forms will clearly explain how data is used, how it is handled, and which service features are available.',
-  formResult: 'The form works as a demo. Your email address has not been sent, saved, or subscribed.'
+  formResult: 'The form works as a demo. Your email address has not been sent, saved, or subscribed.',
+  topStory: 'Top story this week', readStory: 'Read the story', sources: 'Sources',
+  sourceNote: 'At launch, links to original announcements and primary materials will appear here.'
 };
+
+const STATUS_LABELS = {
+  ja: { report: '発表ベース', tested: '検証あり', outlook: '予測を含む' },
+  en: { report: 'Announced', tested: 'Tested', outlook: 'Includes outlook' }
+};
+const TOP_STORY_ID = 'agent-workflow';
+const DIGEST_IDS = ['invoice-work', 'tools-compare', 'daily-planning'];
+const SAMPLE_JA = 'サンプル';
 
 function isEnglish() { return window.NicoI18n?.getLocale() === 'en'; }
 function localizedArticle(article) { return isEnglish() ? { ...article, ...EN_ARTICLES[article.id] } : article; }
+function statusLabel(status) { return STATUS_LABELS[isEnglish() ? 'en' : 'ja'][status]; }
+function statusChip(article) { return `<span class="status-chip" data-status="${article.status}">${statusLabel(article.status)}</span>`; }
+function formatDate(iso) {
+  const [y, m, d] = iso.split('-').map(Number);
+  return isEnglish()
+    ? new Date(Date.UTC(y, m - 1, d)).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric', timeZone: 'UTC' })
+    : `${y}.${String(m).padStart(2, '0')}.${String(d).padStart(2, '0')}`;
+}
+function readingTime(article) { return isEnglish() ? EN_UI.readingTime(article.minutes) : `約${article.minutes}分で読める`; }
+function findArticle(id) { const base = ARTICLES.find(item => item.id === id); return base && localizedArticle(base); }
+
+function renderTopStory() {
+  const article = findArticle(TOP_STORY_ID);
+  document.getElementById('top-story-content').innerHTML = `
+    <span class="top-kicker">${isEnglish() ? EN_UI.topStory : '今週のトップ記事'}</span>
+    <div class="top-meta"><span class="category-chip">${article.label}</span>${statusChip(article)}</div>
+    <h2 class="top-title">${article.title}</h2>
+    <p class="top-excerpt">${article.excerpt}</p>
+    <p class="top-source">${article.source}</p>
+    <div class="top-foot"><span>${formatDate(article.date)} · ${isEnglish() ? EN_UI.sample : SAMPLE_JA} · ${readingTime(article)}</span>
+    <button type="button" class="button button-primary" data-open-article="${article.id}">${isEnglish() ? EN_UI.readStory : '記事を読む'} <span aria-hidden="true">↗</span></button></div>`;
+}
+
+function renderDigest() {
+  document.getElementById('digest-items').innerHTML = DIGEST_IDS.map((id, index) => {
+    const article = findArticle(id);
+    return `<button type="button" class="digest-item" data-open-article="${id}"><span class="digest-number">0${index + 1}</span><span><strong>${article.title}</strong><small>${article.label} · ${statusLabel(article.status)} · ${formatDate(article.date)}</small></span><span class="digest-plus" aria-hidden="true">＋</span></button>`;
+  }).join('');
+}
 
 const grid = document.getElementById('news-grid');
 const search = document.getElementById('news-search');
@@ -143,9 +194,9 @@ function renderArticles() {
   grid.innerHTML = matches.map(article => `
     <article class="news-card">
       <div class="news-art" data-art="${article.artStyle}"><span class="art-symbol">${article.art}</span><span class="art-corner">IDEA / PREVIEW</span></div>
-      <div class="news-body"><div class="card-topline"><span class="category-chip">${article.label}</span><span class="card-date">${isEnglish() ? EN_UI.sample : '編集サンプル'}</span></div>
-      <h3>${article.title}</h3><p>${article.excerpt}</p>
-      <div class="card-footer"><span>${isEnglish() ? EN_UI.readingTime(article.minutes) : `約${article.minutes}分で読める`}</span><button type="button" class="card-open" data-open-article="${article.id}">${isEnglish() ? EN_UI.openArticle : '記事を見る ＋'}</button></div></div>
+      <div class="news-body"><div class="card-topline"><span class="category-chip">${article.label}</span>${statusChip(article)}<span class="card-date">${formatDate(article.date)} · ${isEnglish() ? EN_UI.sample : SAMPLE_JA}</span></div>
+      <h3>${article.title}</h3><p>${article.excerpt}</p><p class="card-source">${article.source}</p>
+      <div class="card-footer"><span>${readingTime(article)}</span><button type="button" class="card-open" data-open-article="${article.id}">${isEnglish() ? EN_UI.openArticle : '記事を見る ＋'}</button></div></div>
     </article>`).join('');
   document.getElementById('news-empty').hidden = matches.length > 0;
 }
@@ -173,14 +224,15 @@ const routeDialog = document.getElementById('route-dialog');
 let openArticleId = null;
 let openRouteType = null;
 function openArticle(id) {
-  const baseArticle = ARTICLES.find(item => item.id === id);
-  const article = baseArticle && localizedArticle(baseArticle);
+  const article = findArticle(id);
   if (!article) return;
   openArticleId = id;
   document.getElementById('dialog-content').innerHTML = `
-    <span class="dialog-eyebrow">${article.label.toUpperCase()} / ${isEnglish() ? EN_UI.sample : '編集サンプル'}</span><h2>${article.title}</h2>
+    <span class="dialog-eyebrow">${article.label.toUpperCase()} / ${isEnglish() ? EN_UI.sample : '編集サンプル'}</span>
+    <div class="dialog-meta">${statusChip(article)}<span>${formatDate(article.date)} · ${readingTime(article)}</span></div><h2 id="dialog-title">${article.title}</h2>
     <p>${article.intro}</p><h3>${isEnglish() ? EN_UI.practicalExample : '活用イメージ'}</h3><p>${article.example}</p>
     <h3>${isEnglish() ? EN_UI.caution : '利用時に気をつけたいこと'}</h3><p>${article.caution}</p>
+    <h3>${isEnglish() ? EN_UI.sources : '出典'}</h3><p>${article.source.replace(/^(出典：|Source: )/, '')}<br /><small class="source-note">${isEnglish() ? EN_UI.sourceNote : '正式公開時は、ここに公式発表・一次資料へのリンクを掲載します。'}</small></p>
     <div class="dialog-tip"><strong>${isEnglish() ? EN_UI.nicoConnection : 'NICOとのつながり'}</strong><p>${article.nico}</p></div>
     <p class="dialog-subtext">${isEnglish() ? EN_UI.demoArticleNote : '本記事はMVPの構成確認用です。具体的なニュース発表を報じたものではありません。'}</p>`;
   if (!articleDialog.open) articleDialog.showModal();
@@ -198,7 +250,7 @@ function openRoute(persona) {
   openRouteType = persona;
   document.getElementById('route-content').innerHTML = `
     <span class="dialog-eyebrow">${isEnglish() ? (personal ? EN_UI.personalEyebrow : EN_UI.businessEyebrow) : `NICO / ${personal ? 'PERSONAL' : 'BUSINESS'}`}</span>
-    <h2>${isEnglish() ? (personal ? EN_UI.personalTitle : EN_UI.businessTitle) : (personal ? '個人向けAIエージェント' : '法人向けAI業務診断')}</h2>
+    <h2 id="route-title">${isEnglish() ? (personal ? EN_UI.personalTitle : EN_UI.businessTitle) : (personal ? '個人向けAIエージェント' : '法人向けAI業務診断')}</h2>
     <p>${isEnglish() ? (personal ? EN_UI.personalBody : EN_UI.businessBody) : (personal ? '生活や仕事の情報整理を助けるパーソナルAIを構想・開発しています。' : '小さな業務改善から始める相談窓口を設ける計画です。')}</p>
     <div class="dialog-tip">${isEnglish() ? EN_UI.routeInfo : '現在、正式な登録・相談先との接続を準備中です。このプレビューでは申し込みを受け付けません。'}</div>
     <p class="dialog-subtext">${isEnglish() ? EN_UI.routeNote : '正式公開時には、利用目的・個人情報の取扱い・サービス提供状況を明示したフォームへ接続します。'}</p>`;
@@ -219,6 +271,8 @@ document.getElementById('newsletter-form').addEventListener('submit', event => {
 });
 
 document.addEventListener('nico-language-change', () => {
+  renderTopStory();
+  renderDigest();
   renderArticles();
   if (articleDialog.open && openArticleId) openArticle(openArticleId);
   if (routeDialog.open && openRouteType) openRoute(openRouteType);
@@ -240,4 +294,7 @@ mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', 
   menuToggle.setAttribute('aria-expanded', 'false');
 }));
 
+renderTopStory();
+renderDigest();
 renderArticles();
+document.documentElement.classList.remove('i18n-pending');
