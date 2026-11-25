@@ -23,7 +23,7 @@
     <script defer src="./app.js"></script>
   </head>
   <body>
-    <div class="preview-ribbon" role="status"><span class="ribbon-long">開発プレビュー：ニュース・人物・利用例は企画用サンプルです。登録情報は送信されません。</span><span class="ribbon-short">開発プレビュー：記事はサンプル／入力は送信されません</span></div>
+    <div class="preview-ribbon" role="status"><span class="ribbon-long">開発プレビュー：記事は公開報道・公式発表をもとにした要約です。登録情報は送信されません。</span><span class="ribbon-short">開発プレビュー：入力内容は送信されません</span></div>
     <header class="site-header">
       <div class="shell header-inner">
         <a href="#top" class="brand" aria-label="日本AI経済ラボ、トップへ">
@@ -32,8 +32,9 @@
         </a>
         <nav class="main-nav" aria-label="メインナビゲーション">
           <a href="#news">最新ニュース</a>
+          <a href="#ranking">ランキング</a>
+          <a href="#archive">アーカイブ</a>
           <a href="#economy">AI経済指標</a>
-          <a href="#guide">使いどころ</a>
           <a href="#nico">NICOについて</a>
         </nav>
         <div class="language-switch" role="group" aria-label="表示言語">
@@ -46,7 +47,7 @@
         </button>
       </div>
       <nav class="mobile-nav" id="mobile-menu" aria-label="モバイルナビゲーション" hidden>
-        <a href="#news">最新ニュース</a><a href="#economy">AI経済指標</a><a href="#guide">使いどころ</a><a href="#newsletter">ニュースレター</a><a href="#nico">NICOについて</a>
+        <a href="#news">最新ニュース</a><a href="#ranking">ランキング</a><a href="#archive">アーカイブ</a><a href="#economy">AI経済指標</a><a href="#guide">使いどころ</a><a href="#newsletter">ニュースレター</a><a href="#nico">NICOについて</a>
       </nav>
     </header>
 
@@ -62,7 +63,7 @@
           </div>
           <div class="hero-note"><span class="hero-mini-icon">✳</span> 個人にも、仕事にも。AIをもっと身近に。</div>
         </div>
-        <article class="hero-visual" id="top-story" aria-label="今週のトップ記事">
+        <article class="hero-visual" id="top-story" aria-label="注目のニュース">
           <div class="hero-halo halo-a" aria-hidden="true"></div><div class="hero-halo halo-b" aria-hidden="true"></div>
           <div class="top-story" id="top-story-content"></div>
         </article>
@@ -75,8 +76,8 @@
 
       <section class="indicators shell" id="economy" aria-labelledby="indicators-title">
         <div class="section-heading">
-          <div><p class="section-kicker">AI ECONOMY WATCH</p><h2 id="indicators-title">今週の<br /><span>AI経済指標。</span></h2></div>
-          <p>AIが企業・雇用・家計に与える影響を、数字で追います。<span class="sample-flag">表示例：数値はすべて架空のサンプルです。公開時は出典と更新日を表示します。</span></p>
+          <div><p class="section-kicker">AI ECONOMY WATCH</p><h2 id="indicators-title">2026年の<br /><span>AI経済指標。</span></h2></div>
+          <p>AIが企業・雇用・家計に与える影響を、公表データで追います。<span class="sample-flag">数値は各出典の公表時点のものです。調査ごとに対象・定義が異なるため、単純には比べられません。</span></p>
         </div>
         <div class="indicator-grid" id="indicator-grid"></div>
       </section>
@@ -89,18 +90,34 @@
         <div class="news-toolbar">
           <div class="filter-group" role="group" aria-label="記事カテゴリ">
             <button class="filter active" data-filter="all" aria-pressed="true">すべて</button>
-            <button class="filter" data-filter="economy" aria-pressed="false">経済・産業</button>
-            <button class="filter" data-filter="work" aria-pressed="false">仕事のAI</button>
+            <button class="filter" data-filter="economy" aria-pressed="false">経済・市場</button><button class="filter" data-filter="policy" aria-pressed="false">政策・ルール</button>
+            <button class="filter" data-filter="work" aria-pressed="false">仕事・雇用</button>
             <button class="filter" data-filter="life" aria-pressed="false">お金・暮らし</button>
-            <button class="filter" data-filter="tools" aria-pressed="false">ツール比較</button>
+            <button class="filter" data-filter="tools" aria-pressed="false">モデル・ツール</button>
           </div>
           <label class="search-field"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"></circle><path d="m16 16 5 5"></path></svg><input id="news-search" type="search" placeholder="記事を探す" aria-label="記事を検索" /></label>
         </div>
         <div class="news-grid" id="news-grid" aria-live="polite"></div>
         <div class="news-more-wrap"><button type="button" class="news-more" id="news-more" hidden>すべての記事を見る</button></div>
         <p id="news-empty" class="empty-message" hidden>該当する記事がありません。別のキーワードでお試しください。</p>
-        <p class="status-legend"><span class="status-chip" data-status="report">発表ベース</span>公式発表・一次資料の要約　<span class="status-chip" data-status="tested">検証あり</span>編集部で試した内容　<span class="status-chip" data-status="outlook">予測を含む</span>見通し・未確認情報を含む</p>
-        <p class="sample-note">※掲載内容はサイト構成の確認用に制作したサンプルで、実際の速報記事ではありません。日付・出典欄も表示例です。</p>
+        <p class="status-legend"><span class="status-chip" data-status="report">発表・報道</span>公式発表・報道の要約　<span class="status-chip" data-status="outlook">予測を含む</span>見通し・推計を含む</p>
+        <p class="sample-note">※記事は、公開された報道・公式発表をもとに編集部が要約したものです。数値・日付は各出典の公表時点のもので、詳細は記事内の出典リンクからご確認ください。</p>
+      </section>
+
+      <section class="library shell section-spacing" aria-label="ランキングとアーカイブ">
+        <div class="library-grid">
+          <div class="ranking" id="ranking">
+            <div class="library-heading"><p class="section-kicker">RANKING</p><h2 id="ranking-title">注目記事<br /><span>ランキング。</span></h2>
+              <p>経済・ビジネスへの影響が大きいニュースを、編集部が選んで順位づけしています。<span class="sample-flag">閲覧数による人気順ではありません（閲覧数の計測は未導入です）。</span></p></div>
+            <div class="rank-tabs" role="group" aria-label="ランキングの期間"><button type="button" class="rank-tab active" data-rank="week" aria-pressed="true">今週の注目</button><button type="button" class="rank-tab" data-rank="year" aria-pressed="false">2026年の重要ニュース</button></div>
+            <ol class="rank-list" id="rank-list" aria-labelledby="ranking-title"></ol>
+          </div>
+          <div class="archive" id="archive">
+            <div class="library-heading"><p class="section-kicker">ARCHIVE 2026</p><h2 id="archive-title">2026年の<br /><span>AI経済アーカイブ。</span></h2>
+              <p>今年の主なAIニュースを月ごとに残しています。解説記事があるものは記事を開き、その他は出典へ移動します。</p></div>
+            <div class="archive-list" id="archive-list"></div>
+          </div>
+        </div>
       </section>
 
       <section class="value-band" id="guide" aria-labelledby="value-title">
@@ -145,7 +162,7 @@
       <section class="editorial shell" aria-labelledby="editorial-title"><div><p class="section-kicker">OUR PROMISE</p><h2 id="editorial-title">情報の、<br />確かさを大切に。</h2></div><div class="editorial-rules"><p><strong>出典を明示する。</strong> 公式発表や一次資料を確認し、記事から参照できるようにします。</p><p><strong>「発表」と「検証」を区別する。</strong> 未確認情報や予測は、その旨を明記します。</p><p><strong>運営者を隠さない。</strong> NICOの運営メディアであることを表示し、広告と編集記事を区別します。</p></div></section>
     </main>
 
-    <footer class="site-footer"><div class="shell footer-inner"><div><a href="#top" class="brand footer-brand" aria-label="日本AI経済ラボ、トップへ"><span class="brand-mark" aria-hidden="true"><span></span></span><span class="brand-type">日本AI経済ラボ<small>by NICO</small></span></a><p>AIの進化を、あなたの力に。</p></div><div class="footer-links"><a href="#news">ニュース</a><a href="#economy">AI経済指標</a><a href="#guide">使いどころ</a><a href="#newsletter">ニュースレター</a><a href="#nico">NICOについて</a></div></div><div class="shell footer-bottom"><span>© 2026 NICO / 日本AI経済ラボ　—　企画・開発プレビュー</span><span>本サイトは公開中の開発プレビューです（検索エンジン非掲載）。</span></div></footer>
+    <footer class="site-footer"><div class="shell footer-inner"><div><a href="#top" class="brand footer-brand" aria-label="日本AI経済ラボ、トップへ"><span class="brand-mark" aria-hidden="true"><span></span></span><span class="brand-type">日本AI経済ラボ<small>by NICO</small></span></a><p>AIの進化を、あなたの力に。</p></div><div class="footer-links"><a href="#news">ニュース</a><a href="#ranking">ランキング</a><a href="#archive">アーカイブ</a><a href="#economy">AI経済指標</a><a href="#guide">使いどころ</a><a href="#newsletter">ニュースレター</a><a href="#nico">NICOについて</a></div></div><div class="shell footer-bottom"><span>© 2026 NICO / 日本AI経済ラボ　—　企画・開発プレビュー</span><span>本サイトは公開中の開発プレビューです（検索エンジン非掲載）。</span></div></footer>
 
     <dialog id="article-dialog" class="content-dialog" aria-labelledby="dialog-title"><button type="button" class="dialog-close" aria-label="閉じる" id="dialog-close">×</button><div id="dialog-content"></div></dialog>
     <dialog id="route-dialog" class="route-dialog" aria-labelledby="route-title"><button type="button" class="dialog-close" aria-label="閉じる" id="route-close">×</button><div id="route-content"></div></dialog>

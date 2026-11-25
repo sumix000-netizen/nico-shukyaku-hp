@@ -121,4 +121,39 @@ html.i18n-pending body{visibility:hidden}
 .newsletter-inner{grid-template-columns:minmax(0,1.08fr) minmax(0,1fr)}
 @media(max-width:830px){.newsletter-inner{grid-template-columns:1fr}}
 @media(max-width:560px){.news-more{width:100%}}
-
+.library-grid{display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);gap:28px;align-items:start}
+.ranking,.archive{background:#fff;border:1px solid var(--line);border-radius:12px;padding:32px;scroll-margin-top:90px}
+.library-heading h2{font-size:34px;line-height:1.25;margin:0 0 12px;letter-spacing:-.02em;color:var(--ink)}.library-heading h2 span{color:#1d51c4}
+.library-heading>p{font-size:14px;line-height:1.8;color:#4f6378;margin:0 0 20px}
+.rank-tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+.rank-tab{border:1px solid var(--line);background:#fff;color:#4c637b;padding:10px 14px;border-radius:5px;font-size:13px;font-weight:700;cursor:pointer}
+.rank-tab.active,.rank-tab:hover{background:#173457;border-color:#173457;color:#fff}
+.rank-list{list-style:none;margin:0;padding:0}
+.rank-item{display:flex;gap:16px;align-items:flex-start;width:100%;text-align:left;background:none;border:0;border-top:1px solid var(--line);padding:16px 2px;cursor:pointer;color:inherit;font:inherit}
+.rank-list li:first-child .rank-item{border-top:0}
+.rank-no{flex:none;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;font-family:'DM Sans',sans-serif;font-weight:800;font-size:18px;background:#e9f0fd;color:#173457}
+.rank-list li:nth-child(-n+3) .rank-no{background:#173457;color:#fff}
+.rank-body strong{display:block;font-size:15px;line-height:1.55;color:var(--ink)}
+.rank-body small{display:block;margin-top:4px;font-size:12px;color:#56708b}
+.rank-item:hover strong{text-decoration:underline}
+.archive-month{border-top:1px solid var(--line)}.archive-month:last-child{border-bottom:1px solid var(--line)}
+.archive-month summary{display:flex;align-items:center;padding:15px 2px;cursor:pointer;font-weight:800;font-size:16px;color:var(--ink);list-style:none}
+.archive-month summary::-webkit-details-marker{display:none}
+.archive-month summary::after{content:'＋';margin-left:12px;color:#1d51c4}.archive-month[open] summary::after{content:'−'}
+.archive-month summary small{margin-left:auto;font-size:12px;color:#56708b;font-weight:700}
+.archive-month ul{list-style:none;margin:0 0 14px;padding:0}
+.archive-item{display:grid;grid-template-columns:52px minmax(0,1fr);gap:10px;padding:10px 0;border-top:1px dashed #e2e9f0}
+.archive-date{font-family:'DM Sans','Noto Sans JP',sans-serif;font-size:13px;font-weight:800;color:#3c5570;padding-top:2px}
+.archive-main{display:flex;flex-direction:column;align-items:flex-start;gap:5px;min-width:0}
+.archive-chip{font-size:12px;font-weight:800;color:#245ac0;background:#e9f0fd;padding:3px 7px;border-radius:4px}
+.archive-link{background:none;border:0;padding:0;text-align:left;font:inherit;font-size:14px;font-weight:700;line-height:1.6;color:#173457;cursor:pointer;text-decoration:underline;text-decoration-color:#b9c9de;text-underline-offset:3px}
+.archive-link:hover{text-decoration-color:currentColor}
+.archive-src{font-size:12px;color:#56708b}
+.indicator-src{font-size:12px;color:#56708b;margin:0}
+.source-list{margin:0 0 6px;padding-left:1.2em}.source-list li{margin:6px 0;line-height:1.6}.source-list a{color:#1d51c4;font-weight:700;overflow-wrap:anywhere}
+.news-art[data-art="policy"]{background:linear-gradient(120deg,#ffe3d9,#f4a78d)}
+@media(max-width:1023px){.library-grid{grid-template-columns:1fr}}
+@media(max-width:560px){.ranking,.archive{padding:22px 16px}.library-heading h2{font-size:29px}.rank-item{gap:12px}.rank-no{width:34px;height:34px;font-size:16px}.rank-body strong{font-size:14px}.archive-item{grid-template-columns:44px minmax(0,1fr)}}
+@media(max-width:1000px){.header-inner{gap:12px}.main-nav{gap:13px}.main-nav a{font-size:13px}}
+@media(max-width:1239px){.main-nav a[href="#nico"]{display:none}}@media(max-width:1060px){.main-nav a[href="#economy"]{display:none}}
+.main-nav a,.header-cta{white-space:nowrap}
