@@ -113,6 +113,7 @@ function addCard(grid, id, name, note, href, label, isBase) {
   grid.append(card);
 }
 addCard(document.getElementById("grid-service"), "portal", "NICOポータル", "開発チームの予定・チャット・アプリをまとめたポータル画面。3Dホログラムと動くロゴ入り", "portal/", "PORTAL", false);
+addCard(document.getElementById("grid-service"), "ai-economy-lab", "日本AI経済ラボ", "AIの最新動向を経済・ビジネス・暮らしの視点から読み解く、NICOの日本語・英語対応ニュースメディア。個人・法人向けのAI活用ヒントを紹介する開発プレビュー。", "ai-economy-lab/", "AI NEWS", false);
 BASE.forEach(([id, name, note, href, label]) => addCard(document.getElementById("grid-base"), id, name, note, href, label, true));
 V.forEach(([id, name, note]) => addCard(document.getElementById("grid"), id, name, note, `${id}/`, id.toUpperCase(), false));
 
