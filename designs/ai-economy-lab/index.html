@@ -47,7 +47,7 @@
         </button>
       </div>
       <nav class="mobile-nav" id="mobile-menu" aria-label="モバイルナビゲーション" hidden>
-        <a href="#news">最新ニュース</a><a href="#ranking">ランキング</a><a href="#archive">アーカイブ</a><a href="#economy">AI経済指標</a><a href="#guide">使いどころ</a><a href="#newsletter">ニュースレター</a><a href="#nico">NICOについて</a>
+        <a href="#news">最新ニュース</a><a href="#news" data-go-filter="beginner">初心者向け</a><a href="#ranking">ランキング</a><a href="#archive">アーカイブ</a><a href="#economy">AI経済指標</a><a href="#guide">使いどころ</a><a href="#newsletter">ニュースレター</a><a href="#nico">NICOについて</a>
       </nav>
     </header>
 
@@ -87,9 +87,11 @@
           <div><p class="section-kicker">DISCOVER</p><h2 id="news-title">AIニュースを、<br /><span>自分ごとに。</span></h2></div>
           <p>技術の話だけでなく、経済・仕事・家計への影響と「自分には何ができるのか」を起点にした記事をお届けします。</p>
         </div>
+        <p class="beginner-cta"><span class="status-chip" data-status="guide">基礎解説</span><span class="beginner-cta-text">AIのニュースがはじめての方へ。用語や仕組みをやさしく解説しています。</span><button type="button" class="text-button" data-go-filter="beginner">初心者向けの記事を読む <span aria-hidden="true">→</span></button></p>
         <div class="news-toolbar">
           <div class="filter-group" role="group" aria-label="記事カテゴリ">
             <button class="filter active" data-filter="all" aria-pressed="true">すべて</button>
+            <button class="filter filter-beginner" data-filter="beginner" aria-pressed="false">初心者向け</button>
             <button class="filter" data-filter="economy" aria-pressed="false">経済・市場</button><button class="filter" data-filter="policy" aria-pressed="false">政策・ルール</button>
             <button class="filter" data-filter="work" aria-pressed="false">仕事・雇用</button>
             <button class="filter" data-filter="life" aria-pressed="false">お金・暮らし</button>
@@ -100,8 +102,8 @@
         <div class="news-grid" id="news-grid" aria-live="polite"></div>
         <div class="news-more-wrap"><button type="button" class="news-more" id="news-more" hidden>すべての記事を見る</button></div>
         <p id="news-empty" class="empty-message" hidden>該当する記事がありません。別のキーワードでお試しください。</p>
-        <p class="status-legend"><span class="status-chip" data-status="report">発表・報道</span>公式発表・報道の要約　<span class="status-chip" data-status="outlook">予測を含む</span>見通し・推計を含む</p>
-        <p class="sample-note">※記事は、公開された報道・公式発表をもとに編集部が要約したものです。数値・日付は各出典の公表時点のもので、詳細は記事内の出典リンクからご確認ください。</p>
+        <p class="status-legend"><span class="status-chip" data-status="report">発表・報道</span>公式発表・報道の要約　<span class="status-chip" data-status="outlook">予測を含む</span>見通し・推計を含む　<span class="status-chip" data-status="guide">基礎解説</span>初心者向けのオリジナル解説</p>
+        <p class="sample-note">※ニュース記事は、公開された報道・公式発表をもとに編集部が要約したものです。「初心者向け」の基礎解説は編集部のオリジナル記事です。数値・日付は各出典の公表時点のもので、詳細は記事内の出典リンクからご確認ください。</p>
       </section>
 
       <section class="library shell section-spacing" aria-label="ランキングとアーカイブ">
@@ -162,7 +164,7 @@
       <section class="editorial shell" aria-labelledby="editorial-title"><div><p class="section-kicker">OUR PROMISE</p><h2 id="editorial-title">情報の、<br />確かさを大切に。</h2></div><div class="editorial-rules"><p><strong>出典を明示する。</strong> 公式発表や一次資料を確認し、記事から参照できるようにします。</p><p><strong>「発表」と「検証」を区別する。</strong> 未確認情報や予測は、その旨を明記します。</p><p><strong>運営者を隠さない。</strong> NICOの運営メディアであることを表示し、広告と編集記事を区別します。</p></div></section>
     </main>
 
-    <footer class="site-footer"><div class="shell footer-inner"><div><a href="#top" class="brand footer-brand" aria-label="日本AI経済ラボ、トップへ"><span class="brand-mark" aria-hidden="true"><span></span></span><span class="brand-type">日本AI経済ラボ<small>by NICO</small></span></a><p>AIの進化を、あなたの力に。</p></div><div class="footer-links"><a href="#news">ニュース</a><a href="#ranking">ランキング</a><a href="#archive">アーカイブ</a><a href="#economy">AI経済指標</a><a href="#guide">使いどころ</a><a href="#newsletter">ニュースレター</a><a href="#nico">NICOについて</a></div></div><div class="shell footer-bottom"><span>© 2026 NICO / 日本AI経済ラボ　—　企画・開発プレビュー</span><span>本サイトは公開中の開発プレビューです（検索エンジン非掲載）。</span></div></footer>
+    <footer class="site-footer"><div class="shell footer-inner"><div><a href="#top" class="brand footer-brand" aria-label="日本AI経済ラボ、トップへ"><span class="brand-mark" aria-hidden="true"><span></span></span><span class="brand-type">日本AI経済ラボ<small>by NICO</small></span></a><p>AIの進化を、あなたの力に。</p></div><div class="footer-links"><a href="#news">ニュース</a><a href="#news" data-go-filter="beginner">初心者向け</a><a href="#ranking">ランキング</a><a href="#archive">アーカイブ</a><a href="#economy">AI経済指標</a><a href="#guide">使いどころ</a><a href="#newsletter">ニュースレター</a><a href="#nico">NICOについて</a></div></div><div class="shell footer-bottom"><span>© 2026 NICO / 日本AI経済ラボ　—　企画・開発プレビュー</span><span>本サイトは公開中の開発プレビューです（検索エンジン非掲載）。</span></div></footer>
 
     <dialog id="article-dialog" class="content-dialog" aria-labelledby="dialog-title"><button type="button" class="dialog-close" aria-label="閉じる" id="dialog-close">×</button><div id="dialog-content"></div></dialog>
     <dialog id="route-dialog" class="route-dialog" aria-labelledby="route-title"><button type="button" class="dialog-close" aria-label="閉じる" id="route-close">×</button><div id="route-content"></div></dialog>

@@ -157,3 +157,11 @@ html.i18n-pending body{visibility:hidden}
 @media(max-width:1000px){.header-inner{gap:12px}.main-nav{gap:13px}.main-nav a{font-size:13px}}
 @media(max-width:1239px){.main-nav a[href="#nico"]{display:none}}@media(max-width:1060px){.main-nav a[href="#economy"]{display:none}}
 .main-nav a,.header-cta{white-space:nowrap}
+/* Beginner guides */
+.news-art[data-art="beginner"]{background:linear-gradient(120deg,#dcf5e3,#86d39c)}
+.status-chip[data-status="guide"]{background:#d6f5e6;color:#0c5634}
+.filter.filter-beginner{border-color:#8cc9a1;color:#0c5634}.filter.filter-beginner.active,.filter.filter-beginner:hover{background:#0c5634;border-color:#0c5634;color:#fff}
+.beginner-cta{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;margin:0 0 18px;padding:12px 16px;border:1px solid #bfe3cb;background:#f1fbf4;border-radius:8px;font-size:14px;color:#24443a;line-height:1.6}.beginner-cta .text-button{margin-top:0;color:#0c5634}
+.guide-points{margin:4px 0 18px;padding:14px 16px 14px 2.1em;background:#f4f8fd;border-radius:8px}.guide-points li{margin:6px 0;line-height:1.75;font-size:15px}
+@media(max-width:560px){.beginner-cta{font-size:13px;padding:12px}.guide-points li{font-size:14px}}
+.archive-more-wrap{list-style:none;padding:12px 0 4px}.archive-more{border:1px solid var(--line);background:#fff;color:#173457;font-size:13px;font-weight:800;padding:9px 14px;border-radius:5px}.archive-more:hover{background:#173457;color:#fff}
